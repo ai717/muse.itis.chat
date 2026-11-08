@@ -1,7 +1,7 @@
 window.FALLBACK_DATA_EN = {
   "site": "Muse Case Library",
   "subject": "Meta Muse (Personal AI Assistant) Real-World User Case Studies & Playbooks",
-  "exportedAt": "2026-11-08",
+  "exportedAt": "2026-11-09",
   "source": "Structured export of Muse space muse-shi-zhan-an-li-ku via getState",
   "categories": [
     {
@@ -56,6 +56,12 @@ window.FALLBACK_DATA_EN = {
       "date": "2026-11-08",
       "caseCount": 12,
       "status": "done"
+    },
+    {
+      "id": 2,
+      "date": "2026-11-09",
+      "caseCount": 11,
+      "status": "done"
     }
   ],
   "cases": [
@@ -68,7 +74,7 @@ window.FALLBACK_DATA_EN = {
       "difficultyEn": "Beginner",
       "score": 88,
       "heat": 78,
-      "featured": true,
+      "featured": false,
       "issueDate": "2026-11-08",
       "background": "The author wanted to verify whether Meta Muse is more than a chatbot—whether it could reliably watch over daily tasks: new product drops, price drops on wishlists, daily schedules, and evening reviews scattered across apps.",
       "steps": [
@@ -437,6 +443,358 @@ window.FALLBACK_DATA_EN = {
         "url": "https://smartscope.blog/en/blog/meta-muse-4-real-use-cases-mark-zuckerberg-2026/",
         "publishedAt": ""
       }
+    },
+    {
+      "background": "A magazine newsroom inbox easily piles up hundreds of emails — PR pitches, press releases, newsletters and internal notices all mixed together. Skimming them one by one is slow, and the messages that truly need a reply, like urgent follow-ups and billing notices, are easy to miss.",
+      "category": "work",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "featured": true,
+      "heat": 55,
+      "id": 13,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "Check my email for any messages I should have replied to but haven't",
+      "outputDesc": "The article's measured result: Muse scanned 601 email threads and surfaced just 4 that needed action, ranked by urgency (an HR attendance confirmation due that day ranked first, then a magazine proofreading chase, a manuscript deadline chase, and an interviewee complaint reply). It also flagged one no-reply-needed notice affecting the user's own rights — a meal registration deadline — and automatically excluded press releases and newsletters.",
+      "outputUrl": "",
+      "pitfalls": "The article notes a catch: while analyzing a chase email, Muse found the Gmail thread contained only the sender's messages with no earlier exchange, suggesting the conversation likely lived in the company Outlook mailbox — cross-mailbox threads still need manual confirmation; never assume one inbox is the whole picture.",
+      "reproduceTips": "You need a Muse account with Gmail read access authorized. Start with a read-only inventory run, verify every flagged email yourself, and only then decide whether to allow sending. Availability is still limited in some regions such as Taiwan, so cross-region use may be restricted.",
+      "score": 87,
+      "source": {
+        "grade": "C",
+        "name": "Global Views Monthly",
+        "platform": "Global Views Monthly",
+        "publishedAt": "2026-10-21",
+        "url": "https://www.gvm.com.tw/article/133924"
+      },
+      "steps": [
+        "Connect Gmail in Muse and grant read access",
+        "Send the test prompt: 'Check my email for any messages I should have replied to but haven't'",
+        "Muse scans the past 30 days of email threads and checks whether the last message in each was answered by you",
+        "It then filters by substance and urgency, keeping only emails that genuinely need a reply and ranking them",
+        "Review the ranked list yourself and decide what to reply to, and how"
+      ],
+      "title": "Hands-On: Muse Scanned 601 Email Threads and Left Only 4 That Truly Needed a Reply",
+      "valueLine": "One prompt compresses hundreds of emails into an urgency-ranked reply list — start with a read-only inventory for the safest first step."
+    },
+    {
+      "background": "The author had an idle Google Cloud database quietly charging $9.54 every month — an unexplained recurring charge he never noticed, renewing month after month for nothing.",
+      "category": "money",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "featured": false,
+      "heat": 60,
+      "id": 14,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "Go through my Gmail receipts for the last 12 months and list every recurring charge I might not be using. For the one I pick, draft the refund request and show me before you send.",
+      "outputDesc": "The author's reported result: Google refused the refund the first time; the follow-up appeal Muse drafted won a full $114.14 charge waiver 39 minutes later. The author notes this was a first-week, single-account result from his own testing.",
+      "outputUrl": "",
+      "pitfalls": "The article warns that at 2FA steps the email connector strips verification codes by design, so you must enter them yourself. For refund follow-ups, explicitly tell Muse to check for replies every morning and notify you only when there is one — otherwise it will not follow up on its own.",
+      "reproduceTips": "Connect Gmail (the receipts all live in email). Keep an approval step for any irreversible send or payment action, and practice first on one small idle subscription.",
+      "score": 86,
+      "source": {
+        "grade": "B",
+        "name": "Sid Saladi / The Product Channel",
+        "platform": "Substack",
+        "publishedAt": "2026-09-21",
+        "url": "https://sidsaladi.substack.com/p/meta-muse-use-cases-50-real-ways"
+      },
+      "steps": [
+        "Connect Gmail and let Muse read the past 12 months of receipt emails",
+        "Send the original prompt so it lists every recurring charge you might not be using, then pick the one to chase",
+        "Have Muse draft the refund request; review it yourself and approve before it is sent",
+        "If the first attempt is refused, have Muse draft a follow-up appeal based on the reply and send it",
+        "Set a daily follow-up check: notify only when a reply arrives, stay silent otherwise"
+      ],
+      "title": "Recovering an Idle Cloud Charge: Two Rounds of Muse Appeals Won Back $114.14",
+      "valueLine": "Let Muse dig a year of receipts for idle charges, then draft the appeal and follow it through — small money is recoverable too."
+    },
+    {
+      "background": "The author was fed up with photo calorie-tracking apps: most people quit within two weeks, and deleting the app does not cancel the subscription (the article cites Cal AI's official FAQ: deleting the app is not the same as cancelling). He wanted the food log to stick with zero extra subscriptions.",
+      "category": "family",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "featured": false,
+      "heat": 58,
+      "id": 15,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The article's 15-day ledger: complete meal records on 13 of 15 days, 16 morning check-ins with zero misses, Muse proactively caught 3 duplicate entries, and when 3 entries were ambiguous it asked instead of guessing. The article also admits the usual estimation caveat (citing Cal AI's FAQ at roughly 80% accuracy — the camera cannot see the extra spoon of oil in the pan).",
+      "outputUrl": "",
+      "pitfalls": "The article's hard lines: this is a logging tool, not a diet coach. Do not use it if you are under 18 or have a history of eating disorders. Calorie and protein targets, its portion guesses, and any medical judgment must be checked by you. The full setup prompt sits in the article's paid section, so it is not reproduced here rather than invented.",
+      "reproduceTips": "Muse alone is enough — no extra subscription. The premise is sending a photo or one line per meal. Adjust the 8:40 AM check-in to your own routine, and correct wrong numbers in plain language so it fixes the daily totals.",
+      "score": 85,
+      "source": {
+        "grade": "B",
+        "name": "Sid Saladi / The Product Channel",
+        "platform": "Substack",
+        "publishedAt": "2026-10-02",
+        "url": "https://sidsaladi.substack.com/p/cal-ai-alternative-turn-meta-muse"
+      },
+      "steps": [
+        "Use one setup prompt to let Muse write its own food-logging rules and maintain a single log file",
+        "Set an 8:40 AM daily check-in that sends yesterday's totals, plus an evening note on how much budget remains",
+        "Send just one photo or one line per meal; Muse logs it and accumulates the day's totals",
+        "When a number looks wrong, say so in plain language and Muse corrects the day's ledger",
+        "Do a weekly review every Sunday to catch duplicates and missed entries"
+      ],
+      "title": "Replacing a Paid Calorie App with Muse: 15 Days Logged, 16 Morning Check-Ins, Zero Misses",
+      "valueLine": "One line per meal plus a daily morning check-in keeps food logging going for weeks — with no extra subscription."
+    },
+    {
+      "background": "Independent reviewer AI Agents Library wanted to verify whether Muse can actually run a Facebook Page's daily operations quartet — read the analytics, write the copy, make the images, publish on schedule — instead of just watching official demos.",
+      "category": "money",
+      "difficulty": "进阶",
+      "difficultyEn": "Intermediate",
+      "featured": false,
+      "heat": 50,
+      "id": 16,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The article scores each task (free tier, tested 2026-10-10): Page analytics 8.5/10 (numbers matched Meta Business Suite exactly), scheduled publishing 8.5/10 (posted on time), image generation 7.5/10 (first draft off-brand; close after uploading a reference design, though text in images still goes wrong), posting to a public group 7/10 (done via browser after the owner logged in) — an average of 7.9/10. The verdict: fine as a supervised assistant, not for unattended publishing. The same reviewer's broader ten-task merchant test averaged 6.5/10.",
+      "outputUrl": "",
+      "pitfalls": "The article's conclusion: tasks with a verifiable answer (data, scheduling) score highest; brand-judgment work like images scores lowest. Text inside generated images can be wrong, so check every image before publishing and never run it unattended.",
+      "reproduceTips": "You need Facebook Page admin access and must log in yourself in Muse's built-in browser. Feed it past posts to learn your voice, give it one of your own reference designs to calibrate images, and keep human approval on every post.",
+      "score": 83,
+      "source": {
+        "grade": "B",
+        "name": "AI Agents Library (via Built with Muse)",
+        "platform": "Blog",
+        "publishedAt": "2026-10-13",
+        "url": "https://builtwithmuse.com/blog/what-muse-did-for-small-businesses"
+      },
+      "steps": [
+        "Connect a Facebook Page with the free tier of Muse; have it read Page analytics and cross-check every number against Business Suite",
+        "Have Muse study past posts to learn the owner's voice, then draft post copy",
+        "Have it generate images; if the first draft is off-brand, upload one of your own reference designs and have it redo them",
+        "Set finalized posts as scheduled publishes and verify they go live on time",
+        "Then test posting to a public Facebook group: log in yourself in the browser and let Muse complete the post"
+      ],
+      "title": "Independently Scored: Muse Ran a Facebook Page's Four Core Jobs — 7.9/10 Average, But Don't Leave It Unattended",
+      "valueLine": "Data and scheduling are safe to hand to Muse; images and publishing need a human final pass — a division of labor backed by actual scores."
+    },
+    {
+      "background": "Small business owner Justin Babcock ran his Facebook and Instagram on gut feeling for years, with no idea which content actually worked or whether his most-posted topic performed at all.",
+      "category": "content",
+      "difficulty": "进阶",
+      "difficultyEn": "Intermediate",
+      "featured": false,
+      "heat": 45,
+      "id": 17,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "Set up a weekly task that runs every Monday morning. Before we do anything else, look at my actual numbers. Read my Facebook Page and Instagram professional account analytics for the last 90 days. Tell me: 1. My five best performing posts, and what they have in common. Format, length, first line, whether they led with a problem or an offer. 2. My five worst, and what those have in common. 3. Which topic I post about most, and whether it is the topic that actually performs. 4. What time and day my audience is actually active, not what the generic advice says. 5. The questions that come up most in my comments and messages. Keep it under a page. End with the one thing you would change about what I post, and why the data says so.",
+      "outputDesc": "The author reports the task actually runs every Monday: after reading 90 days of real data it returns the patterns behind the best and worst 5 posts, a comparison of his most-posted topic against its real performance, the audience's true active hours, and the most frequent comment questions. In one report it pointed out that the topic he posted most was exactly the one performing worst.",
+      "outputUrl": "",
+      "pitfalls": "The article stresses the safety-boundary wording: every scheduled task must state in the prompt that it only prepares and never sends (e.g. 'Do not post or send anything. Show me the drafts and wait for me to pick.'). If a task acts on its own, fix the prompt rather than blaming the tool. Don't create all tasks at once — run one for a week to build trust first.",
+      "reproduceTips": "Connect your Facebook Page and Instagram professional account in Muse first, or there is no data to read. Start with a single weekly report, manage or cancel it on the Upcoming page, and note that every scheduled run consumes weekly quota.",
+      "score": 82,
+      "source": {
+        "grade": "B",
+        "name": "Justin Babcock / Web Education Services",
+        "platform": "Blog",
+        "publishedAt": "2026-10-15",
+        "url": "https://www.webeducationservices.com/muse-on-autopilot"
+      },
+      "steps": [
+        "Connect your Facebook Page and Instagram professional account in Muse",
+        "Send Muse the full weekly data task from the original article and set it to run every Monday morning",
+        "Muse reads 90 days of analytics and reports: patterns in the best 5 and worst 5 posts, most-posted topic vs. its real performance, audience active hours, and top comment questions",
+        "Keep the report under one page, ending with the single change the data supports most",
+        "Review it yourself before changing anything — Muse prepares, it does not post"
+      ],
+      "title": "A Weekly Social Media Audit on Autopilot: Muse Reads 90 Days of Data and Names the One Thing to Change",
+      "valueLine": "Hand 90 days of real backend data to a Monday-morning task, stop posting on gut feeling, and change one data-backed thing per week."
+    },
+    {
+      "background": "Yahoo Finance reporter Daniel Howley was moving house, and getting moving quotes is the classic chore: find companies, repeat the same home details four times, then wait around for callbacks — half a day gone.",
+      "category": "daily",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "featured": false,
+      "heat": 65,
+      "id": 18,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The roundup's verified result: Muse actually contacted 4 local moving companies; 2 called back within about 2 minutes and the rest replied by email, while the user only had to confirm details in one short conversation. Another verified coordination result in the same piece: connected to Yahoo Fantasy, it compared projected points, submitted a waiver claim for the Kansas City defense, dropped Green Bay, and set the starting lineup once the claim cleared.",
+      "outputUrl": "",
+      "pitfalls": "The article's key warning: in the same batch of tests Muse once recommended restaurants that had closed years ago and even fabricated a restaurant phone number (it admitted this when pressed and warned against trusting unverified numbers). For addresses, phone numbers, prices and opening status, always demand source links and open them yourself. Deletion tasks also have a track record (The Verge's test cleared thousands of promo emails on a laptop, but Google sign-in repeatedly failed on the phone).",
+      "reproduceTips": "Give the home size, floor, elevator availability and moving date in one go, and state clearly: quotes only, no booking or payment (the article provides a reusable task template — goal, constraints, output — with source links required in the output). Think through how much contact access you are opening before you start.",
+      "score": 80,
+      "source": {
+        "grade": "B",
+        "name": "Hao Kang / DEV Community (rounding up Yahoo Finance and other hands-on tests)",
+        "platform": "DEV Community",
+        "publishedAt": "",
+        "url": "https://dev.to/hao_kang_82922526dfe5d934/meta-muse-in-13-real-world-tests-what-to-delegate-what-to-verify-3hlh"
+      },
+      "steps": [
+        "State the moving conditions once, in full: home size, floor, elevator or not, target date — and be explicit: quotes only, no booking, no payment",
+        "Muse finds local moving companies itself and submits the same home details to each one",
+        "Wait for replies: the article records 2 of 4 companies calling back within about 2 minutes, the rest by email",
+        "Have Muse compile each quote, available times and contact details into a table, every item with a source link",
+        "Open the links yourself to verify phone numbers and prices before choosing"
+      ],
+      "title": "Muse Called Moving Companies for Quotes: 4 Contacted, 2 Called Back Within Two Minutes",
+      "valueLine": "Repetitive outreach chores are the best thing to outsource: clear conditions, quotes only, and a table with source links as the acceptance test."
+    },
+    {
+      "background": "CNN reporter Lisa Eadicicco was about to move house and was also planning a Cape May trip with a friend for the next month: unpacked items, available time and her friend's restaurant tips were scattered across chats and emails, with nobody free to organize them item by item.",
+      "category": "daily",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "featured": false,
+      "heat": 75,
+      "id": 19,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The article records the output: a day-by-day packing plan (including how much time to spend each day and advice to set aside a first-night essentials bag). After her friend replied, Muse turned the restaurant recommendations into a polished Google Doc with similar alternatives added. The piece also records a successful Friday date-night booking.",
+      "outputUrl": "",
+      "pitfalls": "The article's hands-on flop: asked for date-night spots, Muse suggested two places that had closed years ago. The Ideas page claims it can DM Marketplace sellers to haggle directly; in testing it could only filter listings and draft messages, not send them. Always open sources to verify places and opening status.",
+      "reproduceTips": "Connect the Google apps (Gmail and Docs). State the items to pack, your available time and preferences (such as packing in short sessions) in one go, and keep per-action confirmation on bookings and sending.",
+      "score": 79,
+      "source": {
+        "grade": "C",
+        "name": "Lisa Eadicicco / CNN",
+        "platform": "CNN",
+        "publishedAt": "2026-09-23",
+        "url": "https://www.cnn.com/2026/09/23/tech/meta-muse-ai-agent?cid=external-feeds_iluminar_meta"
+      },
+      "steps": [
+        "Tell Muse what is still unpacked, how much time you have before the move, and your packing preference, such as short frequent sessions (the reporter named her agent Pip)",
+        "Muse generates a day-by-day packing plan with daily time targets and suggests a separate first-night essentials bag",
+        "After connecting the Google apps, have Muse email your friend to ask for her Cape May trip ideas",
+        "Once she replies, have Muse turn her restaurant picks into a Google Doc and add similar alternatives",
+        "Check the document and plan item by item yourself before acting on them"
+      ],
+      "title": "CNN Hands-On: A Day-by-Day Packing Plan, and a Friend's Trip Tips Turned Into a Google Doc Automatically",
+      "valueLine": "Hand over the items, time and preferences in one go, and Muse returns a plan you can follow day by day plus a shareable trip document."
+    },
+    {
+      "background": "Marketing blogger Jon Loomer wanted a decision tool that helps advertisers judge whether to use Value Rules. Its content base was years of his own articles, videos and podcast scripts on the topic — but he did not want to write code or hire a developer.",
+      "category": "coding",
+      "difficulty": "进阶",
+      "difficultyEn": "Intermediate",
+      "featured": false,
+      "heat": 62,
+      "id": 20,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The article records the output: the Value Rules Decision Tool is live and usable on his site (it walks users through their constraints and conditions, then concludes whether Value Rules make sense). The author states it was built in a single evening with zero code — while admitting it is not a finished product, just broadly what he expected. The same piece lists another working use: his agent Frank checks Meta's Help Center and developer pages for changes every Monday morning.",
+      "outputUrl": "",
+      "pitfalls": "The author is candid that the process was not painless: logic not behaving as expected and useless steps took many rounds of argument and detailed input from him to fix. Do not expect a finished product from a single prompt.",
+      "reproduceTips": "The desktop app is smoother for this. First feed your articles, scripts and one master brief into a knowledge base, then build. For publishing, choose between an iframe embed or HTML plus custom CSS — the author picked the latter.",
+      "score": 78,
+      "source": {
+        "grade": "B",
+        "name": "Jon Loomer",
+        "platform": "Blog",
+        "publishedAt": "2026-09-15",
+        "url": "https://www.jonloomer.com/muse-meta-ai-agent/"
+      },
+      "steps": [
+        "First have Muse (the author named his Frank) research all of his past content and propose tool ideas",
+        "Cut two of the three initial ideas for trying to do too much; settle on the Value Rules Decision Tool",
+        "Feed the blog posts, video posts and podcast scripts plus a self-written Master Brief into Muse as a knowledge base",
+        "Iterate over many rounds: argue through and fix logic that misbehaves and steps that add nothing, until the flow feels right",
+        "Publish by adding the HTML to his page and updating the custom CSS"
+      ],
+      "title": "Zero Code, One Evening: A Blogger Fed Muse His Entire Archive and Shipped a Working Decision Tool",
+      "valueLine": "Feed years of content in as a knowledge base and grind the logic over several rounds — a genuinely usable niche tool, no code required."
+    },
+    {
+      "background": "A private chef cooks at the reviewing couple's home twice a week, and making and sending invoices by hand every month was fiddly and easy to postpone. The goal was to turn invoicing into a one-sentence job.",
+      "category": "automation",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "featured": false,
+      "heat": 55,
+      "id": 21,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The article records: the chef completed the setup with just 2 chat messages; from then on, invoices are generated and sent automatically on the 1st of each month. Each month the chef only has to tell Muse the hours worked. The author says the chef himself was impressed and is no longer dragged down by invoicing.",
+      "outputUrl": "",
+      "pitfalls": "The article warns to keep approval settings on actions involving sending and amounts. It also found in testing that Amazon blocks Muse's bot access — don't force automations that depend on sites that block it.",
+      "reproduceTips": "Only the Muse chat interface is needed — no automation tools to learn. State the payee, billing method and monthly send date in one go, and check invoice amounts line by line for the first two months before letting it run.",
+      "score": 77,
+      "source": {
+        "grade": "B",
+        "name": "Efficient App",
+        "platform": "Blog",
+        "publishedAt": "2026-09-24",
+        "url": "https://efficient.app/apps/muse"
+      },
+      "steps": [
+        "In Muse, the chef's first message states the need: automatically create and send an invoice to this client on the 1st of every month",
+        "A second message fills in the billing details and sending rules, completing setup",
+        "After that, each month the chef only reports the actual hours worked",
+        "Muse generates the invoice from the hours and sends it on the 1st of the month",
+        "The client receives the invoice right in chat — no chasing needed"
+      ],
+      "title": "A Private Chef's Monthly Invoicing on Autopilot: Set Up in 2 Messages, Then Just Report Hours",
+      "valueLine": "Recurring monthly invoicing can be delegated with two messages — a pattern any monthly-billing freelancer can copy."
+    },
+    {
+      "background": "Simon Smith wanted to practice Spanish, but off-the-shelf apps' word lists and pacing did not suit him. He decided to build a practice app around his own vocabulary and CSV data, and was curious how different agents would handle the same build.",
+      "category": "study",
+      "difficulty": "进阶",
+      "difficultyEn": "Intermediate",
+      "featured": false,
+      "heat": 42,
+      "id": 22,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The article records the author's own account: he built the same Spanish-learning app with Muse and with another tool; both worked. He found the Muse version better on build speed, iteration speed and the app's own responsiveness, with no major bugs during the build and fast follow-up when asked to strip the interface down — and the more responsive version made him study better too. The article explicitly labels this as the author's self-report, not independently re-verified by the compiler; the prompt shown on the page is the compiler's template, not the author's words, so it is not recorded here as a keyPrompt.",
+      "outputUrl": "",
+      "pitfalls": "Pitfalls noted in the article: interface clutter takes several rounds of requests to remove fully; a slow app directly hurts study; and if you later want more people to use it, you will need to rebuild on hosting with sign-in support.",
+      "reproduceTips": "Write down how you want to practice first (vocabulary source, exercise types, what one lesson looks like) and keep vocabulary and lesson data in CSV so the app can be rebuilt on another platform. Start with a fullscreen artifact draft, then repeatedly ask it to simplify.",
+      "score": 73,
+      "source": {
+        "grade": "B",
+        "name": "Simon Smith (via Bot Pages)",
+        "platform": "Blog",
+        "publishedAt": "2026-10-19",
+        "url": "https://www.botpages.co/use-cases/build-a-personal-spanish-learning-app-in-muse-and-chatgpt"
+      },
+      "steps": [
+        "Write down how you want to practice: vocabulary source, exercise types, review method and what a lesson looks like",
+        "In Muse, build a first fullscreen artifact draft (the author started inside Muse)",
+        "Keep vocabulary and lesson data in a CSV file so you can rebuild on another platform later",
+        "Repeatedly ask Muse to remove extra text and distractions until only the practice itself remains on screen",
+        "Keep iterating on speed and interface from real daily use"
+      ],
+      "title": "A Personal Spanish Practice App from Your Own Word List: Faster Iteration in a Head-to-Head Build",
+      "valueLine": "Customize the practice rhythm around your own CSV word list — even a language tool can be shaped entirely to your habits."
+    },
+    {
+      "background": "One user's health data lived in three apps that do not talk to each other: Whoop for recovery and sleep, Apple Health for the daily picture, Cronometer for nutrition. Getting the full picture meant opening each app separately and mentally stitching it together.",
+      "category": "advanced",
+      "difficulty": "高阶",
+      "difficultyEn": "Advanced",
+      "featured": false,
+      "heat": 48,
+      "id": 23,
+      "issueDate": "2026-11-09",
+      "keyPrompt": "",
+      "outputDesc": "The article (relaying the user's X post with screenshots) reports: in about 1 hour, Muse used its cloud computer to merge the three exports into a single health dashboard showing sleep, training and diet on one screen. The article explicitly notes this is the user's self-report and was not reproduced by the compiler — spot-check a few numbers against the original apps before relying on it.",
+      "outputUrl": "",
+      "pitfalls": "The article warns: health data is sensitive, so upload only what you are willing to share. The dashboard is a personal tracking tool, not medical advice, and you must spot-check key numbers against the original apps after delivery.",
+      "reproduceTips": "You need a Muse account and export files from all three apps. Decide which charts you want first (such as sleep vs. recovery, daily protein) before uploading. No coding is needed, but budget time for verifying the data.",
+      "score": 71,
+      "source": {
+        "grade": "B",
+        "name": "Agent Stack List (relaying a user's X post)",
+        "platform": "Blog",
+        "publishedAt": "2026-10-30",
+        "url": "https://agentstacklist.com/trending/muse/health-dashboard-whoop-apple-health/"
+      },
+      "steps": [
+        "Export recovery and sleep data from Whoop, nutrition data from Cronometer, and your Apple Health data (CSV or system export)",
+        "Upload all the export files to Muse",
+        "Describe the chart combinations you want, such as sleep against recovery and daily protein intake",
+        "Muse merges the three data sources on its cloud computer and generates one unified dashboard",
+        "Spot-check several key numbers on the dashboard against the original apps before using it day to day"
+      ],
+      "title": "Three Health Apps Merged in About an Hour: Muse Combined Whoop, Apple Health and Food Logs into One Dashboard",
+      "valueLine": "No code needed: feed Muse three health-app exports and get a single-screen view of your whole health picture."
     }
   ]
 };
