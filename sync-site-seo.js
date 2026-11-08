@@ -22,6 +22,77 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
+function validateData(dataZh, dataEn) {
+  console.log('🔍 执行数据完整性与双语对齐门禁校验...');
+  const errors = [];
+  const warnings = [];
+
+  if (!Array.isArray(dataZh.cases) || !Array.isArray(dataEn.cases)) {
+    errors.push('data.json 或 data-en.json 缺少 cases 数组！');
+    return { ok: false, errors, warnings };
+  }
+
+  if (dataZh.cases.length !== dataEn.cases.length) {
+    errors.push(`中英文案例数量不一致：中文 ${dataZh.cases.length} 条 vs 英文 ${dataEn.cases.length} 条！`);
+  }
+
+  const enMap = new Map();
+  dataEn.cases.forEach(c => enMap.set(c.id, c));
+
+  const validCategories = new Set(dataZh.categories.map(c => c.id));
+
+  dataZh.cases.forEach((czh, index) => {
+    const expectedId = index + 1;
+    if (czh.id !== expectedId) {
+      warnings.push(`案例 id 未按预期连续排列：位置 ${index + 1} 上的 id 为 ${czh.id}`);
+    }
+
+    if (!validCategories.has(czh.category)) {
+      errors.push(`案例 [${czh.id}] 分类 '${czh.category}' 不在 9 大分类字典中！`);
+    }
+
+    // 必填字段检查
+    const required = ['title', 'valueLine', 'background', 'steps', 'outputDesc', 'reproduceTips'];
+    required.forEach(f => {
+      if (!czh[f] || (Array.isArray(czh[f]) && czh[f].length === 0)) {
+        errors.push(`案例 [${czh.id}] 中文缺少必填字段: ${f}`);
+      }
+    });
+
+    if (!czh.source || !czh.source.name || !czh.source.platform || !czh.source.grade || !czh.source.url) {
+      errors.push(`案例 [${czh.id}] 缺少完整的 source 信源信息（name/platform/grade/url）！`);
+    }
+
+    // 与英文条目逐一核对
+    const cen = enMap.get(czh.id);
+    if (!cen) {
+      errors.push(`英文数据中缺失对应的 id=${czh.id}`);
+    } else {
+      if (cen.category !== czh.category) {
+        errors.push(`案例 [${czh.id}] 中英文分类不一致: ${czh.category} vs ${cen.category}`);
+      }
+      if (cen.score !== czh.score) {
+        errors.push(`案例 [${czh.id}] 中英文评分不一致: ${czh.score} vs ${cen.score}`);
+      }
+      if (cen.heat !== czh.heat) {
+        warnings.push(`案例 [${czh.id}] 中英文热度不一致: ${czh.heat} vs ${cen.heat}`);
+      }
+      if (cen.source?.url !== czh.source?.url) {
+        warnings.push(`案例 [${czh.id}] 中英文信源 URL 不一致`);
+      }
+      if (!cen.difficultyEn) {
+        warnings.push(`案例 [${czh.id}] 英文版未提供 difficultyEn，将由系统自动映射兜底`);
+      }
+    }
+  });
+
+  return {
+    ok: errors.length === 0,
+    errors,
+    warnings
+  };
+}
+
 function runSync() {
   console.log('🚀 开始执行站点 SEO 与静态层全量同步...');
 
@@ -36,6 +107,18 @@ function runSync() {
 
   const dataZh = JSON.parse(fs.readFileSync(dataZhPath, 'utf8'));
   const dataEn = JSON.parse(fs.readFileSync(dataEnPath, 'utf8'));
+
+  // 执行严苛的前置校验
+  const validation = validateData(dataZh, dataEn);
+  if (validation.warnings.length > 0) {
+    validation.warnings.forEach(w => console.warn(`⚠️ 校验提示: ${w}`));
+  }
+  if (!validation.ok) {
+    console.error('❌ 数据门禁校验失败，同步中止：');
+    validation.errors.forEach(e => console.error(`   - ${e}`));
+    process.exit(1);
+  }
+  console.log('✅ 数据完整性与双语对齐门禁校验 100% 通过！');
 
   const totalCases = dataZh.cases.length;
   const today = new Date().toISOString().split('T')[0];
