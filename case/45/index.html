@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>让 Muse 盯着自己的网站：一有新文章，自动去 Facebook 专页推广 - Meta Muse 实战案例库</title>
+  <meta name="description" content="把「监控网站更新并自动发帖推广」设成背景长期任务，交办一次就不用再守着——这是聊天机器人做不到的代理式用法。">
+  <link rel="canonical" href="https://muse.itis.chat/case/45/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
+  <meta name="theme-color" content="#f5efe6">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="让 Muse 盯着自己的网站：一有新文章，自动去 Facebook 专页推广 - Meta Muse 实战案例">
+  <meta property="og:description" content="把「监控网站更新并自动发帖推广」设成背景长期任务，交办一次就不用再守着——这是聊天机器人做不到的代理式用法。">
+  <meta property="og:url" content="https://muse.itis.chat/case/45/">
+  <meta property="og:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="让 Muse 盯着自己的网站：一有新文章，自动去 Facebook 专页推广">
+  <meta name="twitter:description" content="把「监控网站更新并自动发帖推广」设成背景长期任务，交办一次就不用再守着——这是聊天机器人做不到的代理式用法。">
+  <meta name="twitter:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "让 Muse 盯着自己的网站：一有新文章，自动去 Facebook 专页推广",
+  "description": "把「监控网站更新并自动发帖推广」设成背景长期任务，交办一次就不用再守着——这是聊天机器人做不到的代理式用法。",
+  "articleSection": "高阶玩法",
+  "url": "https://muse.itis.chat/case/45/",
+  "datePublished": "2026-11-09",
+  "inLanguage": "zh-CN",
+  "author": {
+    "@type": "Person",
+    "name": "Jamey Tucker / What the Tech?"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "WhatTheTech.tv"
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <div class="app-container">
+    <header class="site-header">
+      <div class="header-main">
+        <div class="brand-wrap">
+          <a href="../../" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+            <div class="monimuse-avatar-wrap" title="MoniMuse">
+              <img src="../../monimuse-icon.svg" width="44" height="44" alt="MoniMuse" style="border-radius: 12px;">
+            </div>
+            <div>
+              <div class="site-title">Muse 实战案例库</div>
+              <div class="site-subtitle">Meta Muse 真实用户案例与复现指南</div>
+            </div>
+          </a>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <a href="../../" class="btn btn-outline" style="font-size: 0.84rem;">&larr; 返回案例库大盘</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="featured-card" style="margin-bottom: 30px;">
+        <div class="featured-top-row">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="badge badge-cat">高阶玩法 · 进阶</span>
+            <span class="badge badge-grade">Grade C</span>
+            <span class="stat-tag stat-score">★ 评分 74</span>
+            <span class="stat-tag stat-heat">🔥 热度 50</span>
+            <span class="stat-tag">📅 期次 2026-11-09</span>
+          </div>
+        </div>
+
+        <h1 class="featured-title" style="margin-top: 10px; cursor: default;">让 Muse 盯着自己的网站：一有新文章，自动去 Facebook 专页推广</h1>
+        <p class="featured-valueline" style="font-size: 1.02rem; margin-bottom: 24px;">把「监控网站更新并自动发帖推广」设成背景长期任务，交办一次就不用再守着——这是聊天机器人做不到的代理式用法。</p>
+
+        <!-- 任务背景 -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <span class="modal-section-icon">🎯</span>
+            <span>任务背景</span>
+          </div>
+          <div class="modal-text">美国消费科技记者 Jamey Tucker 在自己的「What the Tech?」站点上实测 Muse。他先让它找迈阿密邮轮港附近的酒店、找演唱会票，接着给它派了一件长期差事：盯着自己的网站，有新文章就去他的 Facebook 专页推广。</div>
+        </div>
+
+        <!-- 步骤 -->
+        
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span class="modal-section-icon">📝</span>
+          <span>做法步骤 (5 步)</span>
+        </div>
+        <ol class="steps-list">
+          
+            <li class="step-item">
+              <span class="step-num">1</span>
+              <div class="step-content">先用短任务热身：让 Muse 找迈阿密邮轮港附近一晚的酒店房，它几分钟内找到房间、只等批准就能订</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">2</span>
+              <div class="step-content">再试多步任务：找拉斯维加斯 Eagles 演唱会票加威尼斯人酒店两晚，它先追问日期再开 Ticketmaster 搜票</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">3</span>
+              <div class="step-content">然后交办长期任务：监控 WhatTheTech.tv 网站，一发现新文章就推广到他的 Facebook 专页</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">4</span>
+              <div class="step-content">任务设好后在背景持续运行，不需要坐着一条条下指令</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">5</span>
+              <div class="step-content">涉及付款时它会停下来要姓名、地址与信用卡等信息，批准权始终在本人手里</div>
+            </li>
+          
+        </ol>
+      </div>
+    
+
+        <!-- 关键提示词 -->
+        
+
+        <!-- 产出与证据 -->
+        
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span class="modal-section-icon">📊</span>
+          <span>产出与证据</span>
+        </div>
+        <div class="output-box">
+          <div class="output-text">原文记录：酒店任务中 Muse 几秒内打开自有浏览器开始搜房，几分钟后已找到房间、只待批准即可完成预订；长期任务方面，作者明确写道他已让 Muse 监控自己的网站、每当发现新故事就推广到 Facebook 专页，该任务在背景持续工作。</div>
+          
+        </div>
+      </div>
+    
+
+        <!-- 复现要点 -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <span class="modal-section-icon">💡</span>
+            <span>复现要点</span>
+          </div>
+          <div class="modal-text">先从查房、查票这类只读任务验证它的搜集质量，再交办带外部动作的长期任务；发帖、预订、付款都保留逐次批准，批准前看清它要发的内容与对象。</div>
+        </div>
+
+        <!-- 踩坑提示 -->
+        
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span class="modal-section-icon">⚠️</span>
+          <span>踩坑提示</span>
+        </div>
+        <div class="pitfalls-box">原文提醒：给代理的账号与服务权限越多，它越有用，但你的数字生活暴露也越多；任务可能需要网站、账号、文件甚至付款信息的访问权，每次授权前要看清范围。</div>
+      </div>
+    
+
+        <!-- 信源核对 -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <span class="modal-section-icon">🔍</span>
+            <span>原始信源核对</span>
+          </div>
+          <div class="source-verify-box">
+            <div class="source-meta-left">
+              <span>作者/报道：<strong>Jamey Tucker / What the Tech?</strong></span>
+              <span>&bull;</span>
+              <span>平台：<strong>WhatTheTech.tv</strong></span>
+              <span>&bull;</span>
+              <span>信源等级：<strong>Grade C</strong></span>
+              
+            </div>
+            
+              <a href="https://whatthetech.tv/meta-muse-the-ai-that-doesnt-just-answer-questions-it-takes-action/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                <span>打开原文报道</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            
+          </div>
+        </div>
+
+        <!-- 底部行动 -->
+        <div class="featured-footer" style="margin-top: 24px;">
+          <a href="../../" class="btn btn-outline">&larr; 返回查看全部 49 个实战案例</a>
+          
+            <a href="https://whatthetech.tv/meta-muse-the-ai-that-doesnt-just-answer-questions-it-takes-action/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <span>访问原文报道</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-source">数据来源：Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出</p>
+        <p class="footer-note">严格依真实用户报道整理 · 支持本地离线与完整核验</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const copyBtn = document.getElementById('copyPromptBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const code = document.getElementById('promptCode').innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          const t = document.getElementById('toast');
+          t.textContent = '提示词已复制到剪贴板！';
+          t.classList.add('show');
+          setTimeout(() => t.classList.remove('show'), 2000);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

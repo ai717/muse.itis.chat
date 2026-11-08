@@ -62,6 +62,12 @@ window.FALLBACK_DATA = {
       "date": "2026-11-09",
       "caseCount": 11,
       "status": "done"
+    },
+    {
+      "id": 3,
+      "date": "2026-11-09",
+      "caseCount": 26,
+      "status": "done"
     }
   ],
   "cases": [
@@ -436,7 +442,7 @@ window.FALLBACK_DATA = {
       "background": "编辑部收件匣动辄累积数百封信，公关邀请、新闻稿、电子报与内部通知混杂，人工逐封翻找耗时且容易漏掉真正要回的急件与催缴通知。",
       "category": "work",
       "difficulty": "入门",
-      "featured": true,
+      "featured": false,
       "heat": 55,
       "id": 13,
       "issueDate": "2026-11-09",
@@ -772,6 +778,812 @@ window.FALLBACK_DATA = {
       ],
       "title": "约 1 小时合并三方健康数据：Muse 把 Whoop、Apple Health 与食谱记录拼成一个看板",
       "valueLine": "不用写代码，把三个健康 App 的导出喂给 Muse 就能得到一屏看全的个人健康看板。"
+    },
+    {
+      "id": 24,
+      "title": "两周实测：Muse 把 312 封未读邮件分进 9 条线，还顺手订下 3 间会议室",
+      "valueLine": "连上 Gmail 和日历放跑两周，邮件分拣与你自己的判断约九成一致，日程冲突 7 次全拦下。",
+      "category": "work",
+      "difficulty": "进阶",
+      "score": 82,
+      "heat": 55,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "The AI Crux 的测评者把自己的真实 Gmail 和 Google Calendar 接给 Muse，连续实测两周，看它能不能扛住一个普通工作日的收件箱与日程，而不是只看发布会演示。连接耗时 11 分钟，第一天还因令牌过期重新授权了一次。",
+      "steps": [
+        "把 Gmail 与 Google Calendar 连接到 Muse（约 11 分钟）",
+        "让 Muse 对 312 封未读邮件做分拣归类",
+        "让它在订会议室前先检查日历冲突",
+        "从邮件里提取客户提出的会议时间并建日程、发确认回复",
+        "在活动时间线里逐条复核它的动作记录"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "两周内 Muse 把 312 封未读邮件分进 9 条线，测评者自评与其本人分类约 92% 一致；日历冲突 7 次全部提前拦下，并实际订下 3 间会议室。跨应用工作流 14 条首跑只完成 6 条，简化触发条件后升至 9 条。",
+      "outputUrl": "",
+      "reproduceTips": "先只连邮箱和日历两个源，从分拣和查冲突这类只读任务开始；跨应用自动化先简化触发条件再放量，并养成看活动时间线的习惯。",
+      "pitfalls": "原文实测：一封客户邮件没写时区，Muse 按本地时区建了日程，作者开会前 40 分钟才发现；跨应用工作流首跑失败率约四成，多为这种不出声的错误。",
+      "source": {
+        "name": "The AI Crux",
+        "platform": "科技博客",
+        "grade": "C",
+        "url": "https://www.theaicrux.com/2026/09/meta-muse-review-i-ran-my-inbox-through.html",
+        "publishedAt": "2026-09-20"
+      }
+    },
+    {
+      "id": 25,
+      "title": "一句话建好每日巡检：Muse 的定时目标在关掉 App 后照样跑",
+      "valueLine": "用聊天一分钟设好每天自动检查网站的目标，后台持续运行；提醒的设置与取消各约 20 秒。",
+      "category": "automation",
+      "difficulty": "入门",
+      "score": 78,
+      "heat": 50,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "独立测评站 MetaMuseAI 在 2026 年 9 月 30 日至 10 月 5 日间，用一个真实免费版账号对 Muse 做了 11 项实测，覆盖调研、提醒、邮件审批、目标、WhatsApp 等场景，全程在 muse.ai 网页端完成。",
+      "steps": [
+        "在 muse.ai 网页端登录免费版账号",
+        "用一句聊天指令让 Muse 创建一个每天自动检查指定网站的目标",
+        "观察目标在关闭 App 后继续后台运行",
+        "再用聊天指令把目标删除，验证可随时撤销",
+        "顺手测试设置与取消次日 9 点提醒，各约 20 秒"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "每日网站巡检目标约一分钟建成，之后在后台持续运行；提醒设置与取消各约 20 秒完成。整个测试期轻量使用两天约消耗每周免费额度的 12%，发邮件前 Muse 会停下弹出审批（Allow / 始终允许 / Deny)，作者拒绝后无任何邮件发出。",
+      "outputUrl": "",
+      "reproduceTips": "从提醒和每日巡检这类低风险定时任务开始；发送、购买类动作保留逐次审批；先在网页端跑通再考虑连更多账号。",
+      "pitfalls": "原文实测：首次任务在“Connecting…”卡了约一分钟，Goals 页曾加载 25 秒并卡在占位图；启动慢是常态，别误以为任务没提交。",
+      "source": {
+        "name": "MetaMuseAI（Alison Jack）",
+        "platform": "独立测评站",
+        "grade": "C",
+        "url": "https://metamuseai.site/muse/review/",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 26,
+      "title": "订位一句话搞定：Muse 订好晚 6 点双人桌并写进日历，可惜贵过预算",
+      "valueLine": "Gizmodo 实测：说清时间和人数，Muse 当场订好餐厅并同步日历、确认邮件进箱——但它挑的店价格远超交代的预算。",
+      "category": "daily",
+      "difficulty": "入门",
+      "score": 72,
+      "heat": 70,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "Gizmodo 记者 Webb Wright 用免费版 Muse 处理拖了很久的杂事，第一件就是当晚看戏前在曼哈顿中城订一家价格适中的餐厅、双人、晚 6 点。他连接了个人 Gmail 和 Google Calendar 后把任务交了出去。",
+      "steps": [
+        "在设置页连接个人 Gmail 与 Google Calendar",
+        "告诉 Muse:当晚在曼哈顿中城订一家价格适中、双人晚 6 点的餐厅",
+        "从它给的首选里确认一家，让它完成预订",
+        "让它把预订同步写进日历",
+        "收到确认邮件后，自己打开菜单核对价格是否在预算内"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "Muse 迅速完成预订并把事项加进日历，确认邮件随即到达收件箱。但记者随后打开餐厅菜单发现价格明显高于他交代的预算区间，来回沟通又慢，最终放弃、改去自己熟悉的餐厅 walk-in。",
+      "outputUrl": "",
+      "reproduceTips": "订位时把预算上限写成硬数字并要求下单前回报总价；确认邮件到手后自己再核一遍菜单价格，别等到了店里才发现超标。",
+      "pitfalls": "原文实测：Muse 挑的餐厅价格远超预算，且后续对话响应慢；涉及钱的筛选条件必须写死并二次确认。",
+      "source": {
+        "name": "Webb Wright / Gizmodo",
+        "platform": "Gizmodo",
+        "grade": "C",
+        "url": "https://gizmodo.com/i-asked-muse-to-help-me-book-my-holiday-travel-it-didnt-fly-far-2000823264",
+        "publishedAt": "2026-10-12"
+      }
+    },
+    {
+      "id": 27,
+      "title": "把 4 个日期和常用保姆名单交给 Muse：午饭还没做完，托育预约全订好了",
+      "valueLine": "华尔街日报实测：登录一次之后，Muse 在记者做午饭的工夫里，把四个时段的保姆预约全部完成，还主动提出同步日历。",
+      "category": "family",
+      "difficulty": "进阶",
+      "score": 83,
+      "heat": 74,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "《华尔街日报》记者 Nicole Nguyen 用一周测试 Muse（她的代理被命名为“终结者”），其中最棘手的行政任务是家里那套迷宫般的托育预订平台：时段多、常用保姆要指定，手动订一次很费神。",
+      "steps": [
+        "把四个需要的日期与时段、以及常用保姆名单交给 Muse",
+        "在托育平台页面亲自完成一次登录",
+        "放手让 Muse 在平台上逐个提交预约",
+        "让它把预约同步进 Google Calendar",
+        "在平台和日历里各核对一遍结果"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "记者手动登录后，Muse 在她做午饭期间把四个时段的保姆预约全部订好，并主动提出把事项加入 Google Calendar。记者评价这类“填表型”行政活正是它最能减负的地方。",
+      "outputUrl": "",
+      "reproduceTips": "这类平台先由本人完成登录再交棒；把日期、时段、指定人员一次列清，订完后在平台与日历双处核对。",
+      "pitfalls": "原文提示：平台登录必须本人完成，Muse 不能代输密码；同文另一项测试里它把健身房推荐搞错了城市，涉及判断的推荐结果要复核。",
+      "source": {
+        "name": "Nicole Nguyen / 华尔街日报",
+        "platform": "报纸",
+        "grade": "C",
+        "url": "https://www.wsj.com/tech/personal-tech/meta-muse-ai-agent-review-ab956101",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 28,
+      "title": "Muse 登录 AT&T 账户查出隐藏折扣：话费每月立省 40 美元",
+      "valueLine": "让代理钻进运营商账户找从未启用的折扣，一次五到十分钟的对话换来每年 480 美元。",
+      "category": "money",
+      "difficulty": "进阶",
+      "score": 85,
+      "heat": 78,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "创作者 Peter Yang 把自己的 AT&T 账户交给 Muse 审计：他在 Muse 的安全存储里存好账号密码，让代理用内置浏览器登录账户逐项查账单。四条线路每月话费约 200 美元，他一直没注意运营商有个现成的自动付款折扣从没启用过。",
+      "steps": [
+        "把 AT&T 账号密码存入 Muse 的安全凭据存储",
+        "让 Muse 用内置浏览器登录账户，逐项拆解四条线路的账单构成",
+        "Muse 找出从未启用的每线每月 10 美元 AutoPay 加无纸化折扣",
+        "确认切换付款方式为银行账户，银行账号信息由本人亲自输入",
+        "折扣当场生效，每月话费直降 40 美元"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "Muse 查出把付款方式从信用卡换成银行账户即可启用每线每月 10 美元的 AutoPay 加无纸化折扣，四条线合计每月省 40 美元、每年 480 美元，折扣当场生效，整个过程只花了五到十分钟对话。轮到在 AT&T 网站输入银行账号和路由号码时，Muse 出于隐私拒绝代填，由 Yang 本人输入。",
+      "outputUrl": "",
+      "reproduceTips": "先把运营商账号密码存入 Muse 的安全存储，再让它登录查账、专门找未启用的折扣（如 autopay、paperless）；真正改付款方式前自己核对一遍账单明细。",
+      "pitfalls": "涉及银行账号等敏感凭据的环节 Muse 会停手，必须本人输入；同一视频里它给 Xfinity 打电话谈到的优惠，最后仍需账户持有人本人回电才能最终确认。",
+      "source": {
+        "name": "Peter Yang（All Things Muse 整理）",
+        "platform": "博客",
+        "grade": "B",
+        "url": "https://www.allthingsmuse.com/articles/building-with-muse-peter-yang/",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 29,
+      "title": "把三个 Google 账号交给 Muse：每天早 7 点的个人简报自动送达",
+      "valueLine": "十分钟设置换来每天准时的全家日程简报和只报急事的收件箱盯梢。",
+      "category": "automation",
+      "difficulty": "入门",
+      "score": 84,
+      "heat": 70,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "作者 Marcus Molina 用了两周 Muse 后发现，真正的价值不在聊天，而在连接：他把三个 Google 账号的日历和邮箱都接了进来，一次性说清自己想要什么样的工作日开局。之后每天的生活行政事务基本被这套定时简报和收件箱盯梢接管。",
+      "steps": [
+        "把三个 Google 账号的日历和 Gmail 依次连接进 Muse",
+        "一次性描述简报需求：会议、孩子的比赛与课程、天气、未完成提醒",
+        "设置每天早上 7 点定时推送个人简报",
+        "让 Muse 持续盯收件箱，只在需要做决定时标出邮件并附截止时间",
+        "渡轮、酒店等确认邮件自动与日历交叉核对是否已排进行程"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "每天早上 7 点准时收到一份个人简报：汇总三个账号的会议、孩子的排球比赛和钢琴课，加一行天气，最后附上未完成的提醒。邮箱方面，它在政府 ACTION REQUIRED 邮件到达当天下午就发出提醒并附具体步骤；把教练发来的 243.39 美元赛事周末酒店房间邀约连同周二截止时间一起标出；渡轮订票确认还会和日历核对两段行程是否都在。整套设置只花了约十分钟。",
+      "outputUrl": "",
+      "reproduceTips": "先连日历再连邮箱，一次把简报要素说清（会议、家人活动、天气、提醒）；每周只新增一个连接，跑稳了再加下一个。",
+      "pitfalls": "简报质量取决于连接的完整度：只连一个账号就会漏掉其他账号里的家庭日程；需要做决定的邮件它只负责标出和给截止时间，回不回仍要自己判断。",
+      "source": {
+        "name": "Marcus Molina",
+        "platform": "Medium",
+        "grade": "B",
+        "url": "https://medium.com/@marcus_49480/your-ai-assistant-is-useless-until-you-plug-it-into-your-life-a529eef5d4f2",
+        "publishedAt": "2026-10-13"
+      }
+    },
+    {
+      "id": 30,
+      "title": "把 PDF 丢给 Muse 生成日历事件：创作者录屏实测 11 项日常任务",
+      "valueLine": "11 项任务全程录屏可核查，最值得抄的是 PDF 转日历和只写草稿不代发的邮件流。",
+      "category": "work",
+      "difficulty": "进阶",
+      "score": 82,
+      "heat": 74,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "创作者 Leslie Samuel 用录屏方式把 11 项真实日常任务逐项交给 Muse 跑给他看：清理收件箱、批量退订、西语练习、把 PDF 变成日历事件、健身计划打卡、Marketplace 上架与买家跟进、商务邮件草稿、每日 AI 新闻播客等，全程坚持一条规则——任何邮件发送前必须经他本人批准。",
+      "steps": [
+        "给 Muse 连接邮箱与日历，并设定发送前必须本人批准的规则",
+        "把收到的 PDF（如行程单、确认函）交给 Muse，自动生成完整日历事件",
+        "让 Muse 清理收件箱并批量退订不再需要的邮件",
+        "商务邮件只让它写到草稿，自己审过再发送",
+        "用录屏逐项复盘 11 项任务，标出哪些可放手、哪些要盯"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "11 项任务全部在录屏中实际跑通，其中把收到的 PDF 直接转成带完整信息的日历事件、清理收件箱并批量退订、起草商务邮件（停在草稿等批准）是最能直接照搬的办公流；视频按时间轴逐项展示了哪些做得好、哪些还需要人盯着。",
+      "outputUrl": "",
+      "reproduceTips": "从只读和草稿类任务开始：先给只读加草稿权限，让它把 PDF 转日历、清收件箱、写邮件草稿，所有发送动作保留人工批准，跑顺了再逐步放权。",
+      "pitfalls": "作者明确要求发送类动作必须本人批准后才执行；涉及对外沟通和平台刊登的任务，初期都要逐项抽查结果再放行。",
+      "source": {
+        "name": "Leslie Samuel",
+        "platform": "YouTube",
+        "grade": "B",
+        "url": "https://www.youtube.com/watch?v=RCKBIY1gxkI",
+        "publishedAt": "2026-10-06"
+      }
+    },
+    {
+      "id": 31,
+      "title": "临出发才规划纽约亲子游：Muse 在一个对话里订好停车、渡轮票和酒店",
+      "valueLine": "一个对话订完一趟自驾亲子游的全部零碎预订，还会按体力安排顺路停靠。",
+      "category": "daily",
+      "difficulty": "入门",
+      "score": 80,
+      "heat": 58,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "Rajesh Akinepalli 带父亲去纽约旅行，机票几周前就订好了，其他一切拖到最后一刻毫无计划。临行前他把整趟行程交给 Muse 在同一个对话里逐项搞定：市区停车、轮渡票、沿途酒店，都不用在多个 App 之间来回拼凑。",
+      "steps": [
+        "把父子同行、时间紧、怕累等约束一次告诉 Muse",
+        "在同一个对话里先订曼哈顿停车位",
+        "接着订自由女神像渡轮票，再订自驾沿途酒店",
+        "让它按驾驶强度插入 Letchworth State Park 等顺路停靠点",
+        "自己复核机场摆渡等关键班次信息后出发"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "Muse 在一个对话里接连订好曼哈顿的停车位、去自由女神像的渡轮票和自驾沿途的酒店；它还顾及了父子俩的时间约束和长途驾驶的体力，建议了 Letchworth State Park 这类顺路的停靠点。整趟行程不到两天全部玩完。",
+      "outputUrl": "",
+      "reproduceTips": "把同行人、体力约束、必去点和预算一次说清，让 Muse 在一个对话里连续订停车、门票和酒店；涉及机场接驳和班次时刻的结果务必去官网二次核对。",
+      "pitfalls": "它推荐的一班 Newark 机场到 LaGuardia 的摆渡车根本不存在，差点误事；线上订渡轮票为保确认名额价格偏高，现场其实没什么人。交通时刻类信息必须自己再核一遍。",
+      "source": {
+        "name": "Rajesh Akinepalli",
+        "platform": "LinkedIn",
+        "grade": "B",
+        "url": "https://www.linkedin.com/posts/akinepalli_ai-travel-family-activity-7524512200460435456-VCyv",
+        "publishedAt": "2026-11-06"
+      }
+    },
+    {
+      "id": 32,
+      "title": "一周实测：Muse 在 Marketplace 卖掉 180 美元的自行车，还替他跟买家还价",
+      "valueLine": "刊登、谈判、成交全流程代办但一步不越权，卖闲置第一次有了助理。",
+      "category": "money",
+      "difficulty": "进阶",
+      "score": 86,
+      "heat": 80,
+      "featured": true,
+      "issueDate": "2026-11-09",
+      "background": "创作者 Full Value Dan 用整整一周把自己的真实生活交给 Muse 做压力测试，只测四件真事：订晚餐、卖闲置、交罚单和管私信。他要求所有花钱和发消息的动作都停下来等他点头，想看这个免费代理到底能不能当日常助理用。",
+      "steps": [
+        "把自行车照片和 180 美元标价交给 Muse，在 Marketplace 生成刊登",
+        "买家出价 150 美元后，让 Muse 按预设底线起草 170 美元回价",
+        "每一步谈判消息发送前都经本人批准",
+        "成交安排与晚餐预订、罚单代缴等其他跑腿在同一周陆续跑通",
+        "按助理 9/10、综合 8.5/10 的评分复盘哪些活适合长期交给它"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "他标价 180 美元的自行车被 Muse 挂上 Facebook Marketplace，买家出价 150 美元、他回价 170 美元的来回谈判都由 Muse 经手且每一步都经他批准；订晚餐走一次性 Stripe 虚拟卡，餐厅拿不到真实卡号；一张停车罚单拍照发过去就被代缴；私信被分拣并标出疑似诈骗。他给出的评分是助理能力 9/10、综合 8.5/10。",
+      "outputUrl": "",
+      "reproduceTips": "卖闲置时把底价和可接受还价幅度先划好，让 Muse 只负责刊登、回复和谈判草稿，任何价格承诺发出前都经你确认。",
+      "pitfalls": "精确的图片编辑它做不好，跟进类任务偶尔会掉链子，视频生成也有限制；涉及钱的谈判务必保持草稿加确认模式，不要全自动放行。",
+      "source": {
+        "name": "Full Value Dan",
+        "platform": "YouTube",
+        "grade": "B",
+        "url": "https://www.youtube.com/watch?v=_cx6wD_4cRs",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 33,
+      "title": "美发沙龙老板实测一周：Muse 把色卡变成 Excel 订货单，还自动核对缺货",
+      "valueLine": "图片色卡和纸质订货单这种最土的后台活，也能变成自动表格加缺货清单。",
+      "category": "work",
+      "difficulty": "进阶",
+      "score": 78,
+      "heat": 66,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "Rich Rose 经营美发沙龙生意，后台订货全靠手工：供应商色卡是图片、订货单是纸质照片、价格和缺货情况要逐项人工核对。他用一周时间在真实业务里测 Muse，想看它能不能把这摊后台杂活接过去。",
+      "steps": [
+        "把供应商色卡图片发给 Muse，要求转成带公式的 Excel 订货表",
+        "核对样表的字段、价格和计算公式无误",
+        "把纸质订货单拍照发给它，自动识别并录入",
+        "让它同步更新最新价格并交叉核对缺货品项",
+        "拿着缺货清单再决定补货和下单"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "Muse 把供应商色卡转成了可自动计算的定制 Excel 订货表，又能扫描纸质订货单照片、更新价格，并自动交叉核对哪些货品缺货；这些任务都在它自己的网页浏览器里后台运行，人可以走开去忙别的。",
+      "outputUrl": "",
+      "reproduceTips": "把色卡、价目表这类图片资料直接发给它，先让它产出一张样表核对字段和公式，再让它批量处理照片订货单并输出缺货清单。",
+      "pitfalls": "视频为未剪辑实测，复杂表格第一次生成后仍需人工核对公式和价格；涉及真实采购金额的环节不要跳过复核直接下单。",
+      "source": {
+        "name": "Rich Rose",
+        "platform": "YouTube",
+        "grade": "B",
+        "url": "https://www.youtube.com/watch?v=iP_jf9WxE9s",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 34,
+      "title": "一周十件跑腿实测：Muse 做对 5 件、做错 2 件，省下约 1 小时 10 分钟",
+      "valueLine": "带完整翻车记录的实测最有参考价值：订餐和邮件最靠谱，钱和日期的批准必须逐字看。",
+      "category": "daily",
+      "difficulty": "入门",
+      "score": 76,
+      "heat": 62,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "创作者 DY Playbook 做了一次少见的诚实实验：连续七天给 Muse 派十件真实跑腿——订餐、按菜谱买菜、发邮件、改牙医预约、买演唱会票、订火车、续停车许可证、买 150 美元以内的空气净化器、订酒店、卖自行车——并用做对、做错、卡住、自己收回四档逐项记账。",
+      "steps": [
+        "把十件真实跑腿按天分派给 Muse，每件单独交代清楚",
+        "每个花钱或预订动作都在批准弹窗逐项确认，全程共点了 31 次",
+        "逐项按做对、做错、卡住、收回四档记录结果",
+        "对比自己动手的耗时，算出实际省下的约 1 小时 10 分钟",
+        "复盘翻车原因：批准不细看和任务无声卡住"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "最终成绩单：10 件里 5 件做对、2 件做错、2 件无声卡住、1 件被作者收回自己做，全程点了 31 次批准。订餐和邮件草稿表现最好；总耗时约 2 小时，对比自己动手约 3 小时 10 分钟，省下大约 1 小时 10 分钟。",
+      "outputUrl": "",
+      "reproduceTips": "学他的记账法：每件跑腿按做对、做错、卡住分类复盘；一次只派一件、要求它中途确认，钱和日期相关的批准弹窗必须逐字读完再点。",
+      "pitfalls": "两个翻车都发生在作者不再细看批准弹窗之后：买菜漏了鸡肉还把洋葱买双份，火车订错了星期六。牙医改约和演唱会票则无声卡住没下文——涉及钱和日期的批准必须逐字看，派活要一次只给一件并要求中途汇报。",
+      "source": {
+        "name": "DY Playbook",
+        "platform": "Facebook",
+        "grade": "B",
+        "url": "https://www.facebook.com/reel/1639878604332176/",
+        "publishedAt": "2026-09-23"
+      }
+    },
+    {
+      "id": 35,
+      "title": "用了 50 天后筛出的成熟工作流：每天一段 5 分钟通勤音频简报",
+      "valueLine": "把晨间资讯压成 5 分钟音频定时送达，是 50 天实测后仍被保留的工作流之一。",
+      "category": "automation",
+      "difficulty": "进阶",
+      "score": 74,
+      "heat": 55,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "Sean Cypher 特意等 Muse 上线 50 天、早期 bug 大多被记录在案之后才做复盘，从实测过的工作流里筛出真正站得住的 10 个。其中一个是为每天通勤定制的音频简报：把要看的资讯压缩成一段约 5 分钟、路上就能听完的播报。",
+      "steps": [
+        "等产品上线 50 天、早期坑基本暴露后再挑长期工作流",
+        "选定通勤必听的几个信息源和主题范围",
+        "把简报设定为每天早晨定时生成约 5 分钟的音频",
+        "通勤路上一次听完，替代逐个 App 刷资讯",
+        "按 50 天复盘标准定期淘汰不好用的工作流"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "该工作流被列为他 50 天实测后保留的第 4 号用例：一段定制的 5 分钟晨间通勤音频简报，把晨间必看的信息做成音频定时送达，通勤路上听完就掌握全貌，不必再逐个 App 刷一遍。",
+      "outputUrl": "",
+      "reproduceTips": "先定死三件事：简报只收哪几个信息源、时长上限约 5 分钟、每天几点送达；跑一周后按实际收听感受删减来源，保住时长纪律。",
+      "pitfalls": "这类工作流是他 50 天里筛出来的成熟版，早期版本并不稳定；音频简报的信息源和时长要在设置时限定死，否则内容容易发散、时长失控。",
+      "source": {
+        "name": "Sean Cypher",
+        "platform": "YouTube",
+        "grade": "B",
+        "url": "https://www.youtube.com/watch?v=F5t5HummxjU",
+        "publishedAt": "2026-11-01"
+      }
+    },
+    {
+      "id": 36,
+      "title": "女装店主让 Muse 审计邮件自动化：关掉重复发送的流程，还顺手重建了网站",
+      "valueLine": "把 Klaviyo 等工具交给 Muse 做一次邮件流程体检，重复群发、模板和追踪一次理清。",
+      "category": "money",
+      "difficulty": "进阶",
+      "score": 84,
+      "heat": 66,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "April Polk 独自经营女装品牌 JaeLuxe Shoetique，没有其他员工，此前请过两拨外包做邮件营销和广告都翻了车、花了几千美元还没做对。她把自己的 Muse（取名 Chase）接上 QuickBooks、Klaviyo、Canva 等店铺日常工具，让它接管营销运维。",
+      "steps": [
+        "先把两页品牌指南（字体、语气、客群）上传给 Muse，它审阅社交账号后扩写成 12 页版本",
+        "让 Muse 审计全部邮件自动化流程，找出重复向顾客双重发送的流程并关掉",
+        "让 Muse 重建邮件模板并开启效果追踪，看清哪些邮件真正带来销售",
+        "网站改版也交给它，约半小时完成重建",
+        "所有对外动作保留本人审批，Muse 不先斩后奏"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "据报道，Muse 关掉了会给顾客重复发信的冗余邮件流程、重建了模板并打开追踪，店主终于能看清哪些邮件真正驱动销售；它还用约半小时重建了品牌网站。",
+      "outputUrl": "",
+      "reproduceTips": "先上传品牌指南让 Muse 学会你的语气和禁忌，再从只读审计开始：先让它列出重复流程和问题清单，你确认后再逐个关停或重建。",
+      "pitfalls": "报道也提醒，两位受访店主都与 Meta 有合作关系且未提到工具出错；实际使用中店主本人仍会复核并调整 Muse 的产出，不能完全放手。",
+      "source": {
+        "name": "The American Spectator（Salena Zito 报道 April Polk）",
+        "platform": "The American Spectator",
+        "grade": "C",
+        "url": "https://spectator.org/while-the-public-fears-ai-these-ohio-and-iowa-business-owners-are-finding-relief/",
+        "publishedAt": "2026-11-03"
+      }
+    },
+    {
+      "id": 37,
+      "title": "66 岁杂货店主拍照批发目录给 Muse：15 分钟生成整期广告",
+      "valueLine": "不用打字录入，把批发目录划好重点拍张照，每周广告 15 分钟搞定。",
+      "category": "money",
+      "difficulty": "入门",
+      "score": 82,
+      "heat": 63,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "Tom Mulholland 在爱荷华州 Malvern 经营有百年历史的 Mulholland Grocery，每周工作 65 小时、团队只有 10 人，自称完全不懂技术。以前批发目录到了，他要花几个小时把要卖的商品逐个敲进广告里；他把自己的 Muse（Wall-E）用在了做广告、排班和整理订单上。",
+      "steps": [
+        "批发目录到货后，在要上架的商品旁做高亮标记",
+        "把标好的目录页拍照发给 Muse",
+        "Muse 读取照片内容，约 15 分钟后生成整期广告",
+        "顺带让它整理员工排班，并汇总那些以前淹没在收件箱里的特殊订货需求",
+        "本人确认广告内容后再发布"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "据报道，Mulholland 把划好重点的批发目录拍照发给 Muse，15 分钟后广告就生成完毕，而以前光打字录入就要几个小时；Muse 还帮他排员工班表、汇总特殊订货需求。",
+      "outputUrl": "",
+      "reproduceTips": "从最重复的那件文书活开始：把纸质目录、价签或表格拍照发给 Muse 并说明输出格式，先核对一两期再放手让它常规化。",
+      "pitfalls": "店主仍需自己核对广告里的商品和价格；他已连接 QuickBooks 但报道时尚未实际用起来，财务类功能不要默认它已经在跑。",
+      "source": {
+        "name": "New York Post（报道 Tom Mulholland）",
+        "platform": "New York Post",
+        "grade": "C",
+        "url": "https://nypost.com/2026/09/29/tech/meta-releases-new-secret-weapon-muse-assistant-aimed-at-small-businesses/",
+        "publishedAt": "2026-09-29"
+      }
+    },
+    {
+      "id": 38,
+      "title": "九年 CRM 攒下 9355 个联系人：让 Muse 合并 289 组重复记录，清到 8999 个",
+      "valueLine": "先备份、合并决定留给自己，让 Muse 把九年的联系人重复和过期信息一次清干净。",
+      "category": "money",
+      "difficulty": "进阶",
+      "score": 85,
+      "heat": 58,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "营销顾问 Amanda（The Digital Gal）从 2017 年起用 Nimble CRM，九年攒下的联系人库一团乱：同一个人有两三条略有差别的记录，还有大量过期信息。她决定让 Muse 陪她做一次全库审计，合并与否由她拍板，动手前先做完整备份。",
+      "steps": [
+        "动手前先给整个 CRM 数据库做完整备份",
+        "让 Muse 全库扫描，找出同一个人多条记录的重复分组",
+        "每组重复的合并决定由本人逐组确认，Muse 不擅自合并",
+        "遇到 8 组冲突纠缠不清的记录，让 Muse 单独搁置、留给本人判断",
+        "清理完成后复核总数和重点客户记录是否无误"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "作者自述结果：共合并 289 组重复记录、删除 356 份副本，数据库从 9355 个联系人清到 8999 个干净联系人；另有 8 组冲突太复杂的记录被 Muse 主动搁置、交她本人判断，没有乱猜。",
+      "outputUrl": "",
+      "reproduceTips": "客户数据动手前必须备份，并把规矩说死：合并决定权在你、拿不准的单独列出来给你看。先拿一个小分组试跑，确认风格后再全库推进。",
+      "pitfalls": "作者强调她始终坐在审批位上逐组确认；联系人是生意资产，一旦自动合并出错很难恢复，没有备份不要开始。",
+      "source": {
+        "name": "The Digital Gal（Amanda 自述）",
+        "platform": "The Digital Gal",
+        "grade": "B",
+        "url": "https://thedigitalgal.com/what-is-meta-muse/",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 39,
+      "title": "用 Muse Code 一口气造 5 个应用：总共花了约 10 美元，界面漂亮但规则逻辑会翻车",
+      "valueLine": "花小钱实测终端编程代理的真实边界：产出速度惊人，但胜负条件、红绿灯这类规则执行不可靠。",
+      "category": "coding",
+      "difficulty": "进阶",
+      "score": 81,
+      "heat": 70,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "创作者 PromptsLove 在 Muse Code 发布当天自费实测，用它一口气做了五个应用：一个多页前端网站、益智游戏 Gridlock、3D 交通路口模拟、把提交日志变发布说明的 SaaS 工具 Shipyard，以及把手绘图转成可编辑流程图的 Python 应用，逐个打分并公开了花费。",
+      "steps": [
+        "在终端安装 Muse Code，在项目文件夹里运行",
+        "每个应用都给详细提示词而不是一句话需求",
+        "逐个实测产出：点遍界面、跑通核心流程、检查规则逻辑是否真的生效",
+        "记录每类失败：Gridlock 的通关判定没触发、交通模拟里车辆和行人闯红灯",
+        "统计总花费并对照其他编程模型做性价比判断"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "作者实测：五个应用全部生成，总花费约 10 美元（Standard 档）；Shipyard 和手绘图数字化工具拿到 4/5 分，手绘流程图的每个分支连拼写都被正确还原；但 Gridlock 的获胜逻辑从未触发、交通模拟会违反自己设定的红绿灯规则。",
+      "outputUrl": "",
+      "reproduceTips": "提示词要把规则写成可验收的条件，交付后专门测边界逻辑（胜负、权限、状态切换），不要只看界面是否漂亮；预算敏感可考虑 Contributor 档，但要用代码参与训练来换低价。",
+      "pitfalls": "作者两次踩到同一个坑：模型明明理解规则，却不把规则执行到底，连最高推理档位也一样；另外视觉产出风格同质化明显，不指定品牌风格就会千篇一律。",
+      "source": {
+        "name": "PromptsLove",
+        "platform": "PromptsLove",
+        "grade": "B",
+        "url": "https://promptslove.com/blog/honest-review-muse-code-and-muse-spark/",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 40,
+      "title": "会前准备被打满分 10/10：没告诉它哪封邮件，Muse 自己找对了线索",
+      "valueLine": "不给任何提示，让 Muse 自己从邮箱和日历里拼出会议背景和提问清单。",
+      "category": "work",
+      "difficulty": "入门",
+      "score": 80,
+      "heat": 52,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "测评人 Diana（AI Agents Library）用自己的真实业务材料给 Muse 出了一张 10 项任务考卷，在免费版上逐项打分。其中会前准备一项她故意什么都没交代：不说是哪封邮件往来，而当时有好几个都像的候选线索。",
+      "steps": [
+        "连接 Gmail 与 Google Calendar（过程中 Muse 缺日历权限时主动提出并引导连接）",
+        "只给目标：为接下来的通话做准备，不指定任何邮件线索",
+        "Muse 在多个候选线索中自行判断出正确的那一封",
+        "它调出日历邀请，结合往来内容生成一份通话提问清单",
+        "本人带着清单直接进会，事后按五项标准打分"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "该项被打 10/10 满分：Muse 在没被告知的情况下找对了邮件线索、定位到日历邀请，并备好了一组通话问题，其中还包括测评人自己都没想到要提前准备的问题。同卷的每周业务简报得 9/10。",
+      "outputUrl": "",
+      "reproduceTips": "把邮箱和日历都连上后，只给目标不给路径，让它自己找线索最能看出真本事；这个流程值得固化成每次开会前自动跑的例行任务。",
+      "pitfalls": "同一轮测试里，收件箱分诊只得 6/10：Muse 误判一封她其实已经发出的邮件为未发送，若照单全收可能给同一人重复发信——凡涉及对外发送的判断必须复核。",
+      "source": {
+        "name": "AI Agents Library（Diana 实测）",
+        "platform": "AI Agents Library",
+        "grade": "B",
+        "url": "https://www.aiagentslibrary.com/blog/meta-muse-review/",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 41,
+      "title": "用 Muse Spark 当科学家、Wonder 当评审：造出自动筛药助手，38 个化合物判对 34 个",
+      "valueLine": "盲测协议下让两个 Muse 模型分工实验与复核，单次运行只要约 0.29 美元。",
+      "category": "coding",
+      "difficulty": "高阶",
+      "score": 86,
+      "heat": 55,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "开发者 Aleksandra Hodzzik 在黑客松期间用 Meta 的模型搭了 MuseCell：一个在真实 BBBC021 细胞图像上工作的盲测筛选助手。难点在于药物作用机制判断今天靠生物学家人工比图、补剂量、查文献，她想把选实验、做判断、查文献这条链自动化，还要全程盲测防作弊。",
+      "steps": [
+        "给助手设定盲测协议：化合物名称揭盲前不可见，先提交结论再对答案",
+        "Muse Spark 1.3 担任科学家与显微镜手，在有限的孔位预算内规划拍哪 4 个孔、读测量值、维护假设板",
+        "Muse Wonder 1.0 担任 PI 评审，复核盲测证据账本，批准结论或要求再补一个实验",
+        "最终判定交给协议代码按相似度投票做主，模型只负责规划、争论和解释",
+        "揭盲后才允许查 PubChem、ChEMBL 和 PubMed 核对，并生成带引用的完整档案"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "仓库公开的评测结果：agent v5 在 38 个化合物上判对 34 个作用机制，冻结划分的留出集上 19 个判对 18 个；单次运行平均约 0.29 美元、约 1.5 分钟（38 次运行均值），并提供可在线回放的演示。",
+      "outputUrl": "",
+      "reproduceTips": "关键设计是分工与制衡：让强模型负责规划、另一个模型复核、最终判定交给确定性代码；同时给每次运行设费用上限，仓库代码开源可直接参考其护栏实现。",
+      "pitfalls": "作者明确记录：当模型用自己的判断推翻公开的 NSC 投票时大多判错（v4 中 7 次错 6 次），所以别让模型当最终裁判；该工具仅供科研筛选，不能输出诊断或治疗建议。",
+      "source": {
+        "name": "Aleksandra Hodzzik（GitHub 仓库 MuseCell）",
+        "platform": "GitHub",
+        "grade": "B",
+        "url": "https://github.com/aleksandrahodzzik/musecell",
+        "publishedAt": "2026-10-29"
+      }
+    },
+    {
+      "id": 42,
+      "title": "摄影师把后台交给 Muse：管发票、每天更新业务仪表盘，还画出 308 个地点的拍摄地图",
+      "valueLine": "发票跟踪、每日数据看板和地点库地图三件套，把摄影师从表格里解放出来。",
+      "category": "money",
+      "difficulty": "进阶",
+      "score": 82,
+      "heat": 50,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "摄影师 Eric Rubens 一个人跑自己的摄影生意，发票、业务数据和外拍地点全靠表格硬撑。他的 Muse（取名 Rube）接管了这套后台：发票有人盯、数据每天自动汇总成仪表盘、多年收藏的外拍地点也被做成了能直接用的地图。",
+      "steps": [
+        "让 Muse 跟踪发票状态，替代手工表格登记",
+        "设定每天自动更新业务仪表盘，收入和订单一目了然",
+        "把 Instagram 里收藏的 308 个地点导出，交给 Muse 做成互动地图",
+        "顺带让它订票、到点提醒自己发帖",
+        "每天扫一眼仪表盘确认数据无误"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "据其自述，Rube 持续跟踪他的发票、每天更新业务仪表盘，并用他收藏的 308 个 Instagram 地点建成一份互动地图，还帮他订了两张票、提醒发帖——他说自己终于从电子表格里解放出来。",
+      "outputUrl": "",
+      "reproduceTips": "先盘点你每天重复看的三张表：发票、订单、素材库，逐个交给 Muse 并约定更新频率；地点、客户这类长期积累的收藏，让它结构化成地图或看板，价值会越用越大。",
+      "pitfalls": "",
+      "source": {
+        "name": "Eric Rubens（经 Muse CN Hub 整理，原发 Instagram）",
+        "platform": "Instagram",
+        "grade": "B",
+        "url": "https://muse.himiao.cc/cases/runs-a-photography-business-back-office-invoices-dashboards-",
+        "publishedAt": "2026-09-08"
+      }
+    },
+    {
+      "id": 43,
+      "title": "新加坡创作者实测：给 Muse 装上剪片 Skill，转稿、去停顿、出分镜跑了近两小时",
+      "valueLine": "用打字就能给 Muse 安装预设工作流：一个剪片 Skill 能自己转文字稿、剪掉停顿重复、做分镜等你批准，长任务全程可问进度、可停。",
+      "category": "content",
+      "difficulty": "进阶",
+      "score": 76,
+      "heat": 52,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "新加坡创作者阿石在 Muse 于 2026 年 10 月 28 日开放新加坡市场后即日实测。Muse 界面上没有 Skill 入口，他想验证这种「藏起进阶功能」的个人代理，能不能靠打字装上一个复杂的剪片工作流并真正跑完。",
+      "steps": [
+        "直接打字叫 Muse 建立或安装剪片 Skill，不需要找任何设置入口",
+        "Skill 流程先把影片转成文字稿，再按文字稿剪走停顿和重复的地方",
+        "接着让它设计 Storyboard（分镜）交回来批准，批准后才继续",
+        "运行期间随时打字问进度，不会打断后台工作；想看细节就开 Task Log",
+        "测试时它已交出部分剪好的影片；鼠标移到任务上按 Stop 可随时停止"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "原文记录：这个剪片流程运行了接近一两个小时，测试时 Muse 已交出部分剪好的影片，只剪走了一些剪接位，未做动画等后期制作，完整成效作者说会在之后影片分享。阿石认为它不显示代码、只定期更新进度的设计对初学者更友好。",
+      "outputUrl": "",
+      "reproduceTips": "需要 Muse 账号（作者在新加坡开放首日注册）；把工作流的每个环节用打字讲清并要求中间产物先给你批准；长任务先用短片试跑，确认剪辑口径再放大。",
+      "pitfalls": "原文同篇实测的短板：它的图片模型较一般，把公司 Logo 印到头像衣服上两次都没做对，作者认为不及 ChatGPT 与 Gemini 的图片能力；剪片成效当时只交付了部分，未做动画等后期。",
+      "source": {
+        "name": "阿石 / OMP",
+        "platform": "OMP（omp.asia）",
+        "grade": "B",
+        "url": "https://omp.asia/meta-muse-singapore-tutorial/",
+        "publishedAt": "2026-10-29"
+      }
+    },
+    {
+      "id": 44,
+      "title": "数位时代实测：让 Muse 盯 PChome 商品价格，查到 NT$45,200 并设好每 6 小时复查",
+      "valueLine": "把想买商品丢给 Muse，它会自己开浏览器查现价与库存，缺货或降价时主动通知——台湾电商网站实测可正常读取。",
+      "category": "daily",
+      "difficulty": "入门",
+      "score": 79,
+      "heat": 58,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "《数位时代》编辑部实测一轮 Muse 后，挑了「商品价格追踪」做本地化验证：台湾用户最关心的是它能不能读台湾电商、能不能在缺货与降价时自己盯着，而不是只会给建议。",
+      "steps": [
+        "把想追踪的商品名称或网址贴给 Muse，并要求降价或补货时通知",
+        "Muse 用浏览器打开 PChome 24h 商品页，核对名称、现价与库存状态",
+        "它查到 iPhone 18 Pro 现价 NT$45,200、建议售价 45,890，目前缺货只能按到货通知",
+        "接着它设定每 6 小时检查一次的排程，补货或降价时通知",
+        "比价页面会存在 Library 分页，降价通知出现在聊天里，随时可回看"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "原文实测结果：Muse 用浏览器开启商品页，查到现价 NT$45,200、建议售价 45,890，并发现目前缺货，只能按「有货通知我」；接着设定了每 6 小时检查，补货或降价时通知，确认台湾电商网站可以正常读取。",
+      "outputUrl": "",
+      "reproduceTips": "台湾用户需先用 VPN 开通账号（仅开通时需要），装好 App 后不开 VPN 也能用；免费版有每周额度。追踪清单把商品名或网址给全，并明确通知条件是降价、补货还是两者都要。",
+      "pitfalls": "原文提醒：连上脸书、Instagram 等账号等于给它读取权限，第一次连信箱或行事历建议先选只读；涉及付款的「价格触发自动购买」需单独开启并预存支付方式，不要默认放行。",
+      "source": {
+        "name": "数位时代 BusinessNext 编辑部",
+        "platform": "数位时代 BusinessNext",
+        "grade": "C",
+        "url": "https://www.bnext.com.tw/article/92505/muse-tutorial-hands-on",
+        "publishedAt": "2026-10-06"
+      }
+    },
+    {
+      "id": 45,
+      "title": "让 Muse 盯着自己的网站：一有新文章，自动去 Facebook 专页推广",
+      "valueLine": "把「监控网站更新并自动发帖推广」设成背景长期任务，交办一次就不用再守着——这是聊天机器人做不到的代理式用法。",
+      "category": "advanced",
+      "difficulty": "进阶",
+      "score": 74,
+      "heat": 50,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "美国消费科技记者 Jamey Tucker 在自己的「What the Tech?」站点上实测 Muse。他先让它找迈阿密邮轮港附近的酒店、找演唱会票，接着给它派了一件长期差事：盯着自己的网站，有新文章就去他的 Facebook 专页推广。",
+      "steps": [
+        "先用短任务热身：让 Muse 找迈阿密邮轮港附近一晚的酒店房，它几分钟内找到房间、只等批准就能订",
+        "再试多步任务：找拉斯维加斯 Eagles 演唱会票加威尼斯人酒店两晚，它先追问日期再开 Ticketmaster 搜票",
+        "然后交办长期任务：监控 WhatTheTech.tv 网站，一发现新文章就推广到他的 Facebook 专页",
+        "任务设好后在背景持续运行，不需要坐着一条条下指令",
+        "涉及付款时它会停下来要姓名、地址与信用卡等信息，批准权始终在本人手里"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "原文记录：酒店任务中 Muse 几秒内打开自有浏览器开始搜房，几分钟后已找到房间、只待批准即可完成预订；长期任务方面，作者明确写道他已让 Muse 监控自己的网站、每当发现新故事就推广到 Facebook 专页，该任务在背景持续工作。",
+      "outputUrl": "",
+      "reproduceTips": "先从查房、查票这类只读任务验证它的搜集质量，再交办带外部动作的长期任务；发帖、预订、付款都保留逐次批准，批准前看清它要发的内容与对象。",
+      "pitfalls": "原文提醒：给代理的账号与服务权限越多，它越有用，但你的数字生活暴露也越多；任务可能需要网站、账号、文件甚至付款信息的访问权，每次授权前要看清范围。",
+      "source": {
+        "name": "Jamey Tucker / What the Tech?",
+        "platform": "WhatTheTech.tv",
+        "grade": "C",
+        "url": "https://whatthetech.tv/meta-muse-the-ai-that-doesnt-just-answer-questions-it-takes-action/",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 46,
+      "title": "泰晤士报一周实测：新手爸爸把亲子日、万圣节服装和睡前故事都交给了 Muse",
+      "valueLine": "连上日历、健康与银行后，Muse 能排亲子出游并订好动物园票、按尺码和喜好在 Target 选好节日服装、按当天主题现编睡前故事——但爸爸最后决定故事还是自己读。",
+      "category": "family",
+      "difficulty": "入门",
+      "score": 82,
+      "heat": 66,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "《泰晤士报》记者做了一周实验：把生活控制权交给 Meta 的 Muse，看它能不能提升自己的「爸爸技能」。他给 Muse 只读权限接入 Gmail、Apple Health 与 Google Calendar，并立下规矩：不检查 Muse 的工作成果，全盘照单全收。",
+      "steps": [
+        "给 Muse 只读权限接入 Gmail、Apple Health 与 Google Calendar，让它在背景扫描易漏的日程与健康趋势",
+        "让它安排适合幼儿的生日出游：本地人气店早午餐、格里菲斯天文台与洛杉矶动物园，它连动物园门票都订好了",
+        "临近万圣节，只给它幼儿的尺码和对迪士尼的喜爱，让它去 Target 选服装；不到一分钟它带回《玩具总动员》Jessie 套装连红牛仔帽",
+        "批准付款后，它在后台逛完 Target 网站并安排当日到店自提，只需本人输入邮箱验证码和信用卡安全码",
+        "日常小事也交给它：按价格排区内最好的托儿所名单、按离家距离排幼儿园、按家庭饮食要求出五天餐单和购物清单"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "原文记录的家庭产出：亲子日行程（早午餐＋天文台＋动物园）已排好且动物园门票由 Muse 订妥；万圣节服装不到一分钟选定并完成购买与当日自提安排；它还交付了按价格排序的托儿所名单、按距离排序的幼儿园名单和五天餐单。实验总结称，靠取消订阅、谈宽带账单等折扣，Muse 一个月帮他省下近 100 美元。",
+      "outputUrl": "",
+      "reproduceTips": "从只读权限起步，先让它做名单、行程这类可核对的家庭任务；购物只给尺码与偏好这类必要约束，付款与验证码环节保留本人操作；它的记忆里会存下大量个人信息，定期去 Memory 里检查和编辑。",
+      "pitfalls": "原文实测的翻车：航班改道时它对延误时长过于乐观（称一小时内起飞，实际等了约四小时）；问球赛酒吧时它先错判比赛日期（按菲律宾时区查了开球时间），又把人带去一家无聊的连锁酒店大堂酒吧。时间与地点类答案务必自己复核。",
+      "source": {
+        "name": "The Times",
+        "platform": "The Times",
+        "grade": "C",
+        "url": "https://www.thetimes.com/uk/technology-uk/article/can-muse-ai-improve-my-dad-skills-meta-kzz3jp83l",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 47,
+      "title": "中文实测三段追问：让 Muse 把 30 分钟入门练习做成表格，再生成 Markdown 文件验收",
+      "valueLine": "用繁体中文交办、追问改表格、再命令生成指定档名的文件——一条可照抄的小任务链，练的就是「交办—改版—验收」完整回路。",
+      "category": "study",
+      "difficulty": "入门",
+      "score": 73,
+      "heat": 44,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "台湾 SEO 站 Whoops 的编辑在网页版 Muse 上做中文实测（操作画面摄于 2026 年 9 月 27 至 28 日）：不用英文、不用复杂功能，只用繁体中文把一个「AI 代理入门练习」的小学习任务完整走完五步，看它能不能交付可下载验收的文件成品。",
+      "steps": [
+        "在 muse.ai 新增 Side chat，用繁体中文提出需求：安排一份 30 分钟的 AI 代理入门练习，分 3 个阶段，先在对话中给内容",
+        "在同一对话追问，把练习整理成 3 列表格：阶段与时间、操作内容、完成标准，每格一句话",
+        "再下令把表格制成 Markdown 文件，指定档名 ai-agent-practice.md、标题「AI 代理入門練習」",
+        "等聊天出现文件卡片后点开核对标题与三阶段表格，可从选单 Download 或 Download as PDF",
+        "最后到 Library 的 Documents 分类找回成品，完成验收"
+      ],
+      "keyPrompt": "請用繁體中文，幫我安排一份 30 分鐘的 AI 代理入門練習，分成 3 個階段，列出每階段要做的事。先在對話中提供內容即可。",
+      "outputDesc": "原文完整记录产出：Muse 先在对话给出三阶段练习，再按追问改成三栏表格，最后生成文件卡片；点开 ai-agent-practice.md 就能看到文件标题与三阶段表格，并可下载或导出 PDF，Library 里能按 Documents 分类找回。",
+      "outputUrl": "",
+      "reproduceTips": "第一次使用先从整理文字、制作文件这类小任务开始练手；交办时把目标、格式、档名与验收方式一次写清，主题可换成会议准备、读书计划或文章大纲；聊天显示完成不等于验收通过，务必打开文件核对。",
+      "pitfalls": "原文提醒：文件说完成却找不到时，要回到聊天文件卡片与 Library 找，并要求它提供成品、实际打开，不接受只有口头回报；涉及外部行动的任务还要另行核对订单、寄件或行事历上的实际结果。",
+      "source": {
+        "name": "Whoops SEO 编辑部",
+        "platform": "Whoops SEO（seo.whoops.com.tw）",
+        "grade": "B",
+        "url": "https://seo.whoops.com.tw/meta-muse/",
+        "publishedAt": ""
+      }
+    },
+    {
+      "id": 48,
+      "title": "台湾创作者三周实测：每天早上 8 点，Muse 自动生成 AI 新闻 Podcast 送到 Spotify",
+      "valueLine": "把每天听的资讯早餐外包给代理：到点自动生成一集 AI 新闻播客、直接在 Spotify 收听，这是他三周 10 个用法里最省时间的一个。",
+      "category": "content",
+      "difficulty": "进阶",
+      "score": 80,
+      "heat": 60,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "台湾创作者于为畅（Wendell)从 2026 年 9 月中开始用 Muse，不到三周做了 10 件事：架网站、追机票、上架 Marketplace、量身定做日文课等。其中内容类的代表作，是让 Muse 每天早上自动生产一集 AI 新闻 Podcast。",
+      "steps": [
+        "把需求交给 Muse：每天早上 8 点自动生成 AI 新闻 Podcast",
+        "设定好后它按日程在背景执行，App 关着也照常生产",
+        "成品直接送到 Spotify，每天早上打开就能听",
+        "同期他还用语音记录灵感：说一句「记下来」，点子自动存进笔记本",
+        "用量提醒来自他的实测：重度使用时，他一天就能用光一周的免费额度"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "原文（影片说明）明确列出该用法已落地：每天早上 8 点自动生成 AI 新闻 Podcast，直接在 Spotify 听。作者总结这 10 个用法的主线是「Muse 不是帮你省钱，是帮你省时间」；同集还有一晚架好 17muse.com 网站与社团、拍照上架 Marketplace 等已完成案例。",
+      "outputUrl": "",
+      "reproduceTips": "先想清节目的主题范围、时长与推送时间，用自然语言一次交办；先验收头几集的选题与口播质量再放行长期运行；免费额度有限，定时音频类任务先估算消耗再叠加其他排程。",
+      "pitfalls": "作者实测提醒：他一天就能用光一周的额度，重度排程任务要盯用量；台湾当时尚未开放 Muse，他是先行跨区使用，功能与额度以自己账号实际显示为准。",
+      "source": {
+        "name": "于为畅 Wendell",
+        "platform": "YouTube",
+        "grade": "B",
+        "url": "https://www.youtube.com/watch?v=ARMaDt5JBUg",
+        "publishedAt": "2026-10-09"
+      }
+    },
+    {
+      "id": 49,
+      "title": "每周自动盯娃功课：Muse 例行检查儿子的 Google Classroom 成绩与缺交作业",
+      "valueLine": "把「查成绩、查缺交、查考试」做成每周例行：家长不用再逐个 App 翻，儿子的功课状态定时汇总到手边。",
+      "category": "family",
+      "difficulty": "进阶",
+      "score": 77,
+      "heat": 49,
+      "featured": false,
+      "issueDate": "2026-11-09",
+      "background": "用户 Pete Halvorsen 给自己的 Muse 排了一组例行任务：晨间有冲浪与天气报告、基于 Whoop 与 Apple Health 的健康简报、关注球队的比分；而每周例行里最特别的一项，是替他盯儿子的学校功课。",
+      "steps": [
+        "先把晨间例行设好：冲浪/天气报告（含潮汐与最佳时段）、Whoop 与 Apple Health 健康简报、关注球队比分与当日赛程",
+        "再建每周例行：检查儿子的 Google Classroom，包括成绩、缺交的作业和 upcoming 考试",
+        "同一组周例行里还有每周日早上的个人消费回顾：本周花销、异常支出与即将过期的积分权益",
+        "例行任务按周自动运行，家长只看汇总结果",
+        "发现缺交或考试临近时，再人工介入跟进"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "原文（用户本人 Threads 发帖）列明其 Muse 的每周例行包括：儿子的 Google Classroom、成绩、缺交作业与即将到来的考试；晨间例行则包含基于 Whoop/Apple Health（前一天睡眠与运动）的健康简报。该帖是用户自述的已配置例行清单，整理方未复跑验证。",
+      "outputUrl": "",
+      "reproduceTips": "先想清要盯的科目与频率，用自然语言一次交办「每周检查 Classroom 的成绩、缺交与考试」；涉及孩子的学校账号与成绩数据，授权范围先想清楚，只给必要访问；汇总只作提醒，重要事项点进原系统复核。",
+      "pitfalls": "原文为用户自述清单，未附逐次运行截图；健康与学校数据都属敏感信息，只连接你愿意分享的部分，简报数字使用前抽查核对。",
+      "source": {
+        "name": "Pete Halvorsen（经 Museable 汇总）",
+        "platform": "Threads / Museable",
+        "grade": "B",
+        "url": "https://www.musecase.dev/browse/14",
+        "publishedAt": ""
+      }
     }
   ]
 };
