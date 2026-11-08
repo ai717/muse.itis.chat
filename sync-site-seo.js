@@ -42,6 +42,41 @@ function injectPaginationPlaceholder(html) {
   );
 }
 
+const FOOTER_LINKS_HTML_ZH = `        <div class="footer-links">
+          <span class="footer-links-label">友情链接：</span>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">摸鱼杂货店</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">免费开源数字资源</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">搞钱实验室</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+        </div>`;
+
+const FOOTER_LINKS_HTML_EN = `        <div class="footer-links">
+          <span class="footer-links-label">Friendly Links:</span>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">摸鱼杂货店</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">免费开源数字资源</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">搞钱实验室</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+        </div>`;
+
+function injectFooterLinks(html, isEn = false) {
+  if (html.includes('class="footer-links"')) return html;
+  const linksHtml = isEn ? FOOTER_LINKS_HTML_EN : FOOTER_LINKS_HTML_ZH;
+  return html.replace(
+    /(<div class="footer-content">)/i,
+    `$1\n${linksHtml}`
+  );
+}
+
 function escapeHtml(str) {
   if (!str) return '';
   return String(str)
@@ -404,6 +439,7 @@ ${GA_SNIPPET}
 
     <footer class="site-footer">
       <div class="footer-content">
+${FOOTER_LINKS_HTML_ZH}
         <p class="footer-source">数据来源：${escapeHtml(dataZh.source)}</p>
         <p class="footer-note">严格依真实用户报道整理 · 支持本地离线与完整核验</p>
       </div>
@@ -549,6 +585,7 @@ ${GA_SNIPPET}
 
   indexHtml = injectGA(indexHtml);
   indexHtml = injectPaginationPlaceholder(indexHtml);
+  indexHtml = injectFooterLinks(indexHtml, false);
 
   fs.writeFileSync(path.join(rootDir, 'index.html'), indexHtml);
   console.log('✅ index.html SEO、GA 统计与 Schema 更新完毕');
@@ -654,6 +691,7 @@ ${GA_SNIPPET}
 
   enIndexHtml = injectGA(enIndexHtml);
   enIndexHtml = injectPaginationPlaceholder(enIndexHtml);
+  enIndexHtml = injectFooterLinks(enIndexHtml, true);
 
   fs.writeFileSync(path.join(rootDir, 'en', 'index.html'), enIndexHtml);
   console.log('✅ en/index.html SEO、GA 统计、Schema 与预渲染文章卡片更新完毕');
