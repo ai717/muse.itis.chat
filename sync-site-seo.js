@@ -12,6 +12,36 @@
 const fs = require('fs');
 const path = require('path');
 
+// Google Analytics & Google Tag Manager 统计与验证代码片段
+const GA_SNIPPET = `  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">`;
+
+function injectGA(html) {
+  if (html.includes('GTM-5GG9VBGS')) return html;
+  return html.replace('</head>', `${GA_SNIPPET}\n</head>`);
+}
+
+function injectPaginationPlaceholder(html) {
+  if (html.includes('id="paginationWrap"')) return html;
+  if (html.includes('<!-- 空结果提示 -->')) {
+    return html.replace(
+      '<!-- 空结果提示 -->',
+      `<!-- 分页控件容器 (每页60项自动分页) -->\n      <div class="pagination-wrap" id="paginationWrap" style="display: none;"></div>\n\n      <!-- 空结果提示 -->`
+    );
+  }
+  return html.replace(
+    /(<div class="empty-state"\s+id="emptyState")/i,
+    `<!-- 分页控件容器 (每页60项自动分页) -->\n      <div class="pagination-wrap" id="paginationWrap" style="display: none;"></div>\n\n      $1`
+  );
+}
+
 function escapeHtml(str) {
   if (!str) return '';
   return String(str)
@@ -164,16 +194,13 @@ function runSync() {
 
     const catName = catMapZh[c.category] || c.category;
     const stepsHtml = (c.steps && c.steps.length > 0) ? `
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📝</span>
-          <span>做法步骤 (${c.steps.length} 步)</span>
-        </div>
-        <ol class="steps-list">
+      <div class="detail-section">
+        <div class="detail-label">做法步骤 (${c.steps.length} 步)</div>
+        <ol class="steps-clean-list">
           ${c.steps.map((st, i) => `
-            <li class="step-item">
-              <span class="step-num">${i + 1}</span>
-              <div class="step-content">${escapeHtml(st)}</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">${i + 1}.</span>
+              <span class="step-clean-text">${escapeHtml(st)}</span>
             </li>
           `).join('')}
         </ol>
@@ -181,11 +208,8 @@ function runSync() {
     ` : '';
 
     const promptHtml = c.keyPrompt ? `
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">💬</span>
-          <span>关键提示词 (Prompt)</span>
-        </div>
+      <div class="detail-section">
+        <div class="detail-label">关键提示词 (Prompt)</div>
         <div class="prompt-box">
           <div class="prompt-bar">
             <span>PROMPT TEMPLATE</span>
@@ -197,16 +221,13 @@ function runSync() {
     ` : '';
 
     const outputHtml = (c.outputDesc || c.outputUrl) ? `
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📊</span>
-          <span>产出与证据</span>
-        </div>
-        <div class="output-box">
-          ${c.outputDesc ? `<div class="output-text">${escapeHtml(c.outputDesc)}</div>` : ''}
+      <div class="detail-section">
+        <div class="output-callout">
+          <div class="output-callout-label">产出与证据</div>
+          ${c.outputDesc ? `<div class="output-callout-text">${escapeHtml(c.outputDesc)}</div>` : ''}
           ${c.outputUrl ? `
             <div style="margin-top: 10px;">
-              <a href="${escapeHtml(c.outputUrl)}" target="_blank" rel="noopener noreferrer" class="output-link">
+              <a href="${escapeHtml(c.outputUrl)}" target="_blank" rel="noopener noreferrer" class="output-callout-link">
                 <span>查看产出链接</span> &rarr;
               </a>
             </div>
@@ -216,12 +237,11 @@ function runSync() {
     ` : '';
 
     const pitfallsHtml = c.pitfalls ? `
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">⚠️</span>
-          <span>踩坑提示</span>
+      <div class="detail-section">
+        <div class="pitfalls-callout">
+          <div class="pitfalls-callout-label">踩坑提示</div>
+          <div class="pitfalls-callout-text">${escapeHtml(c.pitfalls)}</div>
         </div>
-        <div class="pitfalls-box">${escapeHtml(c.pitfalls)}</div>
       </div>
     ` : '';
 
@@ -255,6 +275,8 @@ function runSync() {
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
   <meta name="theme-color" content="#f5efe6">
+
+${GA_SNIPPET}
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="${escapeHtml(c.title)} - Meta Muse 实战案例">
@@ -308,57 +330,66 @@ function runSync() {
           </div>
         </div>
 
-        <h1 class="featured-title" style="margin-top: 10px; cursor: default;">${escapeHtml(c.title)}</h1>
-        <p class="featured-valueline" style="font-size: 1.02rem; margin-bottom: 24px;">${escapeHtml(c.valueLine)}</p>
-
-        <!-- 任务背景 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🎯</span>
-            <span>任务背景</span>
+        <div class="detail-flow">
+          <div class="detail-header">
+            <h1 class="detail-title" style="margin-top: 10px; cursor: default;">${escapeHtml(c.title)}</h1>
+            <div class="detail-valueline">${escapeHtml(c.valueLine)}</div>
           </div>
-          <div class="modal-text">${escapeHtml(c.background)}</div>
-        </div>
 
-        <!-- 步骤 -->
-        ${stepsHtml}
-
-        <!-- 关键提示词 -->
-        ${promptHtml}
-
-        <!-- 产出与证据 -->
-        ${outputHtml}
-
-        <!-- 复现要点 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">💡</span>
-            <span>复现要点</span>
+          <!-- 任务背景 -->
+          <div class="detail-section">
+            <div class="detail-label">任务背景</div>
+            <div class="detail-text">${escapeHtml(c.background)}</div>
           </div>
-          <div class="modal-text">${escapeHtml(c.reproduceTips)}</div>
-        </div>
 
-        <!-- 踩坑提示 -->
-        ${pitfallsHtml}
+          <!-- 步骤 -->
+          ${stepsHtml}
 
-        <!-- 信源核对 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🔍</span>
-            <span>原始信源核对</span>
+          <!-- 关键提示词 -->
+          ${promptHtml}
+
+          <!-- 产出与证据 -->
+          ${outputHtml}
+
+          <!-- 复现要点 -->
+          <div class="detail-section">
+            <div class="detail-label">复现要点</div>
+            <div class="detail-text">${escapeHtml(c.reproduceTips)}</div>
           </div>
-          <div class="source-verify-box">
-            <div class="source-meta-left">
-              <span>作者/报道：<strong>${escapeHtml(c.source?.name)}</strong></span>
-              <span>&bull;</span>
-              <span>平台：<strong>${escapeHtml(c.source?.platform)}</strong></span>
-              <span>&bull;</span>
-              <span>信源等级：<strong>Grade ${escapeHtml(c.source?.grade)}</strong></span>
-              ${c.source?.publishedAt ? `<span>&bull;</span><span>发布日期：${escapeHtml(c.source.publishedAt)}</span>` : ''}
+
+          <!-- 踩坑提示 -->
+          ${pitfallsHtml}
+
+          <!-- 信源核对 -->
+          <div class="detail-section" style="margin-top: 6px;">
+            <div class="source-verify-box">
+              <div class="source-meta-left">
+                <span>作者/报道：<strong>${escapeHtml(c.source?.name)}</strong></span>
+                <span>&bull;</span>
+                <span>平台：<strong>${escapeHtml(c.source?.platform)}</strong></span>
+                <span>&bull;</span>
+                <span>信源等级：<strong>Grade ${escapeHtml(c.source?.grade)}</strong></span>
+                ${c.source?.publishedAt ? `<span>&bull;</span><span>发布日期：${escapeHtml(c.source.publishedAt)}</span>` : ''}
+              </div>
+              ${c.source?.url ? `
+                <a href="${escapeHtml(c.source.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                  <span>打开原文报道</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              ` : ''}
             </div>
+          </div>
+
+          <!-- 底部行动 -->
+          <div class="featured-footer" style="margin-top: 24px;">
+            <a href="../../" class="btn btn-outline">&larr; 返回查看全部 ${totalCases} 个实战案例</a>
             ${c.source?.url ? `
-              <a href="${escapeHtml(c.source.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
-                <span>打开原文报道</span>
+              <a href="${escapeHtml(c.source.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>访问原文报道</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -367,21 +398,6 @@ function runSync() {
               </a>
             ` : ''}
           </div>
-        </div>
-
-        <!-- 底部行动 -->
-        <div class="featured-footer" style="margin-top: 24px;">
-          <a href="../../" class="btn btn-outline">&larr; 返回查看全部 ${totalCases} 个实战案例</a>
-          ${c.source?.url ? `
-            <a href="${escapeHtml(c.source.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>访问原文报道</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          ` : ''}
         </div>
       </div>
     </main>
@@ -531,8 +547,11 @@ function runSync() {
     `<script type="application/ld+json">\n  ${JSON.stringify(fullSchemaZh, null, 2)}\n  </script>`
   );
 
+  indexHtml = injectGA(indexHtml);
+  indexHtml = injectPaginationPlaceholder(indexHtml);
+
   fs.writeFileSync(path.join(rootDir, 'index.html'), indexHtml);
-  console.log('✅ index.html SEO 与 Schema 更新完毕');
+  console.log('✅ index.html SEO、GA 统计与 Schema 更新完毕');
 
   // 5. 更新 en/index.html
   const schemaListEn = dataEn.cases.map((c, i) => ({
@@ -633,8 +652,11 @@ function runSync() {
     `<div class="cases-grid" id="casesGrid">\n${articlesHtmlEn}\n      </div>\n\n      <div class="empty-state"`
   );
 
+  enIndexHtml = injectGA(enIndexHtml);
+  enIndexHtml = injectPaginationPlaceholder(enIndexHtml);
+
   fs.writeFileSync(path.join(rootDir, 'en', 'index.html'), enIndexHtml);
-  console.log('✅ en/index.html SEO、Schema 与预渲染文章卡片更新完毕');
+  console.log('✅ en/index.html SEO、GA 统计、Schema 与预渲染文章卡片更新完毕');
 
   console.log('🎉 同步全部完成！所有静态 SEO、JSON-LD、详情页与 Sitemap 均已与最新数据 100% 同步！');
 }

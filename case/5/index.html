@@ -9,6 +9,16 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
   <meta name="theme-color" content="#f5efe6">
+
+  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="非程序员实测 Muse Code 修整站：11 条死链 5 分钟修完，还查出两个配置错误 - Meta Muse 实战案例">
@@ -79,106 +89,108 @@
           </div>
         </div>
 
-        <h1 class="featured-title" style="margin-top: 10px; cursor: default;">非程序员实测 Muse Code 修整站：11 条死链 5 分钟修完，还查出两个配置错误</h1>
-        <p class="featured-valueline" style="font-size: 1.02rem; margin-bottom: 24px;">先在仓库副本上从最小的脏活开始试，逐条审 diff 再合并，是非程序员用编程代理的安全姿势。</p>
-
-        <!-- 任务背景 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🎯</span>
-            <span>任务背景</span>
+        <div class="detail-flow">
+          <div class="detail-header">
+            <h1 class="detail-title" style="margin-top: 10px; cursor: default;">非程序员实测 Muse Code 修整站：11 条死链 5 分钟修完，还查出两个配置错误</h1>
+            <div class="detail-valueline">先在仓库副本上从最小的脏活开始试，逐条审 diff 再合并，是非程序员用编程代理的安全姿势。</div>
           </div>
-          <div class="modal-text">作者本人不写代码，站点靠 Hugo+GitHub+Vercel 且日常改动全由 AI 代理完成，想验证 Meta 10 月 12 日发布的终端编程代理 Muse Code「能读整个代码库」的说法在真实仓库上是否成立。</div>
-        </div>
 
-        <!-- 步骤 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📝</span>
-          <span>做法步骤 (4 步)</span>
-        </div>
-        <ol class="steps-list">
+          <!-- 任务背景 -->
+          <div class="detail-section">
+            <div class="detail-label">任务背景</div>
+            <div class="detail-text">作者本人不写代码，站点靠 Hugo+GitHub+Vercel 且日常改动全由 AI 代理完成，想验证 Meta 10 月 12 日发布的终端编程代理 Muse Code「能读整个代码库」的说法在真实仓库上是否成立。</div>
+          </div>
+
+          <!-- 步骤 -->
           
-            <li class="step-item">
-              <span class="step-num">1</span>
-              <div class="step-content">在 developer.meta.com 注册并订阅 50 美元档 Muse Code（该档含 Muse Wonder Full），在终端跑安装脚本，约 2 分钟完成</div>
+      <div class="detail-section">
+        <div class="detail-label">做法步骤 (4 步)</div>
+        <ol class="steps-clean-list">
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">1.</span>
+              <span class="step-clean-text">在 developer.meta.com 注册并订阅 50 美元档 Muse Code（该档含 Muse Wonder Full），在终端跑安装脚本，约 2 分钟完成</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">2</span>
-              <div class="step-content">先克隆一份仓库副本，绝不直接对线上项目动手</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">2.</span>
+              <span class="step-clean-text">先克隆一份仓库副本，绝不直接对线上项目动手</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">3</span>
-              <div class="step-content">按从小到大下达三项任务：修复全部站内死链、按现有页面结构新增一个内容板块、审计整个构建配置</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">3.</span>
+              <span class="step-clean-text">按从小到大下达三项任务：修复全部站内死链、按现有页面结构新增一个内容板块、审计整个构建配置</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">4</span>
-              <div class="step-content">逐条阅读代理给出的 diff，看不懂就拒绝并要求用大白话解释，确认后才合并到正式仓库</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">4.</span>
+              <span class="step-clean-text">逐条阅读代理给出的 diff，看不懂就拒绝并要求用大白话解释，确认后才合并到正式仓库</span>
             </li>
           
         </ol>
       </div>
     
 
-        <!-- 关键提示词 -->
-        
+          <!-- 关键提示词 -->
+          
 
-        <!-- 产出与证据 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📊</span>
-          <span>产出与证据</span>
-        </div>
-        <div class="output-box">
-          <div class="output-text">原文记录实测结果：11 条死链不到 5 分钟全部修完且每条附一行说明；新板块约 20 分钟完成并自检了与模板的一致性；构建审计查出两个已悄悄拖累图片优化数月的错误配置，此前其他工具从未报出；另有一次约 40 分钟的重构全程无需人工盯守。</div>
+          <!-- 产出与证据 -->
+          
+      <div class="detail-section">
+        <div class="output-callout">
+          <div class="output-callout-label">产出与证据</div>
+          <div class="output-callout-text">原文记录实测结果：11 条死链不到 5 分钟全部修完且每条附一行说明；新板块约 20 分钟完成并自检了与模板的一致性；构建审计查出两个已悄悄拖累图片优化数月的错误配置，此前其他工具从未报出；另有一次约 40 分钟的重构全程无需人工盯守。</div>
           
         </div>
       </div>
     
 
-        <!-- 复现要点 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">💡</span>
-            <span>复现要点</span>
+          <!-- 复现要点 -->
+          <div class="detail-section">
+            <div class="detail-label">复现要点</div>
+            <div class="detail-text">需要有真实 Git 仓库、会用终端粘贴安装脚本，并订阅 Muse Code；务必先跑副本、从可低成本核验的小任务开始，养成逐条审 diff 的纪律。</div>
           </div>
-          <div class="modal-text">需要有真实 Git 仓库、会用终端粘贴安装脚本，并订阅 Muse Code；务必先跑副本、从可低成本核验的小任务开始，养成逐条审 diff 的纪律。</div>
-        </div>
 
-        <!-- 踩坑提示 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">⚠️</span>
-          <span>踩坑提示</span>
+          <!-- 踩坑提示 -->
+          
+      <div class="detail-section">
+        <div class="pitfalls-callout">
+          <div class="pitfalls-callout-label">踩坑提示</div>
+          <div class="pitfalls-callout-text">原文明确：前端设计品味明显落后（布局通用、按钮损坏、不守样式规范），让它改页面模板逻辑对、审美不行；纯终端无图形界面，文档按工程师口吻写；文中还提示应假定仓库内容会进入 Meta 云端，敏感代码慎用。</div>
         </div>
-        <div class="pitfalls-box">原文明确：前端设计品味明显落后（布局通用、按钮损坏、不守样式规范），让它改页面模板逻辑对、审美不行；纯终端无图形界面，文档按工程师口吻写；文中还提示应假定仓库内容会进入 Meta 云端，敏感代码慎用。</div>
       </div>
     
 
-        <!-- 信源核对 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🔍</span>
-            <span>原始信源核对</span>
-          </div>
-          <div class="source-verify-box">
-            <div class="source-meta-left">
-              <span>作者/报道：<strong>No Code Required</strong></span>
-              <span>&bull;</span>
-              <span>平台：<strong>博客</strong></span>
-              <span>&bull;</span>
-              <span>信源等级：<strong>Grade B</strong></span>
-              <span>&bull;</span><span>发布日期：2026-10-20</span>
+          <!-- 信源核对 -->
+          <div class="detail-section" style="margin-top: 6px;">
+            <div class="source-verify-box">
+              <div class="source-meta-left">
+                <span>作者/报道：<strong>No Code Required</strong></span>
+                <span>&bull;</span>
+                <span>平台：<strong>博客</strong></span>
+                <span>&bull;</span>
+                <span>信源等级：<strong>Grade B</strong></span>
+                <span>&bull;</span><span>发布日期：2026-10-20</span>
+              </div>
+              
+                <a href="https://www.nocoderequired.net/posts/meta-muse-code-ai-agent-reads-entire-codebase/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                  <span>打开原文报道</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              
             </div>
+          </div>
+
+          <!-- 底部行动 -->
+          <div class="featured-footer" style="margin-top: 24px;">
+            <a href="../../" class="btn btn-outline">&larr; 返回查看全部 49 个实战案例</a>
             
-              <a href="https://www.nocoderequired.net/posts/meta-muse-code-ai-agent-reads-entire-codebase/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
-                <span>打开原文报道</span>
+              <a href="https://www.nocoderequired.net/posts/meta-muse-code-ai-agent-reads-entire-codebase/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>访问原文报道</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -187,21 +199,6 @@
               </a>
             
           </div>
-        </div>
-
-        <!-- 底部行动 -->
-        <div class="featured-footer" style="margin-top: 24px;">
-          <a href="../../" class="btn btn-outline">&larr; 返回查看全部 49 个实战案例</a>
-          
-            <a href="https://www.nocoderequired.net/posts/meta-muse-code-ai-agent-reads-entire-codebase/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>访问原文报道</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          
         </div>
       </div>
     </main>

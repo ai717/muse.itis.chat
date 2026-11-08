@@ -1115,6 +1115,15 @@
   ]
 }
   </script>
+  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">
 </head>
 <body>
   <!-- 背景氛围光晕效果 (极淡沉静暖光) -->
@@ -1273,6 +1282,9 @@
       <div class="cases-grid" id="casesGrid">
         <!-- 默认由 app.js 渲染 -->
       </div>
+
+      <!-- 分页控件容器 (每页60项自动分页) -->
+      <div class="pagination-wrap" id="paginationWrap" style="display: none;"></div>
 
       <!-- 空结果提示 -->
       <div class="empty-state" id="emptyState" style="display: none;">

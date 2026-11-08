@@ -1065,90 +1065,96 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* 弹窗项目名称突出 */
-.modal-title {
-  font-size: 1.4rem;
+/* 弹窗与详情流式排版 (Cohesive Detail Flow) */
+.modal-title, .detail-title {
+  font-size: 1.35rem;
   font-weight: 850;
   color: var(--text-title);
-  line-height: 1.35;
+  line-height: 1.38;
   margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
-.modal-valueline {
-  font-size: 0.92rem;
+.modal-valueline, .detail-valueline {
+  font-size: 0.94rem;
   color: var(--text-secondary);
   background: var(--bg-subtle);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  margin-bottom: 20px;
-  line-height: 1.6;
+  border-left: 3px solid var(--accent-amber);
+  margin-bottom: 22px;
+  line-height: 1.68;
 }
 
-.modal-section {
+.modal-section, .detail-section {
   margin-bottom: 22px;
 }
 
-.modal-section:last-child {
+.modal-section:last-child, .detail-section:last-child {
   margin-bottom: 0;
 }
 
-.modal-section-title {
+.modal-section-title, .detail-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8c7b6d;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: var(--text-title);
-  margin-bottom: 8px;
 }
 
 .modal-section-icon {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
 }
 
-.modal-text {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
+.modal-text, .detail-text {
+  font-size: 0.94rem;
+  color: #2c241d;
+  line-height: 1.74;
 }
 
-/* 步骤编号样式 */
-.steps-list {
+/* 步骤流式自然列表 (去单独卡片化，极大增强整体阅读连贯性) */
+.steps-list, .steps-clean-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.step-item {
+.step-item, .step-clean-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
+  gap: 8px;
+  padding: 2px 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 
-.step-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #dfd4c5;
-  color: #3b3127;
-  font-size: 0.72rem;
-  font-weight: 800;
+.step-num, .step-clean-num {
+  font-size: 0.85rem;
+  font-weight: 850;
+  color: #8c7b6d;
+  min-width: 20px;
+  padding-top: 1px;
   flex-shrink: 0;
-  margin-top: 2px;
+  background: transparent;
+  border-radius: 0;
+  width: auto;
+  height: auto;
 }
 
-.step-content {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
+.step-content, .step-clean-text {
+  font-size: 0.93rem;
+  color: #2c241d;
+  line-height: 1.7;
+  flex: 1;
 }
 
 /* 提示词代码块 */
@@ -1157,6 +1163,7 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   overflow: hidden;
+  margin-top: 4px;
 }
 
 .prompt-bar {
@@ -1196,37 +1203,36 @@ body {
   word-break: break-word;
 }
 
-/* 避坑提示警告框 */
-.pitfalls-box {
-  background: #fffbeb;
-  border: 1px solid #fde68a;
+/* 产出物呼应块 (自然内嵌高亮) */
+.output-box, .output-callout {
+  background: #f6fbf8;
+  border: 1px solid #ccebd7;
+  border-left: 3px solid #10b981;
   border-radius: var(--radius-sm);
-  padding: 12px;
-  color: #92400e;
-  font-size: 0.88rem;
-  line-height: 1.55;
+  padding: 14px 16px;
 }
 
-/* 产出与证据卡片 */
-.output-box {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: var(--radius-sm);
-  padding: 12px;
+.output-callout-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #047857;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
-.output-text {
-  font-size: 0.88rem;
-  color: #166534;
-  line-height: 1.55;
+.output-text, .output-callout-text {
+  font-size: 0.92rem;
+  color: #064e3b;
+  line-height: 1.68;
 }
 
-.output-link-btn {
+.output-link-btn, .output-callout-link {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin-top: 8px;
-  padding: 4px 10px;
+  margin-top: 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-full);
   background: #dcfce7;
   border: 1px solid #86efac;
@@ -1236,7 +1242,31 @@ body {
   font-weight: 600;
 }
 
-/* 弹窗来源信息栏 */
+/* 避坑提示呼应块 (暖色呼应) */
+.pitfalls-box, .pitfalls-callout {
+  background: #fffbf5;
+  border: 1px solid #fed7aa;
+  border-left: 3px solid #f97316;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.pitfalls-callout-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #c2410c;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.pitfalls-text, .pitfalls-callout-text {
+  color: #7c2d12;
+  font-size: 0.92rem;
+  line-height: 1.68;
+}
+
+/* 弹窗与落地页信源核验栏 */
 .source-verify-box {
   display: flex;
   justify-content: space-between;
@@ -1247,6 +1277,66 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 10px 14px;
+}
+
+/* 分页器组件 (Pagination Controls) */
+.pagination-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 36px 0 24px;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  min-width: 38px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-title);
+  font-size: 0.86rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  border-color: var(--accent-amber);
+  background: #fbf7f2;
+}
+
+.pagination-btn.active {
+  background: #3b3127;
+  border-color: #3b3127;
+  color: #ffffff;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  min-width: 24px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.pagination-info {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-left: 10px;
 }
 
 .source-meta-left {

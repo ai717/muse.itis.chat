@@ -9,6 +9,16 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
   <meta name="theme-color" content="#f5efe6">
+
+  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="把 20 年前的博客复活成每日播客：Muse 扒 Wayback Machine 自动开播 - Meta Muse 实战案例">
@@ -79,58 +89,52 @@
           </div>
         </div>
 
-        <h1 class="featured-title" style="margin-top: 10px; cursor: default;">把 20 年前的博客复活成每日播客：Muse 扒 Wayback Machine 自动开播</h1>
-        <p class="featured-valueline" style="font-size: 1.02rem; margin-bottom: 24px;">让 Muse 跨平台找回散落的旧内容、汇总成档，再每天随机朗读一篇推送给你。</p>
-
-        <!-- 任务背景 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🎯</span>
-            <span>任务背景</span>
+        <div class="detail-flow">
+          <div class="detail-header">
+            <h1 class="detail-title" style="margin-top: 10px; cursor: default;">把 20 年前的博客复活成每日播客：Muse 扒 Wayback Machine 自动开播</h1>
+            <div class="detail-valueline">让 Muse 跨平台找回散落的旧内容、汇总成档，再每天随机朗读一篇推送给你。</div>
           </div>
-          <div class="modal-text">Muse 设计总监 Alex Cornell 20 年前的博客辗转搬过 Blogger、Tumblr 等多个平台，内容散落难找、更没法日常重温，想把它变成一种轻松可消费的新形态。</div>
-        </div>
 
-        <!-- 步骤 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📝</span>
-          <span>做法步骤 (4 步)</span>
-        </div>
-        <ol class="steps-list">
+          <!-- 任务背景 -->
+          <div class="detail-section">
+            <div class="detail-label">任务背景</div>
+            <div class="detail-text">Muse 设计总监 Alex Cornell 20 年前的博客辗转搬过 Blogger、Tumblr 等多个平台，内容散落难找、更没法日常重温，想把它变成一种轻松可消费的新形态。</div>
+          </div>
+
+          <!-- 步骤 -->
           
-            <li class="step-item">
-              <span class="step-num">1</span>
-              <div class="step-content">给自己的 Muse（他取名 Marlowe）下达寻宝任务，让它去 Wayback Machine 与旧博客平台找回全部旧文</div>
+      <div class="detail-section">
+        <div class="detail-label">做法步骤 (4 步)</div>
+        <ol class="steps-clean-list">
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">1.</span>
+              <span class="step-clean-text">给自己的 Muse（他取名 Marlowe）下达寻宝任务，让它去 Wayback Machine 与旧博客平台找回全部旧文</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">2</span>
-              <div class="step-content">让 Muse 把找回的文章汇总成一份稳定的 PDF 存档</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">2.</span>
+              <span class="step-clean-text">让 Muse 把找回的文章汇总成一份稳定的 PDF 存档</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">3</span>
-              <div class="step-content">要求把存档转成个人播客：用合成语音朗读文章</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">3.</span>
+              <span class="step-clean-text">要求把存档转成个人播客：用合成语音朗读文章</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">4</span>
-              <div class="step-content">设置成每天早上推送一期、随机抽一篇朗读，长期自动运行</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">4.</span>
+              <span class="step-clean-text">设置成每天早上推送一期、随机抽一篇朗读，长期自动运行</span>
             </li>
           
         </ol>
       </div>
     
 
-        <!-- 关键提示词 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">💬</span>
-          <span>关键提示词 (Prompt)</span>
-        </div>
+          <!-- 关键提示词 -->
+          
+      <div class="detail-section">
+        <div class="detail-label">关键提示词 (Prompt)</div>
         <div class="prompt-box">
           <div class="prompt-bar">
             <span>PROMPT TEMPLATE</span>
@@ -141,50 +145,56 @@
       </div>
     
 
-        <!-- 产出与证据 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📊</span>
-          <span>产出与证据</span>
-        </div>
-        <div class="output-box">
-          <div class="output-text">原文称产出为每日更新的个人播客：每天早上一期随机旧文朗读，作者形容听到 20 年前的自己吐槽「90% 的人都穿同色裤子」非常爆笑；同文另含把高尔夫/国际象棋数据做成可视化教练看板、把 Instagram 收藏做成复古购物目录的完整工作流（含截图）。</div>
+          <!-- 产出与证据 -->
+          
+      <div class="detail-section">
+        <div class="output-callout">
+          <div class="output-callout-label">产出与证据</div>
+          <div class="output-callout-text">原文称产出为每日更新的个人播客：每天早上一期随机旧文朗读，作者形容听到 20 年前的自己吐槽「90% 的人都穿同色裤子」非常爆笑；同文另含把高尔夫/国际象棋数据做成可视化教练看板、把 Instagram 收藏做成复古购物目录的完整工作流（含截图）。</div>
           
         </div>
       </div>
     
 
-        <!-- 复现要点 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">💡</span>
-            <span>复现要点</span>
+          <!-- 复现要点 -->
+          <div class="detail-section">
+            <div class="detail-label">复现要点</div>
+            <div class="detail-text">需要 Muse 的联网浏览与语音合成能力；先把旧内容的平台、账号、年代等线索给全，找回后先做 PDF 存档再转音频，便于核对完整性。</div>
           </div>
-          <div class="modal-text">需要 Muse 的联网浏览与语音合成能力；先把旧内容的平台、账号、年代等线索给全，找回后先做 PDF 存档再转音频，便于核对完整性。</div>
-        </div>
 
-        <!-- 踩坑提示 -->
-        
+          <!-- 踩坑提示 -->
+          
 
-        <!-- 信源核对 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🔍</span>
-            <span>原始信源核对</span>
-          </div>
-          <div class="source-verify-box">
-            <div class="source-meta-left">
-              <span>作者/报道：<strong>Claire Vo / How I AI（受访：Alex Cornell）</strong></span>
-              <span>&bull;</span>
-              <span>平台：<strong>博客</strong></span>
-              <span>&bull;</span>
-              <span>信源等级：<strong>Grade B</strong></span>
-              <span>&bull;</span><span>发布日期：2026-10-12</span>
+          <!-- 信源核对 -->
+          <div class="detail-section" style="margin-top: 6px;">
+            <div class="source-verify-box">
+              <div class="source-meta-left">
+                <span>作者/报道：<strong>Claire Vo / How I AI（受访：Alex Cornell）</strong></span>
+                <span>&bull;</span>
+                <span>平台：<strong>博客</strong></span>
+                <span>&bull;</span>
+                <span>信源等级：<strong>Grade B</strong></span>
+                <span>&bull;</span><span>发布日期：2026-10-12</span>
+              </div>
+              
+                <a href="https://www.chatprd.ai/how-i-ai/alex-cornell-meta-muse-workflows" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                  <span>打开原文报道</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              
             </div>
+          </div>
+
+          <!-- 底部行动 -->
+          <div class="featured-footer" style="margin-top: 24px;">
+            <a href="../../" class="btn btn-outline">&larr; 返回查看全部 49 个实战案例</a>
             
-              <a href="https://www.chatprd.ai/how-i-ai/alex-cornell-meta-muse-workflows" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
-                <span>打开原文报道</span>
+              <a href="https://www.chatprd.ai/how-i-ai/alex-cornell-meta-muse-workflows" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>访问原文报道</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -193,21 +203,6 @@
               </a>
             
           </div>
-        </div>
-
-        <!-- 底部行动 -->
-        <div class="featured-footer" style="margin-top: 24px;">
-          <a href="../../" class="btn btn-outline">&larr; 返回查看全部 49 个实战案例</a>
-          
-            <a href="https://www.chatprd.ai/how-i-ai/alex-cornell-meta-muse-workflows" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>访问原文报道</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          
         </div>
       </div>
     </main>

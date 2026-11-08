@@ -9,6 +9,16 @@
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
   <meta name="theme-color" content="#f5efe6">
+
+  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">
   
   <meta property="og:type" content="article">
   <meta property="og:title" content="用 Muse Spark 当科学家、Wonder 当评审：造出自动筛药助手，38 个化合物判对 34 个 - Meta Muse 实战案例">
@@ -79,111 +89,113 @@
           </div>
         </div>
 
-        <h1 class="featured-title" style="margin-top: 10px; cursor: default;">用 Muse Spark 当科学家、Wonder 当评审：造出自动筛药助手，38 个化合物判对 34 个</h1>
-        <p class="featured-valueline" style="font-size: 1.02rem; margin-bottom: 24px;">盲测协议下让两个 Muse 模型分工实验与复核，单次运行只要约 0.29 美元。</p>
-
-        <!-- 任务背景 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🎯</span>
-            <span>任务背景</span>
+        <div class="detail-flow">
+          <div class="detail-header">
+            <h1 class="detail-title" style="margin-top: 10px; cursor: default;">用 Muse Spark 当科学家、Wonder 当评审：造出自动筛药助手，38 个化合物判对 34 个</h1>
+            <div class="detail-valueline">盲测协议下让两个 Muse 模型分工实验与复核，单次运行只要约 0.29 美元。</div>
           </div>
-          <div class="modal-text">开发者 Aleksandra Hodzzik 在黑客松期间用 Meta 的模型搭了 MuseCell：一个在真实 BBBC021 细胞图像上工作的盲测筛选助手。难点在于药物作用机制判断今天靠生物学家人工比图、补剂量、查文献，她想把选实验、做判断、查文献这条链自动化，还要全程盲测防作弊。</div>
-        </div>
 
-        <!-- 步骤 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📝</span>
-          <span>做法步骤 (5 步)</span>
-        </div>
-        <ol class="steps-list">
+          <!-- 任务背景 -->
+          <div class="detail-section">
+            <div class="detail-label">任务背景</div>
+            <div class="detail-text">开发者 Aleksandra Hodzzik 在黑客松期间用 Meta 的模型搭了 MuseCell：一个在真实 BBBC021 细胞图像上工作的盲测筛选助手。难点在于药物作用机制判断今天靠生物学家人工比图、补剂量、查文献，她想把选实验、做判断、查文献这条链自动化，还要全程盲测防作弊。</div>
+          </div>
+
+          <!-- 步骤 -->
           
-            <li class="step-item">
-              <span class="step-num">1</span>
-              <div class="step-content">给助手设定盲测协议：化合物名称揭盲前不可见，先提交结论再对答案</div>
+      <div class="detail-section">
+        <div class="detail-label">做法步骤 (5 步)</div>
+        <ol class="steps-clean-list">
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">1.</span>
+              <span class="step-clean-text">给助手设定盲测协议：化合物名称揭盲前不可见，先提交结论再对答案</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">2</span>
-              <div class="step-content">Muse Spark 1.3 担任科学家与显微镜手，在有限的孔位预算内规划拍哪 4 个孔、读测量值、维护假设板</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">2.</span>
+              <span class="step-clean-text">Muse Spark 1.3 担任科学家与显微镜手，在有限的孔位预算内规划拍哪 4 个孔、读测量值、维护假设板</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">3</span>
-              <div class="step-content">Muse Wonder 1.0 担任 PI 评审，复核盲测证据账本，批准结论或要求再补一个实验</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">3.</span>
+              <span class="step-clean-text">Muse Wonder 1.0 担任 PI 评审，复核盲测证据账本，批准结论或要求再补一个实验</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">4</span>
-              <div class="step-content">最终判定交给协议代码按相似度投票做主，模型只负责规划、争论和解释</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">4.</span>
+              <span class="step-clean-text">最终判定交给协议代码按相似度投票做主，模型只负责规划、争论和解释</span>
             </li>
           
-            <li class="step-item">
-              <span class="step-num">5</span>
-              <div class="step-content">揭盲后才允许查 PubChem、ChEMBL 和 PubMed 核对，并生成带引用的完整档案</div>
+            <li class="step-clean-item">
+              <span class="step-clean-num">5.</span>
+              <span class="step-clean-text">揭盲后才允许查 PubChem、ChEMBL 和 PubMed 核对，并生成带引用的完整档案</span>
             </li>
           
         </ol>
       </div>
     
 
-        <!-- 关键提示词 -->
-        
+          <!-- 关键提示词 -->
+          
 
-        <!-- 产出与证据 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">📊</span>
-          <span>产出与证据</span>
-        </div>
-        <div class="output-box">
-          <div class="output-text">仓库公开的评测结果：agent v5 在 38 个化合物上判对 34 个作用机制，冻结划分的留出集上 19 个判对 18 个；单次运行平均约 0.29 美元、约 1.5 分钟（38 次运行均值），并提供可在线回放的演示。</div>
+          <!-- 产出与证据 -->
+          
+      <div class="detail-section">
+        <div class="output-callout">
+          <div class="output-callout-label">产出与证据</div>
+          <div class="output-callout-text">仓库公开的评测结果：agent v5 在 38 个化合物上判对 34 个作用机制，冻结划分的留出集上 19 个判对 18 个；单次运行平均约 0.29 美元、约 1.5 分钟（38 次运行均值），并提供可在线回放的演示。</div>
           
         </div>
       </div>
     
 
-        <!-- 复现要点 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">💡</span>
-            <span>复现要点</span>
+          <!-- 复现要点 -->
+          <div class="detail-section">
+            <div class="detail-label">复现要点</div>
+            <div class="detail-text">关键设计是分工与制衡：让强模型负责规划、另一个模型复核、最终判定交给确定性代码；同时给每次运行设费用上限，仓库代码开源可直接参考其护栏实现。</div>
           </div>
-          <div class="modal-text">关键设计是分工与制衡：让强模型负责规划、另一个模型复核、最终判定交给确定性代码；同时给每次运行设费用上限，仓库代码开源可直接参考其护栏实现。</div>
-        </div>
 
-        <!-- 踩坑提示 -->
-        
-      <div class="modal-section">
-        <div class="modal-section-title">
-          <span class="modal-section-icon">⚠️</span>
-          <span>踩坑提示</span>
+          <!-- 踩坑提示 -->
+          
+      <div class="detail-section">
+        <div class="pitfalls-callout">
+          <div class="pitfalls-callout-label">踩坑提示</div>
+          <div class="pitfalls-callout-text">作者明确记录：当模型用自己的判断推翻公开的 NSC 投票时大多判错（v4 中 7 次错 6 次），所以别让模型当最终裁判；该工具仅供科研筛选，不能输出诊断或治疗建议。</div>
         </div>
-        <div class="pitfalls-box">作者明确记录：当模型用自己的判断推翻公开的 NSC 投票时大多判错（v4 中 7 次错 6 次），所以别让模型当最终裁判；该工具仅供科研筛选，不能输出诊断或治疗建议。</div>
       </div>
     
 
-        <!-- 信源核对 -->
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🔍</span>
-            <span>原始信源核对</span>
-          </div>
-          <div class="source-verify-box">
-            <div class="source-meta-left">
-              <span>作者/报道：<strong>Aleksandra Hodzzik（GitHub 仓库 MuseCell）</strong></span>
-              <span>&bull;</span>
-              <span>平台：<strong>GitHub</strong></span>
-              <span>&bull;</span>
-              <span>信源等级：<strong>Grade B</strong></span>
-              <span>&bull;</span><span>发布日期：2026-10-29</span>
+          <!-- 信源核对 -->
+          <div class="detail-section" style="margin-top: 6px;">
+            <div class="source-verify-box">
+              <div class="source-meta-left">
+                <span>作者/报道：<strong>Aleksandra Hodzzik（GitHub 仓库 MuseCell）</strong></span>
+                <span>&bull;</span>
+                <span>平台：<strong>GitHub</strong></span>
+                <span>&bull;</span>
+                <span>信源等级：<strong>Grade B</strong></span>
+                <span>&bull;</span><span>发布日期：2026-10-29</span>
+              </div>
+              
+                <a href="https://github.com/aleksandrahodzzik/musecell" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                  <span>打开原文报道</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              
             </div>
+          </div>
+
+          <!-- 底部行动 -->
+          <div class="featured-footer" style="margin-top: 24px;">
+            <a href="../../" class="btn btn-outline">&larr; 返回查看全部 49 个实战案例</a>
             
-              <a href="https://github.com/aleksandrahodzzik/musecell" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
-                <span>打开原文报道</span>
+              <a href="https://github.com/aleksandrahodzzik/musecell" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>访问原文报道</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -192,21 +204,6 @@
               </a>
             
           </div>
-        </div>
-
-        <!-- 底部行动 -->
-        <div class="featured-footer" style="margin-top: 24px;">
-          <a href="../../" class="btn btn-outline">&larr; 返回查看全部 49 个实战案例</a>
-          
-            <a href="https://github.com/aleksandrahodzzik/musecell" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>访问原文报道</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          
         </div>
       </div>
     </main>

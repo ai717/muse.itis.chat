@@ -20,6 +20,9 @@
       favBtn: '只看收藏',
       allCategories: '全部',
       resultsCount: (count, total) => `展示 ${count} 个案例 (共 ${total} 个)`,
+      pagePrev: '上一页',
+      pageNext: '下一页',
+      pageOf: (cur, total, count) => `第 ${cur}/${total} 页（共 ${count} 条）`,
       resetFilters: '重置所有筛选',
       cardPromptBadge: '💬 提示词',
       emptyTitle: '未找到匹配的案例',
@@ -67,6 +70,9 @@
       favBtn: 'Saved',
       allCategories: 'All',
       resultsCount: (count, total) => `Showing ${count} of ${total} cases`,
+      pagePrev: 'Previous',
+      pageNext: 'Next',
+      pageOf: (cur, total, count) => `Page ${cur} of ${total} (${count} cases)`,
       resetFilters: 'Reset all filters',
       cardPromptBadge: '💬 Prompt',
       emptyTitle: 'No matching cases found',
@@ -108,6 +114,8 @@
     data: null,
     currentCategory: 'all',
     searchKeyword: '',
+    currentPage: 1,
+    pageSize: 60,
     currentSort: 'heat',
     favoritesOnly: false,
     favorites: new Set(),
@@ -140,6 +148,7 @@
     resultsCount: document.getElementById('resultsCount'),
     resetFilterLink: document.getElementById('resetFilterLink'),
     casesGrid: document.getElementById('casesGrid'),
+    paginationWrap: document.getElementById('paginationWrap'),
     emptyState: document.getElementById('emptyState'),
     emptyResetBtn: document.getElementById('emptyResetBtn'),
     footerSource: document.getElementById('footerSource'),
@@ -624,6 +633,7 @@
   // 切换分类
   function setCategory(catId) {
     state.currentCategory = catId;
+    state.currentPage = 1;
     const tabBtns = dom.categoryTabs.querySelectorAll('.cat-tab-btn');
     tabBtns.forEach(btn => {
       if (btn.getAttribute('data-cat') === catId) {
@@ -679,103 +689,209 @@
       }
     });
 
-    dom.resultsCount.textContent = t.resultsCount(filtered.length, cases.length);
+    const totalCount = filtered.length;
+    const pageSize = state.pageSize || 60;
+    const totalPages = Math.ceil(totalCount / pageSize) || 1;
+    if (state.currentPage > totalPages) state.currentPage = totalPages;
+    if (state.currentPage < 1) state.currentPage = 1;
+
+    if (totalPages > 1) {
+      dom.resultsCount.textContent = `${t.resultsCount(totalCount, cases.length)} · ${t.pageOf(state.currentPage, totalPages, totalCount)}`;
+    } else {
+      dom.resultsCount.textContent = t.resultsCount(totalCount, cases.length);
+    }
 
     const hasFilter = state.currentCategory !== 'all' || state.searchKeyword || state.favoritesOnly;
     dom.resetFilterLink.style.display = hasFilter ? 'inline-block' : 'none';
 
-    if (filtered.length === 0) {
+    if (totalCount === 0) {
       dom.casesGrid.style.display = 'none';
       dom.emptyState.style.display = 'block';
-    } else {
-      dom.casesGrid.style.display = 'grid';
-      dom.emptyState.style.display = 'none';
+      if (dom.paginationWrap) {
+        dom.paginationWrap.style.display = 'none';
+        dom.paginationWrap.innerHTML = '';
+      }
+      return;
+    }
 
-      dom.casesGrid.innerHTML = filtered.map(c => {
-        const catName = getCategoryName(c.category);
-        const diffText = getDifficultyText(c);
-        const isFav = state.favorites.has(c.id);
+    dom.casesGrid.style.display = 'grid';
+    dom.emptyState.style.display = 'none';
 
-        return `
-          <div class="case-card" data-case-id="${c.id}" tabindex="0" role="button" aria-label="${escapeHtml(c.title)}">
-            <div>
-              <div class="card-header-row">
-                <div class="card-badges">
-                  <span class="badge badge-cat">${escapeHtml(catName)} · ${escapeHtml(diffText)}</span>
-                  ${c.keyPrompt ? `<span class="badge badge-prompt-dot" title="Has prompt template">${t.cardPromptBadge}</span>` : ''}
-                </div>
-                <button class="card-fav-btn ${isFav ? 'active' : ''}" data-fav-case-id="${c.id}" title="${isFav ? (state.lang === 'en' ? 'Saved' : '已收藏') : (state.lang === 'en' ? 'Save' : '加入收藏')}" aria-label="Save">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                  </svg>
-                </button>
+    const startIndex = (state.currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const paginated = filtered.slice(startIndex, endIndex);
+
+    dom.casesGrid.innerHTML = paginated.map(c => {
+      const catName = getCategoryName(c.category);
+      const diffText = getDifficultyText(c);
+      const isFav = state.favorites.has(c.id);
+
+      return `
+        <div class="case-card" data-case-id="${c.id}" tabindex="0" role="button" aria-label="${escapeHtml(c.title)}">
+          <div>
+            <div class="card-header-row">
+              <div class="card-badges">
+                <span class="badge badge-cat">${escapeHtml(catName)} · ${escapeHtml(diffText)}</span>
+                ${c.keyPrompt ? `<span class="badge badge-prompt-dot" title="Has prompt template">${t.cardPromptBadge}</span>` : ''}
               </div>
-
-              <h3 class="card-title">${escapeHtml(c.title)}</h3>
-              
-              <p class="card-valueline">${escapeHtml(c.valueLine)}</p>
-
-              <div class="card-stats-row">
-                <span class="stat-tag stat-score">★ ${c.score}</span>
-                <span class="stat-tag stat-heat">🔥 ${c.heat}</span>
-                <span class="stat-tag stat-grade">Grade ${escapeHtml(c.source?.grade || '')}</span>
-              </div>
+              <button class="card-fav-btn ${isFav ? 'active' : ''}" data-fav-case-id="${c.id}" title="${isFav ? (state.lang === 'en' ? 'Saved' : '已收藏') : (state.lang === 'en' ? 'Save' : '加入收藏')}" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
             </div>
 
-            <div class="card-footer">
-              <div class="card-source-info" title="${escapeHtml(c.source?.platform || '')} · ${escapeHtml(c.source?.name || '')}">
-                <span>${escapeHtml(c.source?.platform || '')}</span>
-              </div>
+            <h3 class="card-title">${escapeHtml(c.title)}</h3>
+            
+            <p class="card-valueline">${escapeHtml(c.valueLine)}</p>
 
-              <div style="display: flex; align-items: center; gap: 8px;">
-                ${c.source?.url ? `
-                  <a href="${escapeHtml(c.source.url)}" target="_blank" rel="noopener noreferrer" class="source-link-btn" title="Verify original source" data-source-link="true">
-                    <span>${t.sourceLink}</span>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
-                ` : ''}
-                <span class="card-detail-action">${t.viewDetails}</span>
-              </div>
+            <div class="card-stats-row">
+              <span class="stat-tag stat-score">★ ${c.score}</span>
+              <span class="stat-tag stat-heat">🔥 ${c.heat}</span>
+              <span class="stat-tag stat-grade">Grade ${escapeHtml(c.source?.grade || '')}</span>
             </div>
           </div>
-        `;
-      }).join('');
 
-      // 绑定卡片点击
-      const cardEls = dom.casesGrid.querySelectorAll('.case-card');
-      cardEls.forEach(card => {
-        const id = Number(card.getAttribute('data-case-id'));
-        card.addEventListener('click', (e) => {
+          <div class="card-footer">
+            <div class="card-source-info" title="${escapeHtml(c.source?.platform || '')} · ${escapeHtml(c.source?.name || '')}">
+              <span>${escapeHtml(c.source?.platform || '')}</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 8px;">
+              ${c.source?.url ? `
+                <a href="${escapeHtml(c.source.url)}" target="_blank" rel="noopener noreferrer" class="source-link-btn" title="Verify original source" data-source-link="true">
+                  <span>${t.sourceLink}</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              ` : ''}
+              <span class="card-detail-action">${t.viewDetails}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // 绑定卡片点击
+    const cardEls = dom.casesGrid.querySelectorAll('.case-card');
+    cardEls.forEach(card => {
+      const id = Number(card.getAttribute('data-case-id'));
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('[data-source-link]') || e.target.closest('[data-fav-case-id]')) {
+          return;
+        }
+        openCaseModal(id);
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
           if (e.target.closest('[data-source-link]') || e.target.closest('[data-fav-case-id]')) {
             return;
           }
+          e.preventDefault();
           openCaseModal(id);
-        });
-
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            if (e.target.closest('[data-source-link]') || e.target.closest('[data-fav-case-id]')) {
-              return;
-            }
-            e.preventDefault();
-            openCaseModal(id);
-          }
-        });
-
-        const srcLink = card.querySelector('[data-source-link]');
-        if (srcLink) {
-          srcLink.addEventListener('click', (e) => e.stopPropagation());
-        }
-
-        const favBtn = card.querySelector(`[data-fav-case-id="${id}"]`);
-        if (favBtn) {
-          favBtn.addEventListener('click', (e) => toggleFavorite(id, e));
         }
       });
+
+      const srcLink = card.querySelector('[data-source-link]');
+      if (srcLink) {
+        srcLink.addEventListener('click', (e) => e.stopPropagation());
+      }
+
+      const favBtn = card.querySelector(`[data-fav-case-id="${id}"]`);
+      if (favBtn) {
+        favBtn.addEventListener('click', (e) => toggleFavorite(id, e));
+      }
+    });
+
+    renderPagination(totalPages, totalCount);
+  }
+
+  // 渲染分页控件
+  function renderPagination(totalPages, totalCount) {
+    if (!dom.paginationWrap) return;
+    if (totalPages <= 1) {
+      dom.paginationWrap.style.display = 'none';
+      dom.paginationWrap.innerHTML = '';
+      return;
+    }
+
+    const t = I18N[state.lang];
+    dom.paginationWrap.style.display = 'flex';
+
+    const cur = state.currentPage;
+    let html = '';
+
+    // 上一页
+    const prevDisabled = cur === 1 ? 'disabled' : '';
+    html += `
+      <button class="pagination-btn pagination-prev" data-page="${cur - 1}" ${prevDisabled}>
+        &larr; ${t.pagePrev}
+      </button>
+    `;
+
+    // 页码智能折叠
+    const pagesToShow = [];
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) pagesToShow.push(i);
+    } else {
+      pagesToShow.push(1);
+      if (cur > 3) pagesToShow.push('...');
+      const start = Math.max(2, cur - 1);
+      const end = Math.min(totalPages - 1, cur + 1);
+      for (let i = start; i <= end; i++) pagesToShow.push(i);
+      if (cur < totalPages - 2) pagesToShow.push('...');
+      pagesToShow.push(totalPages);
+    }
+
+    pagesToShow.forEach(p => {
+      if (p === '...') {
+        html += `<span class="pagination-ellipsis">&hellip;</span>`;
+      } else {
+        const isActive = p === cur ? 'active' : '';
+        html += `
+          <button class="pagination-btn ${isActive}" data-page="${p}" aria-label="Page ${p}">
+            ${p}
+          </button>
+        `;
+      }
+    });
+
+    // 下一页
+    const nextDisabled = cur === totalPages ? 'disabled' : '';
+    html += `
+      <button class="pagination-btn pagination-next" data-page="${cur + 1}" ${nextDisabled}>
+        ${t.pageNext} &rarr;
+      </button>
+    `;
+
+    html += `
+      <span class="pagination-info">${t.pageOf(cur, totalPages, totalCount)}</span>
+    `;
+
+    dom.paginationWrap.innerHTML = html;
+
+    const btns = dom.paginationWrap.querySelectorAll('.pagination-btn[data-page]');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.hasAttribute('disabled')) return;
+        const targetPage = Number(btn.getAttribute('data-page'));
+        if (targetPage >= 1 && targetPage <= totalPages && targetPage !== state.currentPage) {
+          state.currentPage = targetPage;
+          renderCasesGrid();
+          scrollToGrid();
+        }
+      });
+    });
+  }
+
+  function scrollToGrid() {
+    const target = dom.resultsCount || dom.categoryTabs || dom.casesGrid;
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
@@ -803,37 +919,35 @@
 
     updateModalFavState(isFav);
 
+    // 结构更整体的沉浸式详情流
     let bodyHtml = `
-      <h2 class="modal-title">${escapeHtml(c.title)}</h2>
-      <div class="modal-valueline">${escapeHtml(c.valueLine)}</div>
+      <div class="detail-flow">
+        <div class="detail-header">
+          <h2 class="detail-title" style="margin-top: 0;">${escapeHtml(c.title)}</h2>
+          <div class="detail-valueline">${escapeHtml(c.valueLine)}</div>
+        </div>
     `;
 
     // 1. 任务背景
     if (c.background && c.background.trim() !== '') {
       bodyHtml += `
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🎯</span>
-            <span>${t.modalBackground}</span>
-          </div>
-          <div class="modal-text">${escapeHtml(c.background)}</div>
+        <div class="detail-section">
+          <div class="detail-label">${t.modalBackground}</div>
+          <div class="detail-text">${escapeHtml(c.background)}</div>
         </div>
       `;
     }
 
-    // 2. 做法步骤 (steps 数组)
+    // 2. 做法步骤 (steps 数组，连贯数字序号列表)
     if (Array.isArray(c.steps) && c.steps.length > 0) {
       bodyHtml += `
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">📝</span>
-            <span>${t.modalSteps(c.steps.length)}</span>
-          </div>
-          <ol class="steps-list">
+        <div class="detail-section">
+          <div class="detail-label">${t.modalSteps(c.steps.length)}</div>
+          <ol class="steps-clean-list">
             ${c.steps.map((st, i) => `
-              <li class="step-item">
-                <span class="step-num">${i + 1}</span>
-                <div class="step-content">${escapeHtml(st)}</div>
+              <li class="step-clean-item">
+                <span class="step-clean-num">${i + 1}</span>
+                <div class="step-clean-text">${escapeHtml(st)}</div>
               </li>
             `).join('')}
           </ol>
@@ -844,11 +958,8 @@
     // 3. 关键提示词
     if (c.keyPrompt && c.keyPrompt.trim() !== '') {
       bodyHtml += `
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">💬</span>
-            <span>${t.modalPrompt}</span>
-          </div>
+        <div class="detail-section">
+          <div class="detail-label">${t.modalPrompt}</div>
           <div class="prompt-box">
             <div class="prompt-bar">
               <span>PROMPT TEMPLATE</span>
@@ -861,24 +972,18 @@
     }
 
     // 4. 产出与证据
-    if (c.outputDesc && c.outputDesc.trim() !== '') {
+    if (c.outputDesc || c.outputUrl) {
       bodyHtml += `
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">📊</span>
-            <span>${t.modalOutput}</span>
-          </div>
-          <div class="output-box">
-            <div class="output-text">${escapeHtml(c.outputDesc)}</div>
+        <div class="detail-section">
+          <div class="output-callout">
+            <div class="output-callout-label">${t.modalOutput}</div>
+            ${c.outputDesc ? `<div class="output-callout-text">${escapeHtml(c.outputDesc)}</div>` : ''}
             ${c.outputUrl && c.outputUrl.trim() !== '' ? `
-              <a href="${escapeHtml(c.outputUrl)}" target="_blank" rel="noopener noreferrer" class="output-link-btn">
-                <span>${t.modalOutputLink}</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </a>
+              <div style="margin-top: 10px;">
+                <a href="${escapeHtml(c.outputUrl)}" target="_blank" rel="noopener noreferrer" class="output-callout-link">
+                  <span>${t.modalOutputLink}</span> &rarr;
+                </a>
+              </div>
             ` : ''}
           </div>
         </div>
@@ -888,12 +993,9 @@
     // 5. 复现要点
     if (c.reproduceTips && c.reproduceTips.trim() !== '') {
       bodyHtml += `
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">💡</span>
-            <span>${t.modalTips}</span>
-          </div>
-          <div class="modal-text">${escapeHtml(c.reproduceTips)}</div>
+        <div class="detail-section">
+          <div class="detail-label">${t.modalTips}</div>
+          <div class="detail-text">${escapeHtml(c.reproduceTips)}</div>
         </div>
       `;
     }
@@ -901,12 +1003,11 @@
     // 6. 踩坑提示
     if (c.pitfalls && c.pitfalls.trim() !== '') {
       bodyHtml += `
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">⚠️</span>
-            <span>${t.modalPitfalls}</span>
+        <div class="detail-section">
+          <div class="pitfalls-callout">
+            <div class="pitfalls-callout-label">${t.modalPitfalls}</div>
+            <div class="pitfalls-callout-text">${escapeHtml(c.pitfalls)}</div>
           </div>
-          <div class="pitfalls-box">${escapeHtml(c.pitfalls)}</div>
         </div>
       `;
     }
@@ -914,11 +1015,8 @@
     // 7. 信源信息核对
     if (c.source) {
       bodyHtml += `
-        <div class="modal-section">
-          <div class="modal-section-title">
-            <span class="modal-section-icon">🔍</span>
-            <span>${t.modalSource}</span>
-          </div>
+        <div class="detail-section">
+          <div class="detail-label">${t.modalSource}</div>
           <div class="source-verify-box">
             <div class="source-meta-left">
               <span>${t.modalAuthor}：<strong>${escapeHtml(c.source.name || '')}</strong></span>
@@ -945,6 +1043,8 @@
         </div>
       `;
     }
+
+    bodyHtml += `</div>`; // end detail-flow
 
     dom.modalBody.innerHTML = bodyHtml;
 
@@ -1061,6 +1161,7 @@
     // 搜索输入
     dom.searchInput.addEventListener('input', (e) => {
       state.searchKeyword = e.target.value;
+      state.currentPage = 1;
       dom.clearSearchBtn.style.display = state.searchKeyword ? 'flex' : 'none';
       renderCasesGrid();
     });
@@ -1069,6 +1170,7 @@
     dom.clearSearchBtn.addEventListener('click', () => {
       dom.searchInput.value = '';
       state.searchKeyword = '';
+      state.currentPage = 1;
       dom.clearSearchBtn.style.display = 'none';
       dom.searchInput.focus();
       renderCasesGrid();
@@ -1077,12 +1179,14 @@
     // 排序选择
     dom.sortSelect.addEventListener('change', (e) => {
       state.currentSort = e.target.value;
+      state.currentPage = 1;
       renderCasesGrid();
     });
 
     // 只看收藏切换
     dom.favFilterBtn.addEventListener('click', () => {
       state.favoritesOnly = !state.favoritesOnly;
+      state.currentPage = 1;
       if (state.favoritesOnly) {
         dom.favFilterBtn.classList.add('active');
       } else {
@@ -1095,6 +1199,7 @@
     const resetFilters = () => {
       state.currentCategory = 'all';
       state.searchKeyword = '';
+      state.currentPage = 1;
       dom.searchInput.value = '';
       dom.clearSearchBtn.style.display = 'none';
       state.favoritesOnly = false;
