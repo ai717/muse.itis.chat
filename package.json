@@ -1,0 +1,19 @@
+{
+  "name": "muse.itis.chat",
+  "version": "1.0.0",
+  "description": "Meta Muse Real-World Case Library",
+  "private": true,
+  "scripts": {
+    "sync": "node sync-site-seo.js",
+    "add": "node scripts/add-case.js",
+    "pull": "git pull --rebase origin main",
+    "publish": "node scripts/publish.js"
+  },
+  "keywords": [
+    "meta-muse",
+    "ai-agent",
+    "case-library"
+  ],
+  "author": "ai717",
+  "license": "MIT"
+}

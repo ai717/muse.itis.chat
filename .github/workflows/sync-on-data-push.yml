@@ -1,0 +1,51 @@
+name: Sync SEO & Static Pages on Data Push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data.json'
+      - 'data-en.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-site-seo
+  cancel-in-progress: false
+
+jobs:
+  sync-seo-and-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js (v20 LTS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Data Validation & SEO Sync Engine
+        run: |
+          node sync-site-seo.js
+
+      - name: Commit and Push Generated Static Assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # 仅提交生成的静态资产与SEO文件，绝不提交 data.json / data-en.json
+          git add index.html en/index.html sitemap.xml data-fallback.js data-en-fallback.js case/
+          
+          if git diff --staged --quiet; then
+            echo "✅ 没有检测到生成的页面与SEO文件变动，跳过提交。"
+          else
+            echo "📦 检测到静态资源变动，执行提交并推送至 main..."
+            git commit -m "chore(data): auto-sync static SEO & pages [skip ci]"
+            git push origin main
+          fi

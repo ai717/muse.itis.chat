@@ -40,18 +40,27 @@ function validateData(dataZh, dataEn) {
   dataEn.cases.forEach(c => enMap.set(c.id, c));
 
   const validCategories = new Set(dataZh.categories.map(c => c.id));
+  const validDifficulties = new Set(['入门', '进阶', '高阶']);
+  const validDifficultiesEn = new Set(['Beginner', 'Intermediate', 'Advanced']);
 
   dataZh.cases.forEach((czh, index) => {
     const expectedId = index + 1;
+    // 门禁1：id 全局从 1 递增，连续无跳号
     if (czh.id !== expectedId) {
-      warnings.push(`案例 id 未按预期连续排列：位置 ${index + 1} 上的 id 为 ${czh.id}`);
+      errors.push(`案例 id 未按预期连续排列（必须全局从 1 连续递增无跳号）：位置 ${index + 1} 上的 id 为 ${czh.id}`);
     }
 
+    // 门禁2：分类白名单
     if (!validCategories.has(czh.category)) {
       errors.push(`案例 [${czh.id}] 分类 '${czh.category}' 不在 9 大分类字典中！`);
     }
 
-    // 必填字段检查
+    // 门禁3：难度规范
+    if (!validDifficulties.has(czh.difficulty)) {
+      warnings.push(`案例 [${czh.id}] 中文难度 '${czh.difficulty}' 建议为 入门/进阶/高阶`);
+    }
+
+    // 门禁4：必填字段齐全检查
     const required = ['title', 'valueLine', 'background', 'steps', 'outputDesc', 'reproduceTips'];
     required.forEach(f => {
       if (!czh[f] || (Array.isArray(czh[f]) && czh[f].length === 0)) {
@@ -59,11 +68,12 @@ function validateData(dataZh, dataEn) {
       }
     });
 
+    // 门禁5：信源完整性 (name, platform, grade, url)
     if (!czh.source || !czh.source.name || !czh.source.platform || !czh.source.grade || !czh.source.url) {
       errors.push(`案例 [${czh.id}] 缺少完整的 source 信源信息（name/platform/grade/url）！`);
     }
 
-    // 与英文条目逐一核对
+    // 门禁6：与英文条目逐一逐字段严格对齐
     const cen = enMap.get(czh.id);
     if (!cen) {
       errors.push(`英文数据中缺失对应的 id=${czh.id}`);
@@ -78,11 +88,18 @@ function validateData(dataZh, dataEn) {
         warnings.push(`案例 [${czh.id}] 中英文热度不一致: ${czh.heat} vs ${cen.heat}`);
       }
       if (cen.source?.url !== czh.source?.url) {
-        warnings.push(`案例 [${czh.id}] 中英文信源 URL 不一致`);
+        errors.push(`案例 [${czh.id}] 中英文信源链接不一致: 中文(${czh.source?.url}) vs 英文(${cen.source?.url})`);
       }
       if (!cen.difficultyEn) {
-        warnings.push(`案例 [${czh.id}] 英文版未提供 difficultyEn，将由系统自动映射兜底`);
+        warnings.push(`案例 [${czh.id}] 英文版未提供 difficultyEn，建议补充 Beginner/Intermediate/Advanced`);
+      } else if (!validDifficultiesEn.has(cen.difficultyEn)) {
+        warnings.push(`案例 [${czh.id}] 英文难度 '${cen.difficultyEn}' 建议为 Beginner/Intermediate/Advanced`);
       }
+      required.forEach(f => {
+        if (!cen[f] || (Array.isArray(cen[f]) && cen[f].length === 0)) {
+          errors.push(`案例 [${czh.id}] 英文缺少必填字段: ${f}`);
+        }
+      });
     }
   });
 

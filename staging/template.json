@@ -1,0 +1,40 @@
+{
+  "category": "daily",
+  "difficulty": "入门",
+  "difficultyEn": "Beginner",
+  "score": 90,
+  "heat": 85,
+  "featured": false,
+  "issueDate": "2026-11-10",
+  "titleZh": "【示例】用 Muse 完成特定任务",
+  "titleEn": "Example: Complete Specific Task with Muse",
+  "valueLineZh": "一句话说明这个实战案例的核心价值与解决的问题。",
+  "valueLineEn": "One-sentence summary of the core value and solved problem.",
+  "backgroundZh": "详细描述作者面临的具体痛点或测试背景。",
+  "backgroundEn": "Detailed description of the user problem or testing background.",
+  "stepsZh": [
+    "第一步：给 Muse 下达初始指令...",
+    "第二步：接入相关账号与日历...",
+    "第三步：获取最终产出..."
+  ],
+  "stepsEn": [
+    "Step 1: Give initial prompt to Muse...",
+    "Step 2: Connect relevant integrations...",
+    "Step 3: Review the final output..."
+  ],
+  "keyPrompt": "Prompt template here (optional, can be empty string)",
+  "outputDescZh": "真实产出描述与核实细节。",
+  "outputDescEn": "Real-world output description and verification details.",
+  "outputUrl": "",
+  "reproduceTipsZh": "复现关键要点与前置权限设置。",
+  "reproduceTipsEn": "Replication tips and prerequisite settings.",
+  "pitfallsZh": "踩坑提示（若无可留空字符串）。",
+  "pitfallsEn": "Known pitfalls (can be empty string).",
+  "source": {
+    "name": "作者名",
+    "platform": "来源平台 (如 X, YouTube, Blog, Reddit)",
+    "grade": "B",
+    "url": "https://example.com/source-url",
+    "publishedAt": "2026-11-09"
+  }
+}
