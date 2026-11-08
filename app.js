@@ -335,6 +335,38 @@
     }
     const footerNoteEl = document.querySelector('.footer-note');
     if (footerNoteEl) footerNoteEl.textContent = t.footerNote;
+
+    // 友情链接双语文本
+    const footerLinksContainer = document.querySelector('.footer-links');
+    if (footerLinksContainer) {
+      if (state.lang === 'en') {
+        footerLinksContainer.innerHTML = `
+          <span class="footer-links-label">Friendly Links:</span>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">MoyuNews</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">ITIS Free</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">MoneyLab</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">Free Mini Games</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI Navigation</a>
+        `;
+      } else {
+        footerLinksContainer.innerHTML = `
+          <span class="footer-links-label">友情链接：</span>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">摸鱼杂货店</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">免费开源数字资源</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">搞钱实验室</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+        `;
+      }
+    }
   }
 
   // 加载收藏记录

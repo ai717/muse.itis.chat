@@ -57,20 +57,25 @@ const FOOTER_LINKS_HTML_ZH = `        <div class="footer-links">
 
 const FOOTER_LINKS_HTML_EN = `        <div class="footer-links">
           <span class="footer-links-label">Friendly Links:</span>
-          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">摸鱼杂货店</a>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">MoyuNews</a>
           <span class="footer-links-sep">&bull;</span>
-          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">免费开源数字资源</a>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">ITIS Free</a>
           <span class="footer-links-sep">&bull;</span>
-          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">搞钱实验室</a>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">MoneyLab</a>
           <span class="footer-links-sep">&bull;</span>
-          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">Free Mini Games</a>
           <span class="footer-links-sep">&bull;</span>
-          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI Navigation</a>
         </div>`;
 
 function injectFooterLinks(html, isEn = false) {
-  if (html.includes('class="footer-links"')) return html;
   const linksHtml = isEn ? FOOTER_LINKS_HTML_EN : FOOTER_LINKS_HTML_ZH;
+  if (html.includes('class="footer-links"')) {
+    return html.replace(
+      /<div class="footer-links">[\s\S]*?<\/div>/i,
+      linksHtml.trim()
+    );
+  }
   return html.replace(
     /(<div class="footer-content">)/i,
     `$1\n${linksHtml}`
