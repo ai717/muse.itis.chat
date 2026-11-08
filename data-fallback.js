@@ -1,7 +1,7 @@
 window.FALLBACK_DATA = {
   "site": "Muse 实战案例库",
   "subject": "Meta Muse（个人 AI 助手）真实用户实战案例",
-  "exportedAt": "2026-11-08T18:00:00Z",
+  "exportedAt": "2026-11-08",
   "source": "Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出",
   "categories": [
     {
