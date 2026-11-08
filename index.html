@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- Google SEO 核心元标签 -->
+  <title>Meta Muse 实战案例库 - 真实用户案例、现成Prompt与复现指南</title>
+  <meta name="description" content="收录 12 个 Meta Muse（个人 AI 助手）真实用户实战案例，涵盖日常订阅审计、10项日常自动化、二手车砍价、编程代码库整站修复、从零搭建全栈与健身房教练。提供现成 Prompt 提示词与原始报道核对链接。">
+  <meta name="keywords" content="Meta Muse, Muse实战, Muse案例, Muse prompt, 个人AI助手, Muse自动化, Muse Code, Muse Wonder, AI代理, 扎克伯格Muse, AI提效">
+  <meta name="author" content="Muse 实战案例库">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://muse.itis.chat/">
+  <link rel="alternate" hreflang="zh-CN" href="https://muse.itis.chat/">
+  <link rel="alternate" hreflang="en" href="https://muse.itis.chat/en/">
+  <link rel="alternate" hreflang="x-default" href="https://muse.itis.chat/">
+
+  <!-- 图标体系 (Monimuse) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="monimuse-icon.svg">
+  <meta name="theme-color" content="#f5efe6">
+
+  <!-- Open Graph 社交与搜索引擎预览 -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Muse 实战案例库">
+  <meta property="og:title" content="Meta Muse 实战案例库 - 真实用户案例、现成Prompt与复现指南">
+  <meta property="og:description" content="12个真实用户亲测 Meta Muse 实战案例，带复现要点、踩坑提示与原始报道核对链接。">
+  <meta property="og:url" content="https://muse.itis.chat/">
+  <meta property="og:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meta Muse 实战案例库">
+  <meta name="twitter:description" content="12个真实用户亲测 Meta Muse 实战案例，带现成 Prompt、避坑提示与原始信源核对。">
+  <meta name="twitter:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google 结构化数据 (Schema.org JSON-LD): WebSite + ItemList + FAQPage -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://muse.itis.chat/#website",
+      "url": "https://muse.itis.chat/",
+      "name": "Muse 实战案例库",
+      "description": "Meta Muse（个人 AI 助手）真实用户实战案例",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://muse.itis.chat/#collection",
+      "url": "https://muse.itis.chat/",
+      "name": "Muse 实战案例库 - 真实用户案例与复现指南",
+      "description": "Meta Muse（个人 AI 助手）真实用户实战案例",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "用 Muse 一口气自动化 10 件日常：周更简报、降价提醒、晨间播报全托管",
+              "description": "照着原文 10 条现成 prompt 抄，就能把提醒、比价、新闻和健康打卡变成每天自动跑的定时任务。",
+              "articleSection": "自动化与定时任务",
+              "url": "https://muse.itis.chat/case/1/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "Elton Jones / Tom's Guide"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Tom's Guide"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "带新手从零上手 Muse：订阅审计一轮砍掉每年 1000 多美元",
+              "description": "先只给只读权限做一次订阅审计，就能把自动续费的漏钱口全部揪出来。",
+              "articleSection": "日常生活",
+              "url": "https://muse.itis.chat/case/2/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "Allie K. Miller（视频整理：OpenClaw Database）"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "把 20 年前的博客复活成每日播客：Muse 扒 Wayback Machine 自动开播",
+              "description": "让 Muse 跨平台找回散落的旧内容、汇总成档，再每天随机朗读一篇推送给你。",
+              "articleSection": "内容创作",
+              "url": "https://muse.itis.chat/case/3/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "Claire Vo / How I AI（受访：Alex Cornell）"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "买二手车前让 Muse 做市调：生成两页砍价 PDF，开口价直指省 4000 美元",
+              "description": "让 Muse 先查同款成交价再生成谈判底稿，去车行前就握好开价、目标价和走人价。",
+              "articleSection": "搞钱与生意经营",
+              "url": "https://muse.itis.chat/case/4/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "AnnaMarie Houlis / Moneywise"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Moneywise"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "非程序员实测 Muse Code 修整站：11 条死链 5 分钟修完，还查出两个配置错误",
+              "description": "先在仓库副本上从最小的脏活开始试，逐条审 diff 再合并，是非程序员用编程代理的安全姿势。",
+              "articleSection": "编程与建站",
+              "url": "https://muse.itis.chat/case/5/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "No Code Required"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "中文实测：让 Muse 只读官方资料做 Jev 应用场景 Excel 表，再用两轮追问改到能用",
+              "description": "限定只看官方页面、每条标注可点出处、没写的就写「官方没说」，能把技术资料整理成小白能读的表。",
+              "articleSection": "学习研究",
+              "url": "https://muse.itis.chat/case/6/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "渔夫 / Agent Skills Dev"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "让 Muse 每周定时上架帽子到 Vinted：二手卖家错峰发布打法",
+              "description": "把照片、定价和标题规则一次交清，再用每周定时上架避开批量发布的限流。",
+              "articleSection": "搞钱与生意经营",
+              "url": "https://muse.itis.chat/case/7/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "iTechnically Kan"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "香港媒体实测：每天晚 8 点让 Muse 把频道更新做成 PDF 报纸经 WhatsApp 推送",
+              "description": "把每天要刷的 YouTube/IG 更新外包给 Muse 定时汇总成图文 PDF，到点自动发到 WhatsApp。",
+              "articleSection": "自动化与定时任务",
+              "url": "https://muse.itis.chat/case/8/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "unwire.hk 编辑部"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "unwire.hk"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "小生意实测三连：Muse 做竞品调研与 30 天上市计划，盈亏平衡算到个位数",
+              "description": "给死预算和成本约束，让 Muse 产出能直接开工的上市计划与盈亏平衡表，但定价决策别全信它。",
+              "articleSection": "搞钱与生意经营",
+              "url": "https://muse.itis.chat/case/9/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "BetterBizLab"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "重度用户公开 26 个已落地用法：让 Muse 自己写了个看板管全部项目",
+              "description": "没有现成功能就让 Muse 现写一个：自定义看板、定时新闻、订场订票都能变成长期资产。",
+              "articleSection": "高阶玩法",
+              "url": "https://muse.itis.chat/case/10/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "Noah（视频逐字稿整理：SozAI）"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "YouTube 实测：用 5 美元档 Muse Wonder 从零搭全栈网站，界面惊艳但登录有坑",
+              "description": "一次提示让 Muse Wonder 生成带数据库与登录的全栈站点只要几分钟，但认证与 Cookie 必须人工验。",
+              "articleSection": "编程与建站",
+              "url": "https://muse.itis.chat/case/11/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "YouTube 科技博主（Muse Wonder 首测视频）"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "YouTube"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "TechArticle",
+              "headline": "扎克伯格最爱用法：健身房架摄像头，让 Muse 在回合间隙 1 分钟内给格斗反馈",
+              "description": "把镜头接给 Muse 并反复催它提速，能得到回合间隙的实时姿势纠错教练。",
+              "articleSection": "家庭与健康",
+              "url": "https://muse.itis.chat/case/12/",
+              "datePublished": "2026-11-08",
+              "inLanguage": "zh-CN",
+              "author": {
+                "@type": "Person",
+                "name": "SmartScope（据 Cheeky Pint 播客整理）"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "博客"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Meta Muse 实战案例库收录了哪些主要场景？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "涵盖日常订阅审计降本、一口气自动化10件日常定时任务、二手车砍价小抄、非程序员用Muse Code整站修复代码库、健身房实时教练等真实场景。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "案例库的提示词和数据真实吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "所有案例均来自一手报道与测试作者，保留信源评级与原始文章核对链接，不编造、不夸大。"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <!-- 背景氛围光晕效果 (极淡沉静暖光) -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- 页面主体容器 -->
+  <div class="app-container">
+    
+    <!-- 顶部导航与 Header -->
+    <header class="site-header">
+      <div class="header-main">
+        <div class="brand-wrap">
+          <!-- Monimuse 灵动专属吉祥物 Logo -->
+          <div class="monimuse-avatar-wrap" title="MoniMuse - 你的温暖 AI 伙伴">
+            <svg class="monimuse-avatar" viewBox="0 0 120 120" width="46" height="46">
+              <defs>
+                <linearGradient id="hdrMoniBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="70%" stop-color="#fef8ee"/>
+                  <stop offset="100%" stop-color="#fbeed3"/>
+                </linearGradient>
+                <radialGradient id="hdrMoniBlush" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fb923c" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#fb923c" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <!-- 头顶小天线灵感微光 -->
+              <circle cx="60" cy="22" r="5.5" fill="#f59e0b"/>
+              <line x1="60" y1="27" x2="60" y2="34" stroke="#d97706" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- 身体软萌微弧 -->
+              <path d="M32,58 C32,38 43,33 60,33 C77,33 88,38 88,58 C88,80 80,94 60,94 C40,94 32,80 32,58 Z" fill="url(#hdrMoniBody)" stroke="#e2d4c0" stroke-width="1.5"/>
+              <!-- 眼睛 -->
+              <ellipse class="moni-eye" cx="49" cy="56" rx="4" ry="5.5" fill="#241c15"/>
+              <circle cx="47.8" cy="54" r="1.5" fill="#ffffff"/>
+              <ellipse class="moni-eye" cx="71" cy="56" rx="4" ry="5.5" fill="#241c15"/>
+              <circle cx="69.8" cy="54" r="1.5" fill="#ffffff"/>
+              <!-- 微笑 -->
+              <path d="M56,66 Q60,69.5 64,66" fill="none" stroke="#3d2c1d" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- 腮红 -->
+              <circle cx="42" cy="63" r="4.5" fill="url(#hdrMoniBlush)"/>
+              <circle cx="78" cy="63" r="4.5" fill="url(#hdrMoniBlush)"/>
+              <!-- 核心星芒 -->
+              <polygon points="60,76 61.2,78 63.2,78.5 61.6,79.8 62.1,81.8 60,80.6 57.9,81.8 58.4,79.8 56.8,78.5 58.8,78" fill="#f59e0b"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="site-title" id="siteTitle">Muse 实战案例库</h1>
+            <p class="site-subtitle" id="siteSubject">Meta Muse（个人 AI 助手）真实用户实战案例</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+          <!-- 语言切换开关 CH / EN -->
+          <div class="lang-switch-wrap" role="group" aria-label="语言切换 Language Switcher">
+            <button class="lang-btn active" id="langZhBtn" data-lang="zh" title="切换到中文">CH</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" id="langEnBtn" data-lang="en" title="Switch to English">EN</button>
+          </div>
+
+          <!-- 统计面板 -->
+          <div class="stats-panel" id="statsPanel">
+            <div class="stat-item">
+              <span class="stat-num" id="statTotalCases">12</span>
+              <span class="stat-label" id="statTotalCasesLabel">实战案例</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num" id="statCategories">9</span>
+              <span class="stat-label" id="statCategoriesLabel">分类覆盖</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num" id="statLatestDate">2026-11-08</span>
+              <span class="stat-label" id="statLatestDateLabel">最新期次</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 本期头条 (Featured) -->
+    <section class="section-featured" id="featuredSection" aria-label="本期头条案例">
+      <!-- 动态填充 -->
+    </section>
+
+    <!-- 热门榜 Top 5 -->
+    <section class="section-trending" aria-label="热门榜 Top 5">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-icon">🔥</span>
+          <h2 class="section-title">热门榜 Top 5</h2>
+          <span class="section-hint">按用户热度综合排序</span>
+        </div>
+      </div>
+      <div class="trending-grid" id="trendingGrid">
+        <!-- 动态填充 5 条 -->
+      </div>
+    </section>
+
+    <!-- 主浏览与交互工具栏 -->
+    <section class="section-main">
+      <div class="toolbar" id="toolbar">
+        <!-- 搜索与排序栏 -->
+        <div class="toolbar-top">
+          <div class="search-box">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" placeholder="搜索标题、背景、步骤、工具或出处..." autocomplete="off">
+            <button class="clear-search-btn" id="clearSearchBtn" title="清空搜索" style="display: none;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div class="toolbar-actions">
+            <!-- 排序 -->
+            <div class="select-wrap">
+              <select id="sortSelect">
+                <option value="heat">🔥 按热度从高到低</option>
+                <option value="score">★ 按评分从高到低</option>
+                <option value="newest">🕒 按最新期次</option>
+              </select>
+            </div>
+
+            <!-- 只看收藏 -->
+            <button class="fav-filter-btn" id="favFilterBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span>只看收藏</span>
+              <span class="fav-count-badge" id="favCountBadge">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 分类可横滑筛选条 -->
+        <div class="category-tabs-wrapper">
+          <div class="category-tabs" id="categoryTabs">
+            <!-- 动态生成分类按钮 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 案例网格统计与视图 -->
+      <div class="grid-status-bar">
+        <span class="results-count" id="resultsCount">展示 12 个案例</span>
+        <button class="reset-filter-link" id="resetFilterLink" style="display: none;">重置所有筛选</button>
+      </div>
+
+      <!-- 案例网格 (预置符合 Google 爬虫直读的语义化结构，JS 加载后接管交互) -->
+      <div class="cases-grid" id="casesGrid">
+        <!-- 默认由 app.js 渲染 -->
+      </div>
+
+      <!-- 空结果提示 -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">🔍</div>
+        <h3 class="empty-title">未找到匹配的案例</h3>
+        <p class="empty-desc">尝试更换搜索词、切换分类或取消“只看收藏”</p>
+        <button class="btn btn-outline" id="emptyResetBtn">恢复显示全部案例</button>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-source" id="footerSource">数据来源：Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出</p>
+        <p class="footer-note">所有文案、数据及评分严格以源数据为准 · 支持本地离线存储与核验 · MoniMuse 伴侣驱动</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 详情弹窗 Modal -->
+  <div class="modal-backdrop" id="caseModal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div class="modal-header-meta" id="modalMeta">
+          <!-- 标签 -->
+        </div>
+        <div class="modal-header-actions">
+          <button class="btn-icon modal-fav-btn" id="modalFavBtn" title="收藏此案例">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+          <button class="btn-icon modal-close-btn" id="modalCloseBtn" title="关闭详情 (Esc)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <!-- 动态填充各字段 -->
+      </div>
+
+      <div class="modal-footer" id="modalFooter">
+        <!-- 底部原文跳转与快捷操作 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 吐司通知 Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="data-fallback.js"></script>
+  <script src="data-en-fallback.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

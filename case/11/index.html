@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>YouTube 实测：用 5 美元档 Muse Wonder 从零搭全栈网站，界面惊艳但登录有坑 - Meta Muse 实战案例库</title>
+  <meta name="description" content="一次提示让 Muse Wonder 生成带数据库与登录的全栈站点只要几分钟，但认证与 Cookie 必须人工验。">
+  <link rel="canonical" href="https://muse.itis.chat/case/11/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
+  <meta name="theme-color" content="#f5efe6">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="YouTube 实测：用 5 美元档 Muse Wonder 从零搭全栈网站，界面惊艳但登录有坑 - Meta Muse 实战案例">
+  <meta property="og:description" content="一次提示让 Muse Wonder 生成带数据库与登录的全栈站点只要几分钟，但认证与 Cookie 必须人工验。">
+  <meta property="og:url" content="https://muse.itis.chat/case/11/">
+  <meta property="og:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YouTube 实测：用 5 美元档 Muse Wonder 从零搭全栈网站，界面惊艳但登录有坑">
+  <meta name="twitter:description" content="一次提示让 Muse Wonder 生成带数据库与登录的全栈站点只要几分钟，但认证与 Cookie 必须人工验。">
+  <meta name="twitter:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "YouTube 实测：用 5 美元档 Muse Wonder 从零搭全栈网站，界面惊艳但登录有坑",
+  "description": "一次提示让 Muse Wonder 生成带数据库与登录的全栈站点只要几分钟，但认证与 Cookie 必须人工验。",
+  "articleSection": "编程与建站",
+  "url": "https://muse.itis.chat/case/11/",
+  "datePublished": "2026-11-08",
+  "inLanguage": "zh-CN",
+  "author": {
+    "@type": "Person",
+    "name": "YouTube 科技博主（Muse Wonder 首测视频）"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YouTube"
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <div class="app-container">
+    <header class="site-header">
+      <div class="header-main">
+        <div class="brand-wrap">
+          <a href="../../" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+            <div class="monimuse-avatar-wrap" title="MoniMuse">
+              <img src="../../monimuse-icon.svg" width="44" height="44" alt="MoniMuse" style="border-radius: 12px;">
+            </div>
+            <div>
+              <div class="site-title">Muse 实战案例库</div>
+              <div class="site-subtitle">Meta Muse 真实用户案例与复现指南</div>
+            </div>
+          </a>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <a href="../../" class="btn btn-outline" style="font-size: 0.84rem;">&larr; 返回案例库大盘</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="featured-card" style="margin-bottom: 30px;">
+        <div class="featured-top-row">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="badge badge-cat">编程与建站 · 高阶</span>
+            <span class="badge badge-grade">Grade B</span>
+            <span class="stat-tag stat-score">★ 评分 76</span>
+            <span class="stat-tag stat-heat">🔥 热度 66</span>
+            <span class="stat-tag">📅 期次 2026-11-08</span>
+          </div>
+        </div>
+
+        <h1 class="featured-title" style="margin-top: 10px; cursor: default;">YouTube 实测：用 5 美元档 Muse Wonder 从零搭全栈网站，界面惊艳但登录有坑</h1>
+        <p class="featured-valueline" style="font-size: 1.02rem; margin-bottom: 24px;">一次提示让 Muse Wonder 生成带数据库与登录的全栈站点只要几分钟，但认证与 Cookie 必须人工验。</p>
+
+        <!-- 任务背景 -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <span class="modal-section-icon">🎯</span>
+            <span>任务背景</span>
+          </div>
+          <div class="modal-text">博主想实测刚发布的 Muse Wonder 编程能力到底行不行，选了最能暴露问题的任务：从零做一个带数据库和用户认证的完整网站，而不是静态页面。</div>
+        </div>
+
+        <!-- 步骤 -->
+        
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span class="modal-section-icon">📝</span>
+          <span>做法步骤 (5 步)</span>
+        </div>
+        <ol class="steps-list">
+          
+            <li class="step-item">
+              <span class="step-num">1</span>
+              <div class="step-content">开通视频中使用的 5 美元 Muse Coding 档位并完成设置</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">2</span>
+              <div class="step-content">写好测试提示词，指定技术栈：Astro + Tailwind CSS 建站、Drizzle ORM + LibSQL 做数据库、Better Auth 做登录</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">3</span>
+              <div class="step-content">观看 Muse 自主搭建全过程（视频 3:28 起完整呈现构建过程）</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">4</span>
+              <div class="step-content">从界面设计与 SVG 生成质量、登录流程、Cookie 与自主自测四个方面逐项验收</div>
+            </li>
+          
+            <li class="step-item">
+              <span class="step-num">5</span>
+              <div class="step-content">对暴露的认证问题现场追问修复（视频 8:06 起记录追 Bug 与 9:21 起现场改的过程）</div>
+            </li>
+          
+        </ol>
+      </div>
+    
+
+        <!-- 关键提示词 -->
+        
+
+        <!-- 产出与证据 -->
+        
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span class="modal-section-icon">📊</span>
+          <span>产出与证据</span>
+        </div>
+        <div class="output-box">
+          <div class="output-text">视频完整记录产出：一个从零生成的全栈网站，作者评价其 UI 设计与 SVG 生成出乎意料地精致；同时有明确的产出证据链——章节时间戳标出「构建 4 分钟但零自测」、登录 Bug 排查与现场修复全过程，结论部分（12:18 起）汇总其上限与限制。</div>
+          
+        </div>
+      </div>
+    
+
+        <!-- 复现要点 -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <span class="modal-section-icon">💡</span>
+            <span>复现要点</span>
+          </div>
+          <div class="modal-text">需要 Muse Coding 付费档与一个明确的技术栈提示词；验收重点放在登录、Cookie 等看不见的底层环节，不要只看界面。</div>
+        </div>
+
+        <!-- 踩坑提示 -->
+        
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span class="modal-section-icon">⚠️</span>
+          <span>踩坑提示</span>
+        </div>
+        <div class="pitfalls-box">视频实测指出：Muse 搭完 4 分钟却完全没有自测，认证与 Cookie 环节藏有真实 Bug，需要人工追查修复后才能用。</div>
+      </div>
+    
+
+        <!-- 信源核对 -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <span class="modal-section-icon">🔍</span>
+            <span>原始信源核对</span>
+          </div>
+          <div class="source-verify-box">
+            <div class="source-meta-left">
+              <span>作者/报道：<strong>YouTube 科技博主（Muse Wonder 首测视频）</strong></span>
+              <span>&bull;</span>
+              <span>平台：<strong>YouTube</strong></span>
+              <span>&bull;</span>
+              <span>信源等级：<strong>Grade B</strong></span>
+              
+            </div>
+            
+              <a href="https://www.youtube.com/watch?v=IWBlo54qz9Y" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                <span>打开原文报道</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            
+          </div>
+        </div>
+
+        <!-- 底部行动 -->
+        <div class="featured-footer" style="margin-top: 24px;">
+          <a href="../../" class="btn btn-outline">&larr; 返回查看全部 12 个实战案例</a>
+          
+            <a href="https://www.youtube.com/watch?v=IWBlo54qz9Y" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <span>访问原文报道</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-source">数据来源：Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出</p>
+        <p class="footer-note">严格依真实用户报道整理 · 支持本地离线与完整核验</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const copyBtn = document.getElementById('copyPromptBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const code = document.getElementById('promptCode').innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          const t = document.getElementById('toast');
+          t.textContent = '提示词已复制到剪贴板！';
+          t.classList.add('show');
+          setTimeout(() => t.classList.remove('show'), 2000);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
