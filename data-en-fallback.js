@@ -1,7 +1,7 @@
 window.FALLBACK_DATA_EN = {
   "site": "Muse Case Library",
   "subject": "Meta Muse (Personal AI Assistant) Real-World User Case Studies & Playbooks",
-  "exportedAt": "2026-11-09",
+  "exportedAt": "2026-11-10T01:20:00+08:00",
   "source": "Structured export of Muse space muse-shi-zhan-an-li-ku via getState",
   "categories": [
     {
@@ -67,6 +67,12 @@ window.FALLBACK_DATA_EN = {
       "id": 3,
       "date": "2026-11-09",
       "caseCount": 26,
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "date": "2026-11-10",
+      "caseCount": 2,
       "status": "done"
     }
   ],
@@ -1067,7 +1073,7 @@ window.FALLBACK_DATA_EN = {
       "difficultyEn": "Intermediate",
       "score": 86,
       "heat": 80,
-      "featured": true,
+      "featured": false,
       "issueDate": "2026-11-09",
       "background": "Creator Full Value Dan spent a full week stress-testing Muse with his real life, four real jobs only: booking dinner, selling his stuff, paying a ticket and managing his DMs. Every spend or send had to stop for his approval, to see whether the free agent can really work as a daily assistant.",
       "steps": [
@@ -1632,6 +1638,70 @@ window.FALLBACK_DATA_EN = {
         "grade": "B",
         "url": "https://www.musecase.dev/browse/14",
         "publishedAt": ""
+      }
+    },
+    {
+      "id": 50,
+      "title": "Building an Automated Kids' English Animation Pipeline in Muse Spaces: Type a Topic, Get a Finished Video",
+      "valueLine": "Turns Muse Spaces into a reusable animation production system: give it a topic and it automatically handles scripting, storyboards, characters, animation, voiceover, subtitles and the final cut — one real run produced an episode in about 17 minutes.",
+      "category": "content",
+      "difficulty": "进阶",
+      "difficultyEn": "Intermediate",
+      "score": 85,
+      "heat": 78,
+      "featured": true,
+      "issueDate": "2026-11-10",
+      "background": "The author had earlier made a kids' English-learning animation with Muse (ages 3–6, 30–45 seconds, 9:16 vertical, original 3D cartoon style) and was flooded with tutorial requests. His goal was not a single video but a reusable production system: swap the topic and produce another episode, instead of hand-chaining tools every time.",
+      "steps": [
+        "In Muse, open Spaces and create a workspace called 'AI Kids' English Animation Automation Center'. Lock the parameters first: ages 3–6, 30–45 seconds, 9:16, 1080×1920, original cute 3D cartoon style, zero-beginner English, MP4 output.",
+        "Use a 'director' prompt to have Muse build the whole pipeline: auto topic selection, English script, storyboards, characters, scene images, animation, English voiceover, sound effects and subtitles, auto-editing, quality check, and export of a real playable MP4. Offer two modes — one-click fully automatic and staged/controllable — and state explicitly that missing tools or permissions must be reported, never faked.",
+        "When the first workflow balloons to 50+ steps, use a second prompt to genuinely streamline it (not just collapse the UI): merge into 5 stages — planning & storyboards in one pass, characters & images generate only new assets, animation & voiceover in parallel, deterministic editing done by program, then QA & delivery; reuse assets and, when changing one shot, update only what's affected.",
+        "Build a fixed character library: Star Bunny (guides learning), Bubu Bear (story interaction), Mimi Deer (explains knowledge). Store each character's reference images, outfit colors, personality, voice settings and generation prompt, and reuse them across episodes instead of recreating them.",
+        "For production, give a single episode brief (topic, target vocabulary, length, style) and let the system run end to end; if one shot fails, fix only that shot.",
+        "When something breaks, use a 'maintenance engineer' prompt to have Muse inspect and repair its own space: check → locate → fix → verify → report, without rebuilding the whole space or deleting successful assets."
+      ],
+      "keyPrompt": "You are now my AI video production director-in-chief, technical lead and automation workflow executor. Create a long-term children's English animation production workspace in Muse Spaces. Goal: when I give you a video topic, complete the entire production flow as automatically as possible: 1. decide the English teaching topic; 2. write an English script suitable for ages 3–6; 3. design the full story and storyboards; 4. create or reuse cartoon characters; 5. generate scenes and storyboard images; 6. turn storyboards into animation; 7. generate natural, clear English voiceover; 8. add sound effects and subtitles; 9. auto-edit and compose the video; 10. check video quality; 11. export a real, playable MP4. Provide two modes: A. one-click fully automatic; B. staged and controllable — when revising one shot, keep the other finished assets. Note: I want a genuinely runnable video production system, not a static demo page; every button, progress indicator and download must correspond to real tasks and files; if the environment lacks a tool or permission, say so explicitly — do not fake success. (The original post includes three companion prompts: workflow streamlining, character library, and self-diagnosis & repair.)",
+      "outputDesc": "A reusable animation production space plus an actually produced kids' English-learning episode (one run took about 17 minutes); the tutorial includes 4 copy-ready core prompts (build the space, streamline the workflow, character library, self-diagnosis & repair). Original post: 42k views, 547 likes, 848 bookmarks.",
+      "outputUrl": "",
+      "reproduceTips": "Run one episode end to end first (e.g. learning five fruits), then swap topics for batch production; lock parameters before building the space; build the character library from episode one instead of fixing drift later. Submitted by a reader; original is a long-form tutorial on X with a complete, reproducible workflow and prompts.",
+      "pitfalls": "1. The first workflow gets split into 50+ steps; repeated planning and context passing are wasteful, so a dedicated streamlining pass is a must — but the author warns fewer steps does not necessarily mean fewer tokens, and he has no before/after usage data, so don't invent numbers. 2. Character drift across episodes (face, outfit, voice) can only be reduced by the character library, never fully guaranteed. 3. Voiceover and lip-sync mismatch: prefer narration, wide shots and few front-facing speaking shots; use a dedicated lip-sync tool only when needed. 4. The biggest trap is 'fake completion': a finished-looking UI proves nothing — check that a real, playable MP4 file exists.",
+      "source": {
+        "name": "Honglian Mozun @maoyang01233685 (reader submission)",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/maoyang01233685/status/2119573786324574525",
+        "publishedAt": "2026-11-09"
+      }
+    },
+    {
+      "id": 51,
+      "title": "Give Your Muse a 'Revival Pack': If the Account Dies, a New One Picks Up Right Where It Left Off",
+      "valueLine": "A four-layer backup playbook against bans and lost accounts: official data export/import, having Muse pack its own revival kit, downloading key files separately, and weekly automatic backups to Google Drive — the author just did it for himself and confirms it works.",
+      "category": "advanced",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "score": 82,
+      "heat": 68,
+      "featured": false,
+      "issueDate": "2026-11-10",
+      "background": "Muse accounts have been getting banned without warning lately; once an account you've raised for months disappears, its remembered preferences, your Spaces and its running tasks all vanish with it. The author turned 'snap insurance' into a backup playbook: if the account is really gone, open a new one, hand it the revival pack, and the new Muse reads it, confirms what it restored, and carries on.",
+      "steps": [
+        "Official backup (most reliable but incomplete): Settings > Data Controls > Download your agent data, which packages chat history and workspace files; on the new account, use Settings > Data Controls > Import memory. Note the import only distills records into memory — original chats don't come back, and Spaces and tasks can't be restored, which is why the next layers matter.",
+        "Have Muse pack its own revival kit (the key step): send your Muse the prompt from the thread so it writes a 'Revival Instructions' file — who you are, what's settled and must not be re-asked, what's still awaiting your decision — and zips your Spaces, goals, scheduled tasks and important files (never passwords or keys), then re-reads and verifies the pack before sending it to you.",
+        "Download important single files separately from the Library and keep them on your own computer or cloud drive — never only inside Muse. Heavy users back up weekly; if you mostly rely on fixed scheduled tasks, monthly is enough; after a big system overhaul, do an extra manual backup the same day.",
+        "Automate the backup: have Muse connect Google Drive, create a log folder there, and upload each new revival pack; then set a weekly task that repacks the latest version and replaces the Drive copy in place, so you never have to think about it again. (Note: the main post says 3 methods; the thread actually gives a fourth — 4 in total.)"
+      ],
+      "keyPrompt": "Please pack a revival kit for me: 1. Organize what you remember about me — my preferences and how I like things done — into a 'Revival Instructions' file that states clearly: who I am, what is settled and must not be asked about again, and what is still undecided and waiting on me; 2. Pack my Spaces, goals, scheduled tasks and important files into a zip — do not include passwords or keys; 3. After packing, re-read and verify it yourself, then send it to me. Later, if I switch to a new account, I will give these two files to the new you; read them, first restate what you have restored, and wait for my confirmation before acting.",
+      "outputDesc": "A four-layer backup playbook plus a copy-ready revival-pack prompt; on restore, the new Muse first restates what it recovered and waits for confirmation before acting. Original post: 33k views, 221 likes, 381 bookmarks, with a closing screenshot of the author chatting with his own Muse (JARVIS) about backups.",
+      "outputUrl": "",
+      "reproduceTips": "You can do it tonight: run the official export first, then send the key prompt to your Muse to pack the revival kit, download it and keep a second copy in your own cloud drive; heavy users weekly, light users monthly. Submitted by a reader; original is an X thread with complete steps.",
+      "pitfalls": "1. The official backup alone is not enough: imported memory won't restore original chats, and Spaces and scheduled tasks are lost — layer the revival pack on top. 2. Never put passwords or keys in the revival zip. 3. Don't keep the backup only inside Muse — if the account dies, the backup dies with it; it must live on your own computer/drive/Drive. 4. Manual backups get forgotten; automate with a weekly task if you can.",
+      "source": {
+        "name": "Mayi Mayi Hong @wolverheeheeine (reader submission)",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/wolverheeheeine/status/2119410331558748188",
+        "publishedAt": "2026-11-08"
       }
     }
   ]
