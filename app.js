@@ -351,6 +351,8 @@
           <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">Free Mini Games</a>
           <span class="footer-links-sep">&bull;</span>
           <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI Navigation</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://hao.itis.chat/" target="_blank" rel="noopener noreferrer">Deals Daily</a>
         `;
       } else {
         footerLinksContainer.innerHTML = `
@@ -364,6 +366,8 @@
           <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
           <span class="footer-links-sep">&bull;</span>
           <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://hao.itis.chat/" target="_blank" rel="noopener noreferrer">薅羊毛日报</a>
         `;
       }
     }
