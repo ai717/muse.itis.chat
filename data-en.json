@@ -1,7 +1,7 @@
 {
   "site": "Muse Case Library",
   "subject": "Meta Muse (Personal AI Assistant) Real-World User Case Studies & Playbooks",
-  "exportedAt": "2026-11-13T02:40:00+08:00",
+  "exportedAt": "2026-11-13T02:50:19+08:00",
   "source": "Structured export of Muse space muse-shi-zhan-an-li-ku via getState",
   "categories": [
     {
@@ -78,7 +78,7 @@
     {
       "id": 5,
       "date": "2026-11-13",
-      "caseCount": 1,
+      "caseCount": 2,
       "status": "done"
     }
   ],
@@ -1739,6 +1739,37 @@
         "platform": "X",
         "grade": "B",
         "url": "https://x.com/fly3nn/status/2120876768454472043",
+        "publishedAt": "2026-11-12"
+      }
+    },
+    {
+      "id": 53,
+      "title": "'Muse from Meta' Official Chrome Extension Lands on Windows After Its Mac Buzz",
+      "valueLine": "A Windows-launch notice: Meta's official Chrome extension 'Muse from Meta', popular on Mac, is now available on Windows PCs — search 'Muse from Meta' in the Chrome Web Store. The author says it launched today with only 100+ downloads (the author's own report of the store figure at posting time, not independently verified). Stated plainly: the post contains no actual usage output, and it is the same extension as case id 52 on this site.",
+      "category": "advanced",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "score": 71,
+      "heat": 38,
+      "featured": false,
+      "issueDate": "2026-11-13",
+      "background": "On the evening of 2026-11-12, Mingzi206 posted a notice: the Muse Chrome extension that had been buzzing on Mac is now usable on Windows computers too. He pointed readers to search 'Muse from Meta' in the Chrome Web Store, noted the official source is Meta, said it had launched that day with only 100+ downloads so far, and attached a screenshot of the store search results. This is the very same extension covered by case id 52 on this site (Flynn's hands-on sharing post); this item is only its Windows-launch update.",
+      "steps": [
+        "Open the Chrome Web Store and search 'Muse from Meta'; in the author's screenshot the official listing is the first result.",
+        "Make sure the publisher is Meta, the official source, before installing — avoid same-named third-party imitators.",
+        "Per the author, usage and buzz had been mainly among Mac users; with this release, Windows computers can install and use it as well.",
+        "For background, see case id 52 on this site: a user's own account after installing the extension (effects unverified) — this post does not repeat those claims."
+      ],
+      "keyPrompt": "",
+      "outputDesc": "No output evidence, stated plainly: this is a pure launch-notice post. The author attached only a Chrome Web Store search screenshot; he does not describe running any specific task with the extension, and there are no process or result screenshots or recordings. 'Launched today, only 100+ downloads so far' is the author's own report of the store figure at posting time, not independently verified, and it will change over time. Original post: 2,408 views, 13 likes, 23 bookmarks.",
+      "outputUrl": "",
+      "reproduceTips": "Very low barrier if you want to try it: search 'Muse from Meta' in the Chrome Web Store and install the official Meta listing; it works on both Windows and Mac. The same cautions as id 52 apply: start with small tasks on non-sensitive public sites, and think through the security boundary of letting an AI operate a local Chrome profile carrying all your logins. This item was published standalone as an explicit exception approved by the site owner after being told it duplicates id 52's topic and has no output evidence; judge its value yourself.",
+      "pitfalls": "1. Pure news, no hands-on test: 'buzzing on Mac' and 'just launched' are the author's words, with no effect evidence in the post; for what the extension claims to do, see id 52 — and note that case's effects are also the author's own account. 2. Don't mistake this and id 52 for two products: it is the same 'Muse from Meta' extension; this item is only the Windows-platform launch notice. 3. The 100+ download figure is a self-reported snapshot from posting time and will change; always verify the publisher is Meta to avoid imitators.",
+      "source": {
+        "name": "Mingzi206 @mingzi206 (reader submission)",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/mingzi206/status/2120908975822770357",
         "publishedAt": "2026-11-12"
       }
     }

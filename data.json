@@ -1,7 +1,7 @@
 {
   "site": "Muse 实战案例库",
   "subject": "Meta Muse（个人 AI 助手）真实用户实战案例",
-  "exportedAt": "2026-11-13T02:40:00+08:00",
+  "exportedAt": "2026-11-13T02:50:19+08:00",
   "source": "Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出",
   "categories": [
     {
@@ -78,7 +78,7 @@
     {
       "id": 5,
       "date": "2026-11-13",
-      "caseCount": 1,
+      "caseCount": 2,
       "status": "done"
     }
   ],
@@ -1688,6 +1688,36 @@
         "platform": "X",
         "grade": "B",
         "url": "https://x.com/fly3nn/status/2120876768454472043",
+        "publishedAt": "2026-11-12"
+      }
+    },
+    {
+      "id": 53,
+      "title": "「Muse from Meta」官方 Chrome 插件登陆 Windows，Mac 爆火后双平台齐了",
+      "valueLine": "一条 Windows 版上架通知：Meta 官方 Chrome 插件「Muse from Meta」在 Mac 端走红后，现已能在 Windows 电脑上使用，Chrome 商店搜「Muse from Meta」即可。作者称今天刚上线、下载量才 100 多人（作者发帖时自述的商店数据，未独立核实）。如实说明：帖内没有任何实际使用产出，与站内 id 52 是同一款插件。",
+      "category": "advanced",
+      "difficulty": "入门",
+      "score": 71,
+      "heat": 38,
+      "featured": false,
+      "issueDate": "2026-11-13",
+      "background": "2026-11-12 晚，明子206 发帖通知：Mac 端爆火的 Muse Chrome 插件，现在 Windows 电脑也可以用了。他提示在 Chrome 应用店搜索「Muse from Meta」、官方来源是 Meta，并称今天刚上线、目前才 100 多人下载，配了商店搜索结果截图。这款插件正是站内 id 52（Flynn 的实测分享帖）讲的同一款，本条只是它的 Windows 上架动态。",
+      "steps": [
+        "打开 Chrome 网上应用店，搜索「Muse from Meta」；作者截图里搜索结果首条即该官方条目。",
+        "认准官方来源是 Meta 再安装，别装同名的第三方仿冒插件。",
+        "按作者说法，此前主要是 Mac 端用户在用且很火；这次上架后，Windows 电脑同样可以安装使用。",
+        "想要背景的可以对照站内 id 52：那条是用户装上插件后的自述分享（效果未经实证），本条不重复那些说法。"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "无产出证据，如实标注：这是一条纯上架通知帖。作者只附了 Chrome 商店的搜索截图，没有描述自己用插件执行过任何具体任务，也没有过程、结果截图或录屏；「今天刚上线、目前才 100 多人下载」为作者发帖时自述的商店时点数据，未独立核实且会随时间变化。原帖 2,408 浏览、13 赞、23 收藏。",
+      "outputUrl": "",
+      "reproduceTips": "想尝鲜门槛很低：Chrome 商店搜「Muse from Meta」，认准 Meta 官方发布者安装即可，Windows 与 Mac 均可。使用注意与 id 52 相同：先拿不敏感的公开网站小任务试水，并想清楚让 AI 操作带全部登录态的本地 Chrome 的安全边界。本条为牛老板在知情（与 id 52 撞题、无产出证据）后仍点选破例单发，仅作 Windows 上线动态记录，价值请自行判断。",
+      "pitfalls": "1. 纯资讯、无实测：「Mac 端爆火」「刚上线」都是作者的说法，帖内没有效果证据；插件实际能做什么请看 id 52 并注意那条的效果同样是作者自述。2. 别把本条和 id 52 当成两个产品：同一款「Muse from Meta」插件，本条只是 Windows 平台的上架通知。3. 下载量 100 多是发帖时点的自述数据，会变；安装时务必核对发布者为 Meta，谨防仿冒。",
+      "source": {
+        "name": "明子206 @mingzi206（用户投稿）",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/mingzi206/status/2120908975822770357",
         "publishedAt": "2026-11-12"
       }
     }
