@@ -1,7 +1,7 @@
 {
   "site": "Muse 实战案例库",
   "subject": "Meta Muse（个人 AI 助手）真实用户实战案例",
-  "exportedAt": "2026-11-10T01:20:00+08:00",
+  "exportedAt": "2026-11-13T02:40:00+08:00",
   "source": "Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出",
   "categories": [
     {
@@ -73,6 +73,12 @@
       "id": 4,
       "date": "2026-11-10",
       "caseCount": 2,
+      "status": "done"
+    },
+    {
+      "id": 5,
+      "date": "2026-11-13",
+      "caseCount": 1,
       "status": "done"
     }
   ],
@@ -1599,7 +1605,7 @@
       "difficulty": "进阶",
       "score": 85,
       "heat": 78,
-      "featured": true,
+      "featured": false,
       "issueDate": "2026-11-10",
       "background": "作者之前用 Muse 做了一段少儿英文启蒙动画（3–6 岁、30–45 秒、9:16 竖屏、原创 3D 卡通），被大量追问教程。他的目标不是做一条视频，而是搭一套能反复用的生产系统：换个主题就能再产一集，而不是每集从零手工串工具。",
       "steps": [
@@ -1652,6 +1658,37 @@
         "grade": "B",
         "url": "https://x.com/wolverheeheeine/status/2119410331558748188",
         "publishedAt": "2026-11-08"
+      }
+    },
+    {
+      "id": 52,
+      "title": "装上官方 Chrome 插件，让 Muse 直接操作你自己的浏览器",
+      "valueLine": "Meta 官方插件「Muse from Meta」：装上后 Muse 不再用云端共享浏览器，而是直接操作你本地的 Chrome。作者自述就此解决了云浏览器共享 IP 脏（易封号、Reddit 全是 403）、速度慢等老问题，还能直接用本地 Chrome 的登录态访问各网站。注意：效果均为作者自述，帖内没有实际任务产出截图。",
+      "category": "advanced",
+      "difficulty": "入门",
+      "score": 74,
+      "heat": 55,
+      "featured": true,
+      "issueDate": "2026-11-13",
+      "background": "作者此前专门发帖警告过：别用 Muse 登录重要账号——Muse 的云托管浏览器走共享机房 IP 池，IP 很脏，访问 Reddit 全部 403，很多服务也会拒绝。2026-11-12 他发现 Meta 官方上线了 Chrome 插件「Muse from Meta」，装上之后兴奋发帖：Muse 可以直接操作他自己的浏览器，他攒了好几个的问题「一下被解决了」。",
+      "steps": [
+        "在 Chrome 网上应用店搜索并安装 Meta 官方插件「Muse from Meta」（介绍语为「Chrome 中的个人 AI 智能体」）；作者配图显示该条目状态为「已安装」。",
+        "装好后，再让 Muse 执行需要浏览器的任务时，它通过插件直接操作你本地的 Chrome，而不是云端托管浏览器。",
+        "因为出口变成你自己本地的网络和 IP，作者自述避开了云端共享 IP 池的「脏 IP」问题：不再动不动触发封号，之前全是 403 的 Reddit 等服务也能正常访问。",
+        "本地 Chrome 里已有的个人信息和登录态可以直接复用，无痛访问需要登录的网站，不必在云端浏览器里再登一遍。",
+        "作者自述操作本地 Chrome 的速度比操作云端浏览器快很多，整体「超级丝滑」。"
+      ],
+      "keyPrompt": "",
+      "outputDesc": "产出证据有限，如实标注：作者晒出的唯一实证是 Chrome 商店里「Muse from Meta」条目的「已安装」截图；帖中没有展示 Muse 实际操作浏览器完成某个具体任务的过程、结果截图或录屏。避封号、解 403、提速、复用登录态等效果均为作者自述，未在帖内以操作证据验证。原帖 5,412 浏览、75 赞、104 收藏。",
+      "outputUrl": "",
+      "reproduceTips": "门槛很低：Chrome 商店搜「Muse from Meta」安装即可；务必认准 Meta 官方发布，别装仿冒插件。建议先拿不敏感的公开网站小任务试水，确认走的是本地浏览器后再逐步放开。本条为用户 WhatsApp 投稿、牛老板破例批准收录（未过常规「产出证据」门禁），效果请自行验证。",
+      "pitfalls": "1. 效果未经帖内实证：避封号、解 Reddit 403、速度更快都只是作者自述，没有任务产出截图，别当成已验证结论。2. 安全边界要想清楚：让 AI 操作带着你全部登录态的本地 Chrome，等于把这些账号的访问交给它，邮箱、银行等敏感站点要谨慎，重要账号的全权操作仍不建议放开。3. 产品尚早期：作者配图中该商店条目评分显示 0.0 星、评价极少，稳定性与权限范围以官方说明为准，出问题先查插件版本与授权设置。",
+      "source": {
+        "name": "Flynn @fly3nn（用户投稿）",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/fly3nn/status/2120876768454472043",
+        "publishedAt": "2026-11-12"
       }
     }
   ]

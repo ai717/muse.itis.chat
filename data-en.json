@@ -1,7 +1,7 @@
 {
   "site": "Muse Case Library",
   "subject": "Meta Muse (Personal AI Assistant) Real-World User Case Studies & Playbooks",
-  "exportedAt": "2026-11-10T01:20:00+08:00",
+  "exportedAt": "2026-11-13T02:40:00+08:00",
   "source": "Structured export of Muse space muse-shi-zhan-an-li-ku via getState",
   "categories": [
     {
@@ -73,6 +73,12 @@
       "id": 4,
       "date": "2026-11-10",
       "caseCount": 2,
+      "status": "done"
+    },
+    {
+      "id": 5,
+      "date": "2026-11-13",
+      "caseCount": 1,
       "status": "done"
     }
   ],
@@ -1649,7 +1655,7 @@
       "difficultyEn": "Intermediate",
       "score": 85,
       "heat": 78,
-      "featured": true,
+      "featured": false,
       "issueDate": "2026-11-10",
       "background": "The author had earlier made a kids' English-learning animation with Muse (ages 3–6, 30–45 seconds, 9:16 vertical, original 3D cartoon style) and was flooded with tutorial requests. His goal was not a single video but a reusable production system: swap the topic and produce another episode, instead of hand-chaining tools every time.",
       "steps": [
@@ -1702,6 +1708,38 @@
         "grade": "B",
         "url": "https://x.com/wolverheeheeine/status/2119410331558748188",
         "publishedAt": "2026-11-08"
+      }
+    },
+    {
+      "id": 52,
+      "title": "Install the Official Chrome Extension and Let Muse Drive Your Own Browser",
+      "valueLine": "Meta's official 'Muse from Meta' Chrome extension: once installed, Muse no longer uses the cloud-hosted browser — it operates your local Chrome directly. The author says this solved his long-standing problems with the dirty shared cloud IP pool (account bans, Reddit returning 403 everywhere) and slow speeds, and lets Muse reuse his local Chrome logins. Note: all effects are the author's own account; the post contains no screenshots of an actual completed task.",
+      "category": "advanced",
+      "difficulty": "入门",
+      "difficultyEn": "Beginner",
+      "score": 74,
+      "heat": 55,
+      "featured": true,
+      "issueDate": "2026-11-13",
+      "background": "The author had previously posted a warning: don't log important accounts into Muse — its cloud-hosted browser runs through a shared datacenter IP pool, the IPs are dirty, Reddit returns 403 across the board and many services refuse access. On 2026-11-12 he found that Meta had officially released a Chrome extension, 'Muse from Meta', installed it, and posted excitedly that Muse could now operate his own browser and that several of his problems were solved at once.",
+      "steps": [
+        "Search the Chrome Web Store and install Meta's official 'Muse from Meta' extension (described as 'your personal AI agent in Chrome'); the author's screenshot shows the listing in an 'installed' state.",
+        "After installation, when Muse needs to perform browser tasks, it operates your local Chrome through the extension instead of the cloud-hosted browser.",
+        "Because traffic now exits through your own local network and IP, the author says he avoided the cloud pool's 'dirty IP' problems: far fewer ban triggers, and services like Reddit — previously all 403 — became accessible again.",
+        "Your existing local Chrome profile and logins can be reused directly, so sites that require sign-in work without logging in again inside a cloud browser.",
+        "The author also reports that driving the local Chrome feels much faster than the cloud browser — 'super smooth' in his words."
+      ],
+      "keyPrompt": "",
+      "outputDesc": "Output evidence is limited, stated plainly: the only proof in the post is a screenshot of the 'Muse from Meta' Chrome Web Store listing showing it installed. The post shows no actual browser task being carried out, no result screenshots and no recordings; the claimed benefits (fewer bans, Reddit access restored, faster operation, login reuse) are the author's own account and are not demonstrated in the post. Original post: 5,412 views, 75 likes, 104 bookmarks.",
+      "outputUrl": "",
+      "reproduceTips": "Very low barrier: search 'Muse from Meta' in the Chrome Web Store and install it — make sure it is the official Meta listing, not an imitator. Start with small tasks on non-sensitive public sites, confirm traffic really goes through your local browser, then widen access gradually. This case was submitted by a reader via WhatsApp and published as an explicit exception approved by the site owner (it did not pass the usual output-evidence gate); verify the effects yourself.",
+      "pitfalls": "1. Effects are unverified in the post: fewer bans, Reddit 403 fixed and faster speeds are all the author's claims, with no task-output screenshots — don't treat them as proven results. 2. Think through the security boundary: letting an AI operate a Chrome profile carrying all your logins hands it access to those accounts; be careful with email, banking and other sensitive sites, and don't hand over full control of important accounts lightly. 3. The product is early: in the author's screenshot the store listing shows a 0.0-star rating with very few reviews, so check the official description for stability and permission scope, and check the extension version and permissions first if something misbehaves.",
+      "source": {
+        "name": "Flynn @fly3nn (reader submission)",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/fly3nn/status/2120876768454472043",
+        "publishedAt": "2026-11-12"
       }
     }
   ]
