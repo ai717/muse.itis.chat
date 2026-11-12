@@ -326,6 +326,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://muse.itis.chat/case/53/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://muse.itis.chat/?cat=daily</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
