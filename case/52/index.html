@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>装上官方 Chrome 插件，让 Muse 直接操作你自己的浏览器 - Meta Muse 实战案例库</title>
+  <meta name="description" content="Meta 官方插件「Muse from Meta」：装上后 Muse 不再用云端共享浏览器，而是直接操作你本地的 Chrome。作者自述就此解决了云浏览器共享 IP 脏（易封号、Reddit 全是 403）、速度慢等老问题，还能直接用本地 Chrome 的登录态访问各网站。注意：效果均为作者自述，帖内没有实际任务产出截图。">
+  <link rel="canonical" href="https://muse.itis.chat/case/52/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
+  <meta name="theme-color" content="#f5efe6">
+
+  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="装上官方 Chrome 插件，让 Muse 直接操作你自己的浏览器 - Meta Muse 实战案例">
+  <meta property="og:description" content="Meta 官方插件「Muse from Meta」：装上后 Muse 不再用云端共享浏览器，而是直接操作你本地的 Chrome。作者自述就此解决了云浏览器共享 IP 脏（易封号、Reddit 全是 403）、速度慢等老问题，还能直接用本地 Chrome 的登录态访问各网站。注意：效果均为作者自述，帖内没有实际任务产出截图。">
+  <meta property="og:url" content="https://muse.itis.chat/case/52/">
+  <meta property="og:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="装上官方 Chrome 插件，让 Muse 直接操作你自己的浏览器">
+  <meta name="twitter:description" content="Meta 官方插件「Muse from Meta」：装上后 Muse 不再用云端共享浏览器，而是直接操作你本地的 Chrome。作者自述就此解决了云浏览器共享 IP 脏（易封号、Reddit 全是 403）、速度慢等老问题，还能直接用本地 Chrome 的登录态访问各网站。注意：效果均为作者自述，帖内没有实际任务产出截图。">
+  <meta name="twitter:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "装上官方 Chrome 插件，让 Muse 直接操作你自己的浏览器",
+  "description": "Meta 官方插件「Muse from Meta」：装上后 Muse 不再用云端共享浏览器，而是直接操作你本地的 Chrome。作者自述就此解决了云浏览器共享 IP 脏（易封号、Reddit 全是 403）、速度慢等老问题，还能直接用本地 Chrome 的登录态访问各网站。注意：效果均为作者自述，帖内没有实际任务产出截图。",
+  "articleSection": "高阶玩法",
+  "url": "https://muse.itis.chat/case/52/",
+  "datePublished": "2026-11-13",
+  "inLanguage": "zh-CN",
+  "author": {
+    "@type": "Person",
+    "name": "Flynn @fly3nn（用户投稿）"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X"
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <div class="app-container">
+    <header class="site-header">
+      <div class="header-main">
+        <div class="brand-wrap">
+          <a href="../../" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+            <div class="monimuse-avatar-wrap" title="MoniMuse">
+              <img src="../../monimuse-icon.svg" width="44" height="44" alt="MoniMuse" style="border-radius: 12px;">
+            </div>
+            <div>
+              <div class="site-title">Muse 实战案例库</div>
+              <div class="site-subtitle">Meta Muse 真实用户案例与复现指南</div>
+            </div>
+          </a>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <a href="../../" class="btn btn-outline" style="font-size: 0.84rem;">&larr; 返回案例库大盘</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="featured-card" style="margin-bottom: 30px;">
+        <div class="featured-top-row">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="badge badge-cat">高阶玩法 · 入门</span>
+            <span class="badge badge-grade">Grade B</span>
+            <span class="stat-tag stat-score">★ 评分 74</span>
+            <span class="stat-tag stat-heat">🔥 热度 55</span>
+            <span class="stat-tag">📅 期次 2026-11-13</span>
+          </div>
+        </div>
+
+        <div class="detail-flow">
+          <div class="detail-header">
+            <h1 class="detail-title" style="margin-top: 10px; cursor: default;">装上官方 Chrome 插件，让 Muse 直接操作你自己的浏览器</h1>
+            <div class="detail-valueline">Meta 官方插件「Muse from Meta」：装上后 Muse 不再用云端共享浏览器，而是直接操作你本地的 Chrome。作者自述就此解决了云浏览器共享 IP 脏（易封号、Reddit 全是 403）、速度慢等老问题，还能直接用本地 Chrome 的登录态访问各网站。注意：效果均为作者自述，帖内没有实际任务产出截图。</div>
+          </div>
+
+          <!-- 任务背景 -->
+          <div class="detail-section">
+            <div class="detail-label">任务背景</div>
+            <div class="detail-text">作者此前专门发帖警告过：别用 Muse 登录重要账号——Muse 的云托管浏览器走共享机房 IP 池，IP 很脏，访问 Reddit 全部 403，很多服务也会拒绝。2026-11-12 他发现 Meta 官方上线了 Chrome 插件「Muse from Meta」，装上之后兴奋发帖：Muse 可以直接操作他自己的浏览器，他攒了好几个的问题「一下被解决了」。</div>
+          </div>
+
+          <!-- 步骤 -->
+          
+      <div class="detail-section">
+        <div class="detail-label">做法步骤 (5 步)</div>
+        <ol class="steps-clean-list">
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">1.</span>
+              <span class="step-clean-text">在 Chrome 网上应用店搜索并安装 Meta 官方插件「Muse from Meta」（介绍语为「Chrome 中的个人 AI 智能体」）；作者配图显示该条目状态为「已安装」。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">2.</span>
+              <span class="step-clean-text">装好后，再让 Muse 执行需要浏览器的任务时，它通过插件直接操作你本地的 Chrome，而不是云端托管浏览器。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">3.</span>
+              <span class="step-clean-text">因为出口变成你自己本地的网络和 IP，作者自述避开了云端共享 IP 池的「脏 IP」问题：不再动不动触发封号，之前全是 403 的 Reddit 等服务也能正常访问。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">4.</span>
+              <span class="step-clean-text">本地 Chrome 里已有的个人信息和登录态可以直接复用，无痛访问需要登录的网站，不必在云端浏览器里再登一遍。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">5.</span>
+              <span class="step-clean-text">作者自述操作本地 Chrome 的速度比操作云端浏览器快很多，整体「超级丝滑」。</span>
+            </li>
+          
+        </ol>
+      </div>
+    
+
+          <!-- 关键提示词 -->
+          
+
+          <!-- 产出与证据 -->
+          
+      <div class="detail-section">
+        <div class="output-callout">
+          <div class="output-callout-label">产出与证据</div>
+          <div class="output-callout-text">产出证据有限，如实标注：作者晒出的唯一实证是 Chrome 商店里「Muse from Meta」条目的「已安装」截图；帖中没有展示 Muse 实际操作浏览器完成某个具体任务的过程、结果截图或录屏。避封号、解 403、提速、复用登录态等效果均为作者自述，未在帖内以操作证据验证。原帖 5,412 浏览、75 赞、104 收藏。</div>
+          
+        </div>
+      </div>
+    
+
+          <!-- 复现要点 -->
+          <div class="detail-section">
+            <div class="detail-label">复现要点</div>
+            <div class="detail-text">门槛很低：Chrome 商店搜「Muse from Meta」安装即可；务必认准 Meta 官方发布，别装仿冒插件。建议先拿不敏感的公开网站小任务试水，确认走的是本地浏览器后再逐步放开。本条为用户 WhatsApp 投稿、牛老板破例批准收录（未过常规「产出证据」门禁），效果请自行验证。</div>
+          </div>
+
+          <!-- 踩坑提示 -->
+          
+      <div class="detail-section">
+        <div class="pitfalls-callout">
+          <div class="pitfalls-callout-label">踩坑提示</div>
+          <div class="pitfalls-callout-text">1. 效果未经帖内实证：避封号、解 Reddit 403、速度更快都只是作者自述，没有任务产出截图，别当成已验证结论。2. 安全边界要想清楚：让 AI 操作带着你全部登录态的本地 Chrome，等于把这些账号的访问交给它，邮箱、银行等敏感站点要谨慎，重要账号的全权操作仍不建议放开。3. 产品尚早期：作者配图中该商店条目评分显示 0.0 星、评价极少，稳定性与权限范围以官方说明为准，出问题先查插件版本与授权设置。</div>
+        </div>
+      </div>
+    
+
+          <!-- 信源核对 -->
+          <div class="detail-section" style="margin-top: 6px;">
+            <div class="source-verify-box">
+              <div class="source-meta-left">
+                <span>作者/报道：<strong>Flynn @fly3nn（用户投稿）</strong></span>
+                <span>&bull;</span>
+                <span>平台：<strong>X</strong></span>
+                <span>&bull;</span>
+                <span>信源等级：<strong>Grade B</strong></span>
+                <span>&bull;</span><span>发布日期：2026-11-12</span>
+              </div>
+              
+                <a href="https://x.com/fly3nn/status/2120876768454472043" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                  <span>打开原文报道</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              
+            </div>
+          </div>
+
+          <!-- 底部行动 -->
+          <div class="featured-footer" style="margin-top: 24px;">
+            <a href="../../" class="btn btn-outline">&larr; 返回查看全部 52 个实战案例</a>
+            
+              <a href="https://x.com/fly3nn/status/2120876768454472043" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>访问原文报道</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <span class="footer-links-label">友情链接：</span>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">摸鱼杂货店</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">免费开源数字资源</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">搞钱实验室</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://hao.itis.chat/" target="_blank" rel="noopener noreferrer">薅羊毛日报</a>
+        </div>
+        <p class="footer-source">数据来源：Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出</p>
+        <p class="footer-note">严格依真实用户报道整理 · 支持本地离线与完整核验</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const copyBtn = document.getElementById('copyPromptBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const code = document.getElementById('promptCode').innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          const t = document.getElementById('toast');
+          t.textContent = '提示词已复制到剪贴板！';
+          t.classList.add('show');
+          setTimeout(() => t.classList.remove('show'), 2000);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
