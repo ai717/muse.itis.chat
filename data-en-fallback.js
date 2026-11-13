@@ -1,7 +1,7 @@
 window.FALLBACK_DATA_EN = {
   "site": "Muse Case Library",
   "subject": "Meta Muse (Personal AI Assistant) Real-World User Case Studies & Playbooks",
-  "exportedAt": "2026-11-14T05:03:32+08:00",
+  "exportedAt": "2026-11-14T05:11:11+08:00",
   "source": "Structured export of Muse space muse-shi-zhan-an-li-ku via getState",
   "categories": [
     {
@@ -84,7 +84,7 @@ window.FALLBACK_DATA_EN = {
     {
       "id": 6,
       "date": "2026-11-14",
-      "caseCount": 1,
+      "caseCount": 2,
       "status": "done"
     }
   ],
@@ -1811,6 +1811,37 @@ window.FALLBACK_DATA_EN = {
         "grade": "B",
         "url": "https://x.com/sgwer73/status/2120853798839267562",
         "publishedAt": "2026-11-12"
+      }
+    },
+    {
+      "id": 55,
+      "title": "A Fully Automatic Deal-Hunting Pipeline on Muse: Scan, Claim, and File Free Resources by Themselves",
+      "valueLine": "A three-part assembly that needs no babysitting: a 'Free Resources' Space as the warehouse; a task prompt that makes Muse install an always-on Chrome on a VPS as a dedicated claiming browser; and a 24-hour deal-intelligence Space that scans the web. When the scanner finds a high-value freebie, Muse registers and claims it with the Google login saved in that browser, then files the prize into the resource Space automatically. The author's resource Space already lists 11 claimed resources.",
+      "category": "automation",
+      "difficulty": "进阶",
+      "difficultyEn": "Intermediate",
+      "score": 77,
+      "heat": 66,
+      "featured": false,
+      "issueDate": "2026-11-14",
+      "background": "At 15:04 on 2026-11-13, Anis (@Yonkxx) posted the full assembly on X. A day earlier he had posted the prompt that makes Muse install Chrome on a VPS and log in to Google (25,066 views); this post combines it with the deal-intelligence Space from @wlzh's 2026-11-09 long post (77,431 views) into one automatic pipeline. Submitted by the site owner and published directly after the chief editor's verification.",
+      "steps": [
+        "Step 1 — Build the warehouse: create a Space named 'Free Resources'; every automatically claimed VPS, GPU or other free resource gets filed there.",
+        "Step 2 — Install the claiming browser: hand Muse the link to the author's 2026-11-12 post and let it set up Google Chrome with an Xvfb virtual display and CJK fonts on a VPS, as a systemd service that starts on boot and restarts on crash; debug port 9222 and VNC bind to 127.0.0.1 only and are reached through SSH tunnels; a dedicated Chrome profile persists the login — you sign in to Google once via VNC and the session is reused afterwards.",
+        "Step 3 — Install the intelligence Space: hand Muse @wlzh's post link to build the 'GLOBAL DEAL HUNTER' Space — it scans every 2 hours across AI subscription deals, crypto, overseas cards and banks, VPS and cloud offers, dedupes, checks expiry, estimates value, files items into boards, and pushes digests four times a day.",
+        "Step 4 — Connect the pipeline: when the scanner spots a high-value freebie, Muse uses the logged-in Chrome on the VPS to register and claim it, then files the result into the 'Free Resources' Space — no manual watching."
+      ],
+      "keyPrompt": "(Core instruction, condensed from the quoted post's task text) \"Set up a long-lived 'claiming browser' on this VPS: Chrome as an always-on service, login state kept in a dedicated profile, debug port bound to localhost only; I sign in once via VNC, and afterwards you use this browser directly whenever a Google login is needed.\"",
+      "outputDesc": "The author's screenshot of the 'Free Resources' Space: 11 resources acquired, 11 deployed, including 3 GPU resources. Two cards are legible: an InstaBox free cloud PC (4 vCPU, 8 GiB RAM, 20 GiB disk, Linux; the card notes it was registered and claimed via a Google account on 2026-11-13, status Running) and a ModelScope AMD GPU environment (192 GB VRAM, 100 free hours, claimed 2026-11-11). Engagement as read by the chief editor on 2026-11-14: 14,012 views, 153 likes, 222 bookmarks, 16 reposts.",
+      "outputUrl": "",
+      "reproduceTips": "1. Build and verify each part separately — resident browser, intelligence Space, resource Space — before chaining them into one pipeline, so failures are easy to locate. 2. Keep the original post's safety lines: debug port and VNC bound to 127.0.0.1 only, access via SSH tunnels; type passwords and verification codes yourself over VNC, never in chat. 3. Set the SSH key file to 600; use a dedicated Google account for auto-claiming, not your main account. 4. Free offers change fast — have Muse re-check that an offer is still live and its terms still match before claiming.",
+      "pitfalls": "1. Honest note: the fully automatic claiming step is the author's own account — the post contains no automation run logs or claim receipts; the screenshot only proves the resource Space already holds 11 items, and one card (ModelScope) states the author joined the AMD incentive program himself to claim it, so not everything was claimed by the pipeline. 2. Auto-registering with a saved-login browser may violate target platforms' automation terms and risks account bans; trial with a spare account at small scale first. 3. The intelligence Space comes from a third-party post; for important claims, re-check the official page.",
+      "source": {
+        "name": "Anis @Yonkxx (reader submission)",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/Yonkxx/status/2121137080944164953",
+        "publishedAt": "2026-11-13"
       }
     }
   ]

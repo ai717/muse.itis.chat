@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>用 Muse 搭全自动薅羊毛流水线：自动扫描、自动领取、自动入库 - Meta Muse 实战案例库</title>
+  <meta name="description" content="三步拼装出一条不用自己操心的薅羊毛流水线：先建一个「免费资源」空间当仓库；再把一条任务提示词丢给 Muse，让它在 VPS 上装一台常驻 Chrome 当领取专用浏览器；最后装一个 24 小时运行的羊毛情报空间负责全网扫描。扫到高价值免费资源后，用浏览器里保存的 Google 登录状态自动注册领取，领取成功自动归档进资源空间。作者晒出的资源空间里已有 11 项已获取资源。">
+  <link rel="canonical" href="https://muse.itis.chat/case/55/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
+  <meta name="theme-color" content="#f5efe6">
+
+  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="用 Muse 搭全自动薅羊毛流水线：自动扫描、自动领取、自动入库 - Meta Muse 实战案例">
+  <meta property="og:description" content="三步拼装出一条不用自己操心的薅羊毛流水线：先建一个「免费资源」空间当仓库；再把一条任务提示词丢给 Muse，让它在 VPS 上装一台常驻 Chrome 当领取专用浏览器；最后装一个 24 小时运行的羊毛情报空间负责全网扫描。扫到高价值免费资源后，用浏览器里保存的 Google 登录状态自动注册领取，领取成功自动归档进资源空间。作者晒出的资源空间里已有 11 项已获取资源。">
+  <meta property="og:url" content="https://muse.itis.chat/case/55/">
+  <meta property="og:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="用 Muse 搭全自动薅羊毛流水线：自动扫描、自动领取、自动入库">
+  <meta name="twitter:description" content="三步拼装出一条不用自己操心的薅羊毛流水线：先建一个「免费资源」空间当仓库；再把一条任务提示词丢给 Muse，让它在 VPS 上装一台常驻 Chrome 当领取专用浏览器；最后装一个 24 小时运行的羊毛情报空间负责全网扫描。扫到高价值免费资源后，用浏览器里保存的 Google 登录状态自动注册领取，领取成功自动归档进资源空间。作者晒出的资源空间里已有 11 项已获取资源。">
+  <meta name="twitter:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "用 Muse 搭全自动薅羊毛流水线：自动扫描、自动领取、自动入库",
+  "description": "三步拼装出一条不用自己操心的薅羊毛流水线：先建一个「免费资源」空间当仓库；再把一条任务提示词丢给 Muse，让它在 VPS 上装一台常驻 Chrome 当领取专用浏览器；最后装一个 24 小时运行的羊毛情报空间负责全网扫描。扫到高价值免费资源后，用浏览器里保存的 Google 登录状态自动注册领取，领取成功自动归档进资源空间。作者晒出的资源空间里已有 11 项已获取资源。",
+  "articleSection": "自动化与定时任务",
+  "url": "https://muse.itis.chat/case/55/",
+  "datePublished": "2026-11-14",
+  "inLanguage": "zh-CN",
+  "author": {
+    "@type": "Person",
+    "name": "Anis @Yonkxx（用户投稿）"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X"
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <div class="app-container">
+    <header class="site-header">
+      <div class="header-main">
+        <div class="brand-wrap">
+          <a href="../../" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+            <div class="monimuse-avatar-wrap" title="MoniMuse">
+              <img src="../../monimuse-icon.svg" width="44" height="44" alt="MoniMuse" style="border-radius: 12px;">
+            </div>
+            <div>
+              <div class="site-title">Muse 实战案例库</div>
+              <div class="site-subtitle">Meta Muse 真实用户案例与复现指南</div>
+            </div>
+          </a>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <a href="../../" class="btn btn-outline" style="font-size: 0.84rem;">&larr; 返回案例库大盘</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="featured-card" style="margin-bottom: 30px;">
+        <div class="featured-top-row">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="badge badge-cat">自动化与定时任务 · 进阶</span>
+            <span class="badge badge-grade">Grade B</span>
+            <span class="stat-tag stat-score">★ 评分 77</span>
+            <span class="stat-tag stat-heat">🔥 热度 66</span>
+            <span class="stat-tag">📅 期次 2026-11-14</span>
+          </div>
+        </div>
+
+        <div class="detail-flow">
+          <div class="detail-header">
+            <h1 class="detail-title" style="margin-top: 10px; cursor: default;">用 Muse 搭全自动薅羊毛流水线：自动扫描、自动领取、自动入库</h1>
+            <div class="detail-valueline">三步拼装出一条不用自己操心的薅羊毛流水线：先建一个「免费资源」空间当仓库；再把一条任务提示词丢给 Muse，让它在 VPS 上装一台常驻 Chrome 当领取专用浏览器；最后装一个 24 小时运行的羊毛情报空间负责全网扫描。扫到高价值免费资源后，用浏览器里保存的 Google 登录状态自动注册领取，领取成功自动归档进资源空间。作者晒出的资源空间里已有 11 项已获取资源。</div>
+          </div>
+
+          <!-- 任务背景 -->
+          <div class="detail-section">
+            <div class="detail-label">任务背景</div>
+            <div class="detail-text">2026-11-13 15:04，Anis（@Yonkxx）在 X 发帖给出完整拼装法。他在 11-12 先发过一条「把链接丢给 Muse、让它在 VPS 上装好 Chrome 并登录 Google」的提示词帖（25,066 浏览），本帖再把它与 @wlzh 11-09 长帖的羊毛情报空间方案拼成全自动流水线。本帖是狗爸爸投稿，经总管核验后直发收录。</div>
+          </div>
+
+          <!-- 步骤 -->
+          
+      <div class="detail-section">
+        <div class="detail-label">做法步骤 (4 步)</div>
+        <ol class="steps-clean-list">
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">1.</span>
+              <span class="step-clean-text">第一步建仓库空间：创建一个名为「免费资源」的空间（Space），以后自动领取的 VPS、GPU 等免费资源统一入库到这里。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">2.</span>
+              <span class="step-clean-text">第二步装领取专用浏览器：把作者 11 月 12 日那条帖子的链接丢给 Muse，让它在 VPS 上装 Google Chrome、Xvfb 虚拟显示与中文字体，做成 systemd 常驻服务（开机自启、崩溃自动拉起）；远程调试端口 9222 与 VNC 都只绑 127.0.0.1、经 SSH 隧道访问；Chrome 用独立用户数据目录保存登录状态，本人经 VNC 登录一次 Google，之后登录态长期复用。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">3.</span>
+              <span class="step-clean-text">第三步装情报空间：把 @wlzh 的帖子链接丢给 Muse，装「GLOBAL DEAL HUNTER｜全球羊毛情报中心」空间——每 2 小时全网扫描 AI 订阅优惠、Crypto、U 卡、海外银行、VPS 及云服务等类别，自动去重、核有效期、算价值、分看板展示，每天 4 次定时推送。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">4.</span>
+              <span class="step-clean-text">第四步拼成流水线：情报空间扫到高价值羊毛后，Muse 调用 VPS 上已登录的 Chrome 自动注册并领取，领取成功自动写入「免费资源」空间归档，全程不用人盯。</span>
+            </li>
+          
+        </ol>
+      </div>
+    
+
+          <!-- 关键提示词 -->
+          
+      <div class="detail-section">
+        <div class="detail-label">关键提示词 (Prompt)</div>
+        <div class="prompt-box">
+          <div class="prompt-bar">
+            <span>PROMPT TEMPLATE</span>
+            <button class="prompt-copy-btn" id="copyPromptBtn">复制提示词</button>
+          </div>
+          <code class="prompt-code" id="promptCode">（核心指令摘录，原帖引用帖任务原文的浓缩）「帮我在这台 VPS 上装一个长期可用的『领取专用浏览器』：Chrome 做成常驻服务、登录状态存独立目录、调试端口只绑本机；我经 VNC 登录一次，之后需要 Google 登录的操作，你直接用这台浏览器做。」</code>
+        </div>
+      </div>
+    
+
+          <!-- 产出与证据 -->
+          
+      <div class="detail-section">
+        <div class="output-callout">
+          <div class="output-callout-label">产出与证据</div>
+          <div class="output-callout-text">作者晒出的「免费资源」空间截图：11 项已获取资源、11 项已部署，其中含 3 个 GPU 资源。截图里可辨认的两张卡片：InstaBox 免费云电脑（4 vCPU、8 GiB 内存、20 GiB 磁盘，Linux，卡片注明 2026-11-13 经 Google 账号注册领取，状态运行中）与 ModelScope 魔搭社区 AMD GPU 环境（192 GB 显存、100 小时免费额度，2026-11-11 领取）。热度为总管 2026-11-14 实读原帖：14,012 浏览、153 赞、222 收藏、16 转帖。</div>
+          
+        </div>
+      </div>
+    
+
+          <!-- 复现要点 -->
+          <div class="detail-section">
+            <div class="detail-label">复现要点</div>
+            <div class="detail-text">1. 先分开跑通再拼装：常驻浏览器、情报空间、资源空间各自验收后，再串成流水线，出问题好定位。2. 安全底线照原帖守：调试端口与 VNC 只绑 127.0.0.1、走 SSH 隧道；密码与验证码自己经 VNC 输入，不要发在聊天里。3. SSH 密钥文件设 600 权限；领取用的 Google 账号建议用专用号，不要拿主力账号自动跑。4. 免费活动规则变得快，自动领取前先让 Muse 核一遍活动是否仍有效、条件是否还对得上。</div>
+          </div>
+
+          <!-- 踩坑提示 -->
+          
+      <div class="detail-section">
+        <div class="pitfalls-callout">
+          <div class="pitfalls-callout-label">踩坑提示</div>
+          <div class="pitfalls-callout-text">1. 诚实标注：「全自动领取」环节为作者自述，帖内没有自动化运行日志或领取回执可核；截图只能证明资源空间里已有 11 项资源清单，其中 ModelScope 一项卡片注明由作者本人参加 AMD 激励计划领取，并非全部由流水线自动完成。2. 用保存登录状态的浏览器自动注册领取，可能触碰目标平台的自动化条款，有封号风险，先用小号小规模试。3. 情报空间来自第三方帖子的方案，扫描覆盖与验真质量以原帖为准，重要领取前回官方页面核对。</div>
+        </div>
+      </div>
+    
+
+          <!-- 信源核对 -->
+          <div class="detail-section" style="margin-top: 6px;">
+            <div class="source-verify-box">
+              <div class="source-meta-left">
+                <span>作者/报道：<strong>Anis @Yonkxx（用户投稿）</strong></span>
+                <span>&bull;</span>
+                <span>平台：<strong>X</strong></span>
+                <span>&bull;</span>
+                <span>信源等级：<strong>Grade B</strong></span>
+                <span>&bull;</span><span>发布日期：2026-11-13</span>
+              </div>
+              
+                <a href="https://x.com/Yonkxx/status/2121137080944164953" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                  <span>打开原文报道</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              
+            </div>
+          </div>
+
+          <!-- 底部行动 -->
+          <div class="featured-footer" style="margin-top: 24px;">
+            <a href="../../" class="btn btn-outline">&larr; 返回查看全部 55 个实战案例</a>
+            
+              <a href="https://x.com/Yonkxx/status/2121137080944164953" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>访问原文报道</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <span class="footer-links-label">友情链接：</span>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">摸鱼杂货店</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">免费开源数字资源</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">搞钱实验室</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://hao.itis.chat/" target="_blank" rel="noopener noreferrer">薅羊毛日报</a>
+        </div>
+        <p class="footer-source">数据来源：Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出</p>
+        <p class="footer-note">严格依真实用户报道整理 · 支持本地离线与完整核验</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const copyBtn = document.getElementById('copyPromptBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const code = document.getElementById('promptCode').innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          const t = document.getElementById('toast');
+          t.textContent = '提示词已复制到剪贴板！';
+          t.classList.add('show');
+          setTimeout(() => t.classList.remove('show'), 2000);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
