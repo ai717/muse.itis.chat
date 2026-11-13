@@ -1785,7 +1785,7 @@ window.FALLBACK_DATA_EN = {
       "valueLine": "A compilation-style hands-on longread: the author distilled 8 Muse how-to source posts from the past 30 days (1,263,360 combined views, the author's own count verified on 2026-11-12) into a 6-chapter executable system — Spaces workbenches, a free-quota radar, an AI video workflow, content growth, login-free link reading, and automated deployment & scheduling. The core move: copy the post's opening 'fully automatic execution prompt', attach this post's link, and hand it to your own Muse, which reads it and executes item by item while you only set goals, review results, and approve anything external before it happens.",
       "category": "advanced",
       "difficulty": "进阶",
-      "difficultyEn": "Advanced",
+      "difficultyEn": "Intermediate",
       "score": 80,
       "heat": 72,
       "featured": true,
