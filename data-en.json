@@ -1,7 +1,7 @@
 {
   "site": "Muse Case Library",
   "subject": "Meta Muse (Personal AI Assistant) Real-World User Case Studies & Playbooks",
-  "exportedAt": "2026-11-13T02:50:19+08:00",
+  "exportedAt": "2026-11-14T05:03:32+08:00",
   "source": "Structured export of Muse space muse-shi-zhan-an-li-ku via getState",
   "categories": [
     {
@@ -79,6 +79,12 @@
       "id": 5,
       "date": "2026-11-13",
       "caseCount": 2,
+      "status": "done"
+    },
+    {
+      "id": 6,
+      "date": "2026-11-14",
+      "caseCount": 1,
       "status": "done"
     }
   ],
@@ -1719,7 +1725,7 @@
       "difficultyEn": "Beginner",
       "score": 74,
       "heat": 55,
-      "featured": true,
+      "featured": false,
       "issueDate": "2026-11-13",
       "background": "The author had previously posted a warning: don't log important accounts into Muse — its cloud-hosted browser runs through a shared datacenter IP pool, the IPs are dirty, Reddit returns 403 across the board and many services refuse access. On 2026-11-12 he found that Meta had officially released a Chrome extension, 'Muse from Meta', installed it, and posted excitedly that Muse could now operate his own browser and that several of his problems were solved at once.",
       "steps": [
@@ -1770,6 +1776,40 @@
         "platform": "X",
         "grade": "B",
         "url": "https://x.com/mingzi206/status/2120908975822770357",
+        "publishedAt": "2026-11-12"
+      }
+    },
+    {
+      "id": 54,
+      "title": "The Muse Playbook Roundup Verified by 1.26M Views: Copy the Prompt, Hand It to Your Muse, and It Does the Jobs One by One",
+      "valueLine": "A compilation-style hands-on longread: the author distilled 8 Muse how-to source posts from the past 30 days (1,263,360 combined views, the author's own count verified on 2026-11-12) into a 6-chapter executable system — Spaces workbenches, a free-quota radar, an AI video workflow, content growth, login-free link reading, and automated deployment & scheduling. The core move: copy the post's opening 'fully automatic execution prompt', attach this post's link, and hand it to your own Muse, which reads it and executes item by item while you only set goals, review results, and approve anything external before it happens.",
+      "category": "advanced",
+      "difficulty": "进阶",
+      "difficultyEn": "Advanced",
+      "score": 80,
+      "heat": 72,
+      "featured": true,
+      "issueDate": "2026-11-14",
+      "background": "At 20:18 on 2026-11-12, Shengming Jiaxiang (@sgwer73) published a long X post titled 'The most complete roundup of Muse tips from Twitter's top creators: verified by 1.26M views'. Muse how-to posts had piled up over the past month but were scattered everywhere, so he took 8 of the best source posts, broke each one down, reproduced them himself, and reorganized everything into 6 chapters in working order — set up the workbench first, then save quota, then produce content, then automate — with real screenshots of workbenches, the radar, and scraping results in every chapter. This case was submitted by the site owner and published directly after the chief editor's verification.",
+      "steps": [
+        "Chapter 1 — Build the Spaces workbenches: create 5 Spaces (a topic library, a free-quota radar, an AI video workflow, a creator center, and a trends board); before starting, check the cloud configuration, set account-operation confirmation rules and ten working rules; the acceptance test is that real material you saved is still there after closing and reopening the page.",
+        "Chapter 2 — Build a free-quota radar: register each quota with a 12-field card template, sort by expiry, and re-check on a daily schedule; the author's routing setup is the OpenRouter free tier (his own tested figures: 50 calls/day, rising to 1000/day after a $10 top-up) plus Pi sub-tasks plus a daily FreeToken-Bots scan, with keys kept only in secure storage.",
+        "Chapter 3 — Run the AI video workflow: write a shot list first, then generate and review shot by shot; examples in the post include a 12-second vertical necklace ad (three shots) made from a single photo, and an 18-second finished short 'Don't Open the Door' made by creator Senshu with Muse plus an infinite canvas.",
+        "Chapter 4 — Grow content: apply Koda's ratio method for topics, titles, and openings, self-check with a six-question pre-publishing list; the trends board refreshes every 30 minutes and ranks topics by real engagement.",
+        "Chapter 5 — Read links without logging in: follow a tiered route — public metadata, guest endpoints, open-source tools (yt-dlp, XHS-Downloader), then real-browser interception; report only as much as you actually read, never pretend you got it all.",
+        "Chapter 6 — Automate deployment and scheduling: have Muse deploy services for you (the post's example deploys xray on cloady's free tier — the author corrected the free tier to 10GB of outbound traffic per month); give scheduled jobs only tasks with fixed steps, written-back results, and visible failures, and back up memory daily as a bundle.",
+        "Final assembly check: send the opening 'fully automatic execution prompt' plus this post's link to your own Muse and let it read and execute item by item; the human only sets goals, reviews results, and approves every external operation before it runs."
+      ],
+      "keyPrompt": "(Core-instruction excerpt: the full execution prompt at the top of the original post could not be captured in full, so only the verified core instruction is quoted here, not a fabricated complete text) Paste the article link at the end of the prompt and send it to your own Muse; let it read the article and then execute item by item in order; the human only sets goals, reviews results, and approves external operations first.",
+      "outputDesc": "The output is not a single artifact but an execution system installed into your own Muse: 5 Spaces workbenches, a free-quota radar, an AI video workflow, a content trends board, plus automated deployment and scheduled jobs. The author states he personally reproduced every section, and each chapter of the post carries real screenshots of the workbench, radar, and scraping-result pages. Engagement measured by the chief editor reading the original post on 2026-11-14: 25,179 views, 510 likes, 784 bookmarks, 81 reposts. Note that the '1.26M views' in the title refers to the 8 source posts' combined 1,263,360 views (the author's count, verified 2026-11-12), not this post's own views.",
+      "outputUrl": "",
+      "reproduceTips": "1. Don't install all six chapters at once: land one chapter first (the workbench plus quota radar is the suggested start), self-check against the author's acceptance tests (e.g., saved material still there after reopening the page), and only then add the next. 2. The quota figures are the author's own account measurements (e.g., OpenRouter free-tier call counts); free-tier rules change, so re-check the official site before following them. 3. Keep keys only in secure storage — never inside prompts or public documents. 4. Give scheduled jobs only tasks with fixed steps, written-back results, and visible failures; never fully automate work that needs on-the-spot judgment.",
+      "pitfalls": "1. Honest label: the author is a curator and reproducer — the main cases come from the 8 source posts' original authors, and this post does not include a complete raw record of the author operating everything step by step himself; cross-check each chapter's effects against the source posts. 2. The third-party bridge muse2api is not an official API: the author says he audited the bridge project's source code, but using it still carries an account-ban risk — don't connect a main account unless you must. 3. Free quotas and free tiers change (e.g., cloady's free tier is actually 10GB outbound per month, the author's corrected figure); verify on the official site before claiming or deploying. 4. 'Fully automatic execution' does not mean unattended: keep a human approval step for any external operation involving accounts, publishing, or payments.",
+      "source": {
+        "name": "Shengming Jiaxiang @sgwer73 (reader submission)",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/sgwer73/status/2120853798839267562",
         "publishedAt": "2026-11-12"
       }
     }
