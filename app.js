@@ -353,6 +353,8 @@
           <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI Navigation</a>
           <span class="footer-links-sep">&bull;</span>
           <a href="https://hao.itis.chat/" target="_blank" rel="noopener noreferrer">Deals Daily</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://grokbot.itis.chat/" target="_blank" rel="noopener noreferrer">GrokBot Case</a>
         `;
       } else {
         footerLinksContainer.innerHTML = `
@@ -368,6 +370,8 @@
           <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
           <span class="footer-links-sep">&bull;</span>
           <a href="https://hao.itis.chat/" target="_blank" rel="noopener noreferrer">薅羊毛日报</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://grokbot.itis.chat/" target="_blank" rel="noopener noreferrer">GrokBot实战案例</a>
         `;
       }
     }
