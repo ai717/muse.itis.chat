@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MUSE 进阶实战：从锁脸出片到控运镜，搭一套完整的 AI 视频流水线 - Meta Muse 实战案例库</title>
+  <meta name="description" content="一份从 0 到 1 的跟练手册，专治 AI 视频四大坑——换镜头换脸、大动作崩坏、长片变慢动作、试错烧光额度：先用「角色设定备忘录」锁住主角长相，再在 Muse Space 里搭「提示词中继看板」把耗额度的渲染分流给免费的 Meta AI；长片用分镜表加「10 秒 + 10 秒」分段生成防慢动作、RIFE 插帧拉到 60fps；高难度运镜走 Muse 预演加 ComfyUI MiniMax H3 精修，街景用 Blender 加 PLATEAU 3D 城市数据打底防变形。">
+  <link rel="canonical" href="https://muse.itis.chat/case/56/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../monimuse-icon.svg">
+  <meta name="theme-color" content="#f5efe6">
+
+  <!-- Google Analytics & Google Tag Manager (GTM-5GG9VBGS) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5GG9VBGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- Google Search Console 域名验证 -->
+  <meta name="google-site-verification" content="GTM-5GG9VBGS">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MUSE 进阶实战：从锁脸出片到控运镜，搭一套完整的 AI 视频流水线 - Meta Muse 实战案例">
+  <meta property="og:description" content="一份从 0 到 1 的跟练手册，专治 AI 视频四大坑——换镜头换脸、大动作崩坏、长片变慢动作、试错烧光额度：先用「角色设定备忘录」锁住主角长相，再在 Muse Space 里搭「提示词中继看板」把耗额度的渲染分流给免费的 Meta AI；长片用分镜表加「10 秒 + 10 秒」分段生成防慢动作、RIFE 插帧拉到 60fps；高难度运镜走 Muse 预演加 ComfyUI MiniMax H3 精修，街景用 Blender 加 PLATEAU 3D 城市数据打底防变形。">
+  <meta property="og:url" content="https://muse.itis.chat/case/56/">
+  <meta property="og:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MUSE 进阶实战：从锁脸出片到控运镜，搭一套完整的 AI 视频流水线">
+  <meta name="twitter:description" content="一份从 0 到 1 的跟练手册，专治 AI 视频四大坑——换镜头换脸、大动作崩坏、长片变慢动作、试错烧光额度：先用「角色设定备忘录」锁住主角长相，再在 Muse Space 里搭「提示词中继看板」把耗额度的渲染分流给免费的 Meta AI；长片用分镜表加「10 秒 + 10 秒」分段生成防慢动作、RIFE 插帧拉到 60fps；高难度运镜走 Muse 预演加 ComfyUI MiniMax H3 精修，街景用 Blender 加 PLATEAU 3D 城市数据打底防变形。">
+  <meta name="twitter:image" content="https://muse.itis.chat/monimuse-icon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "MUSE 进阶实战：从锁脸出片到控运镜，搭一套完整的 AI 视频流水线",
+  "description": "一份从 0 到 1 的跟练手册，专治 AI 视频四大坑——换镜头换脸、大动作崩坏、长片变慢动作、试错烧光额度：先用「角色设定备忘录」锁住主角长相，再在 Muse Space 里搭「提示词中继看板」把耗额度的渲染分流给免费的 Meta AI；长片用分镜表加「10 秒 + 10 秒」分段生成防慢动作、RIFE 插帧拉到 60fps；高难度运镜走 Muse 预演加 ComfyUI MiniMax H3 精修，街景用 Blender 加 PLATEAU 3D 城市数据打底防变形。",
+  "articleSection": "内容创作",
+  "url": "https://muse.itis.chat/case/56/",
+  "datePublished": "2026-11-21",
+  "inLanguage": "zh-CN",
+  "author": {
+    "@type": "Person",
+    "name": "锦鲤同学 @loi_jinli（用户投稿）"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "X"
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <div class="app-container">
+    <header class="site-header">
+      <div class="header-main">
+        <div class="brand-wrap">
+          <a href="../../" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+            <div class="monimuse-avatar-wrap" title="MoniMuse">
+              <img src="../../monimuse-icon.svg" width="44" height="44" alt="MoniMuse" style="border-radius: 12px;">
+            </div>
+            <div>
+              <div class="site-title">Muse 实战案例库</div>
+              <div class="site-subtitle">Meta Muse 真实用户案例与复现指南</div>
+            </div>
+          </a>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <a href="../../" class="btn btn-outline" style="font-size: 0.84rem;">&larr; 返回案例库大盘</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="featured-card" style="margin-bottom: 30px;">
+        <div class="featured-top-row">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="badge badge-cat">内容创作 · 进阶</span>
+            <span class="badge badge-grade">Grade B</span>
+            <span class="stat-tag stat-score">★ 评分 82</span>
+            <span class="stat-tag stat-heat">🔥 热度 78</span>
+            <span class="stat-tag">📅 期次 2026-11-21</span>
+          </div>
+        </div>
+
+        <div class="detail-flow">
+          <div class="detail-header">
+            <h1 class="detail-title" style="margin-top: 10px; cursor: default;">MUSE 进阶实战：从锁脸出片到控运镜，搭一套完整的 AI 视频流水线</h1>
+            <div class="detail-valueline">一份从 0 到 1 的跟练手册，专治 AI 视频四大坑——换镜头换脸、大动作崩坏、长片变慢动作、试错烧光额度：先用「角色设定备忘录」锁住主角长相，再在 Muse Space 里搭「提示词中继看板」把耗额度的渲染分流给免费的 Meta AI；长片用分镜表加「10 秒 + 10 秒」分段生成防慢动作、RIFE 插帧拉到 60fps；高难度运镜走 Muse 预演加 ComfyUI MiniMax H3 精修，街景用 Blender 加 PLATEAU 3D 城市数据打底防变形。</div>
+          </div>
+
+          <!-- 任务背景 -->
+          <div class="detail-section">
+            <div class="detail-label">任务背景</div>
+            <div class="detail-text">2026-11-17 18:09，锦鲤同学（@loi_jinli）在 X 发布 14 分钟长文，是其 2026-11-11「Muse 进阶第一贴」（搭 4 个工作台：免费额度雷达、AI 视频工作流、自媒体创作中心、热点看板）的续篇：上一篇搭台子，这一篇把台子串成一条能出成片的视频流水线，步骤、参数与翻车排查俱全。本帖是狗爸爸投稿，经总管读完全文核验后收录。</div>
+          </div>
+
+          <!-- 步骤 -->
+          
+      <div class="detail-section">
+        <div class="detail-label">做法步骤 (6 步)</div>
+        <ol class="steps-clean-list">
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">1.</span>
+              <span class="step-clean-text">第一步先立规矩：备好 Muse 账号、1 张干净的正面人像照，并先定死画面比例（竖屏 9:16、横屏 16:9）；新开对话什么图都先别传，先发一段「合作规矩」给 Muse 立 3 条协作规矩，要求它每次出片先自检 4 项再交卷，避免它自作主张加配乐、字幕和多余动作。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">2.</span>
+              <span class="step-clean-text">第二步锁脸最小闭环：上传人像照，让 Muse 把五官与发型特征存成「角色设定备忘录」（若混进背景和衣服描述，要求它删掉重存，只留五官发型）；再在同一对话调用备忘录，生成第 1 条 6 秒单动作测试片；不满意只在原对话里「一次只改一个点」微调，先把这条片做到脸与原图一致再往下走。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">3.</span>
+              <span class="step-clean-text">第三步中继看板省额度：让 Muse 在 Space 里搭一个「提示词中继看板」，把工作拆成两半——Muse 只写提示词和当质检员（几乎不耗额度），耗算力的生图与动画交给免费的 Meta AI：点看板按钮复制提示词，到 meta.ai 生图，再用 Animate 或 Custom animate 让图片动起来，下载后传回 Muse 验收脸和动作有没有穿帮。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">4.</span>
+              <span class="step-clean-text">第四步长片防慢动作加补帧：拍 20–30 秒短片先让 Muse 写一张 6 镜头分镜表（30 秒拆成 6 个 5 秒镜头），再按「10 秒 + 10 秒」分段生成后拼接——直接要求「生成 20 秒」会把正常动作拖成 0.5 倍速慢动作；原生 16fps 或 24fps 的卡顿感用 RIFE 插帧拉到 60fps（ComfyUI 的 RIFE VFI 节点、rife47 模型，24/30fps 用倍率 2、16fps 用倍率 4）。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">5.</span>
+              <span class="step-clean-text">第五步高难度运镜精修：先让 Muse 拍一条只管动作和机位、不管长相的 5 秒预演（Previz）草稿，再把预演片和主角正面图一起送进 ComfyUI 的 MiniMax H3 Ref2VA 模板重绘：宽 1344、高 768（768p）、121 帧（约 5 秒），挂 8 步 Turbo LoRA 时采样步数填 8（不挂 LoRA 填 20）；提示词每段必须把主角发色和衣服款式完整重写一遍，否则模型后半段会「失忆」换脸。</span>
+            </li>
+          
+            <li class="step-clean-item">
+              <span class="step-clean-num">6.</span>
+              <span class="step-clean-text">第六步街景防变形：给 Blender 装开源插件 Plateau-Blender-Importer，导入日本国土交通省 Project PLATEAU 的 CityGML 3D 城市数据（只保留摄像机周边 500 米到 1 公里内的建筑与道路，避免整城导入卡死），摆好机位渲染一张透视焊死的静态底图，再把底图送进 Muse 或 Meta AI 或 ComfyUI 加光影和动态，推镜几乎零变形。</span>
+            </li>
+          
+        </ol>
+      </div>
+    
+
+          <!-- 关键提示词 -->
+          
+      <div class="detail-section">
+        <div class="detail-label">关键提示词 (Prompt)</div>
+        <div class="prompt-box">
+          <div class="prompt-bar">
+            <span>PROMPT TEMPLATE</span>
+            <button class="prompt-copy-btn" id="copyPromptBtn">复制提示词</button>
+          </div>
+          <code class="prompt-code" id="promptCode">（两处原文指令摘录）插帧：「请调用 RIFE 引擎，把刚才这段视频插帧提升到 60fps。」街景图生视频：「保持建筑结构不变，赋予阴天雨后湿润柏油路面的霓虹灯反光，街上行人撑伞走动，镜头缓慢向前推进。」</code>
+        </div>
+      </div>
+    
+
+          <!-- 产出与证据 -->
+          
+      <div class="detail-section">
+        <div class="output-callout">
+          <div class="output-callout-label">产出与证据</div>
+          <div class="output-callout-text">产出为教程内嵌的操作截图、ComfyUI 官方 MiniMax H3 R2V 模板的节点连线全景图与流程图，没有独立成片链接。文中另附不用看图也能对照的节点连线清单与验收标准（例如图生视频后对比最后一帧，两侧大楼边缘线仍须是直的）。热度为总管 2026-11-19 实读原帖：118,193 浏览、570 赞、1,188 收藏。</div>
+          
+        </div>
+      </div>
+    
+
+          <!-- 复现要点 -->
+          <div class="detail-section">
+            <div class="detail-label">复现要点</div>
+            <div class="detail-text">1. 顺序别乱：先跑通 6 秒锁脸测试片，再谈长片和运镜；脸没锁稳之前不要写 30 秒长剧情。2. 素材纪律：人像照用光线均匀、五官清晰的正面半身照，千万别传四宫格或九宫格拼图，白边会被 AI 学进视频；比例先定死，不要先出横图再强行转竖屏，系统裁切容易把主角切偏。3. 省额度：单条 6 秒视频约耗周额度 2%–12%（作者经验值），试错多用短镜头和中继看板；生成中耐心等 1–2 分钟，不要反复点发送。4. 硬件门槛：ComfyUI 加 MiniMax H3 需要 16GB–24GB 显存的 NVIDIA 显卡，没有就上 Kaggle、Modal、Paperspace 等云端 GPU；Blender 导入城市数据只导摄像机周边范围。</div>
+          </div>
+
+          <!-- 踩坑提示 -->
+          
+      <div class="detail-section">
+        <div class="pitfalls-callout">
+          <div class="pitfalls-callout-label">踩坑提示</div>
+          <div class="pitfalls-callout-text">1. 商用版权（原文诚实标注）：Muse 免费版目前不提供明确的商业使用版权担保；若视频用于商业广告或付费投放，作者建议只用 Muse 做分镜、备忘录和预演草稿，最终成片走本地 ComfyUI 开源模型渲染并在剪辑软件里合成。2. 字幕坑：让 Muse 直接往视频下半屏压字幕，开头 0.2–0.5 秒往往是空白，拼接时裁掉开头几帧，或统一到剪映、CapCut 里后加字幕。3. 精修致命点：H3 提示词哪怕传了参考图也不能只写「主角回头」，发色与衣服每段都要完整重写，否则后半段换成路人脸。4. 等待时长与额度消耗比例均为作者个人实测经验，不同账号以实际显示为准；生成卡住超过 3 分钟先查活动记录是否还在排队。</div>
+        </div>
+      </div>
+    
+
+          <!-- 信源核对 -->
+          <div class="detail-section" style="margin-top: 6px;">
+            <div class="source-verify-box">
+              <div class="source-meta-left">
+                <span>作者/报道：<strong>锦鲤同学 @loi_jinli（用户投稿）</strong></span>
+                <span>&bull;</span>
+                <span>平台：<strong>X</strong></span>
+                <span>&bull;</span>
+                <span>信源等级：<strong>Grade B</strong></span>
+                <span>&bull;</span><span>发布日期：2026-11-17</span>
+              </div>
+              
+                <a href="https://x.com/loi_jinli/status/2122633239181537572" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">
+                  <span>打开原文报道</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              
+            </div>
+          </div>
+
+          <!-- 底部行动 -->
+          <div class="featured-footer" style="margin-top: 24px;">
+            <a href="../../" class="btn btn-outline">&larr; 返回查看全部 56 个实战案例</a>
+            
+              <a href="https://x.com/loi_jinli/status/2122633239181537572" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>访问原文报道</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <span class="footer-links-label">友情链接：</span>
+          <a href="https://www.moyunews.com/" target="_blank" rel="noopener noreferrer">摸鱼杂货店</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://free.itis.chat/" target="_blank" rel="noopener noreferrer">免费开源数字资源</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://m.ucncn.cn/" target="_blank" rel="noopener noreferrer">搞钱实验室</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://doin.win/" target="_blank" rel="noopener noreferrer">小游戏大全</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://itis.chat/" target="_blank" rel="noopener noreferrer">AI资源导航</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://hao.itis.chat/" target="_blank" rel="noopener noreferrer">薅羊毛日报</a>
+          <span class="footer-links-sep">&bull;</span>
+          <a href="https://grokbot.itis.chat/" target="_blank" rel="noopener noreferrer">GrokBot实战案例</a>
+        </div>
+        <p class="footer-source">数据来源：Muse 空间 muse-shi-zhan-an-li-ku 的 getState 结构化导出</p>
+        <p class="footer-note">严格依真实用户报道整理 · 支持本地离线与完整核验</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const copyBtn = document.getElementById('copyPromptBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const code = document.getElementById('promptCode').innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          const t = document.getElementById('toast');
+          t.textContent = '提示词已复制到剪贴板！';
+          t.classList.add('show');
+          setTimeout(() => t.classList.remove('show'), 2000);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

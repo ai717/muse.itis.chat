@@ -1,7 +1,7 @@
 window.FALLBACK_DATA_EN = {
   "site": "Muse Case Library",
   "subject": "Meta Muse (Personal AI Assistant) Real-World User Case Studies & Playbooks",
-  "exportedAt": "2026-11-14T05:11:11+08:00",
+  "exportedAt": "2026-11-21T01:22:20+08:00",
   "source": "Structured export of Muse space muse-shi-zhan-an-li-ku via getState",
   "categories": [
     {
@@ -85,6 +85,12 @@ window.FALLBACK_DATA_EN = {
       "id": 6,
       "date": "2026-11-14",
       "caseCount": 2,
+      "status": "done"
+    },
+    {
+      "id": 7,
+      "date": "2026-11-21",
+      "caseCount": 1,
       "status": "done"
     }
   ],
@@ -1788,7 +1794,7 @@ window.FALLBACK_DATA_EN = {
       "difficultyEn": "Intermediate",
       "score": 80,
       "heat": 72,
-      "featured": true,
+      "featured": false,
       "issueDate": "2026-11-14",
       "background": "At 20:18 on 2026-11-12, Shengming Jiaxiang (@sgwer73) published a long X post titled 'The most complete roundup of Muse tips from Twitter's top creators: verified by 1.26M views'. Muse how-to posts had piled up over the past month but were scattered everywhere, so he took 8 of the best source posts, broke each one down, reproduced them himself, and reorganized everything into 6 chapters in working order — set up the workbench first, then save quota, then produce content, then automate — with real screenshots of workbenches, the radar, and scraping results in every chapter. This case was submitted by the site owner and published directly after the chief editor's verification.",
       "steps": [
@@ -1842,6 +1848,39 @@ window.FALLBACK_DATA_EN = {
         "grade": "B",
         "url": "https://x.com/Yonkxx/status/2121137080944164953",
         "publishedAt": "2026-11-13"
+      }
+    },
+    {
+      "id": 56,
+      "title": "Muse Advanced in Practice: One Complete AI Video Pipeline — Face-Locking, Relay Board, Camera Control",
+      "valueLine": "A follow-along manual that fixes the four classic AI-video failures — the face changes between shots, big motions fall apart, long clips turn into slow motion, and trial-and-error burns the weekly quota: lock the protagonist's face with a 'character memo', build a 'prompt relay board' in a Muse Space that offloads rendering to the free Meta AI, shoot long clips as storyboarded '10s + 10s' segments and smooth them to 60fps with RIFE, finish hard camera moves with a Muse previz plus ComfyUI MiniMax H3, and keep street scenes rigid with Blender and PLATEAU 3D city data.",
+      "category": "content",
+      "difficulty": "进阶",
+      "difficultyEn": "Intermediate",
+      "score": 82,
+      "heat": 78,
+      "featured": true,
+      "issueDate": "2026-11-21",
+      "background": "At 18:09 on 2026-11-17, @loi_jinli published a 14-minute long-form post on X — the sequel to his 2026-11-11 'Muse advanced, part one' post (building four workbenches: a free-quota radar, an AI video workflow, a creator hub and a trends board). Where part one built the benches, this one chains them into a pipeline that ships finished videos, with full steps, parameters and a troubleshooting checklist. Submitted by the site owner and published after the chief editor read and verified the full text.",
+      "steps": [
+        "Step 1 — Set the house rules first: prepare a Muse account, one clean front-facing portrait photo, and fix the aspect ratio up front (9:16 vertical, 16:9 landscape). In a fresh chat, send no image yet — first paste a 'collaboration rules' brief that sets Muse 3 working rules and makes it self-check 4 items before delivering each clip, so it stops adding its own music, subtitles and extra gestures.",
+        "Step 2 — The face-locking minimum loop: upload the portrait and have Muse store the facial features and hairstyle as a 'character memo' (if background or clothing descriptions sneak in, make it delete them and re-save features only). In the same chat, call the memo to generate the first 6-second single-action test clip; if it is off, iterate in the same conversation changing exactly one point at a time until the face matches the photo.",
+        "Step 3 — Save quota with a relay board: have Muse build a 'prompt relay board' in a Space and split the work — Muse only writes prompts and acts as QA (near-zero quota), while the compute-heavy image and animation rendering goes to the free Meta AI: copy the prompt from the board, generate the image on meta.ai, animate it with Animate or Custom animate, download it and hand it back to Muse to check the face and motion for glitches.",
+        "Step 4 — Long clips without slow motion, plus frame smoothing: for a 20–30 second video, first have Muse write a 6-shot storyboard (30 seconds split into 6 five-second shots), then generate in '10s + 10s' segments and stitch — asking directly for 'a 20-second video' stretches normal motion into 0.5x slow motion. Fix the choppiness of native 16fps or 24fps output with RIFE interpolation to 60fps (ComfyUI's RIFE VFI node, rife47 model; multiplier 2 for 24/30fps, 4 for 16fps).",
+        "Step 5 — Precision pass for hard camera moves: first have Muse shoot a 5-second previz draft that only cares about action and camera path, not the face; then feed the previz clip plus the protagonist's portrait into ComfyUI's MiniMax H3 Ref2VA template: width 1344, height 768 (768p), 121 frames (about 5 seconds), sampling steps 8 with the 8-step Turbo LoRA attached (20 without it). Every prompt segment must restate the protagonist's hair color and outfit in full, or the model 'forgets' and swaps in a stranger's face halfway.",
+        "Step 6 — Keep street scenes rigid: install the open-source Plateau-Blender-Importer add-on in Blender and import CityGML 3D city data from Japan's Project PLATEAU (keep only the buildings and roads within 500 m to 1 km of the camera — importing a whole city will freeze the machine), set the camera and render one perspective-locked still base image, then hand that still to Muse, Meta AI or ComfyUI to add light and motion; push-in shots come out with almost zero warping."
+      ],
+      "keyPrompt": "(Two verbatim instructions from the post) Frame interpolation: 'Please call the RIFE engine and interpolate this video up to 60fps.' Street-scene image-to-video: 'Keep the building structures unchanged; give it neon reflections on wet asphalt after rain on an overcast day, pedestrians walking with umbrellas, and the camera slowly pushing forward.'",
+      "outputDesc": "The deliverables are the tutorial's embedded screenshots, a full node-wiring diagram of ComfyUI's official MiniMax H3 R2V template, and flowcharts — there is no standalone finished-video link. The post also includes a text-only wiring checklist and acceptance criteria (for example, in the last frame of the generated video the building edges on both sides must still be straight). Engagement as read by the chief editor on 2026-11-19: 118,193 views, 570 likes, 1,188 bookmarks.",
+      "outputUrl": "",
+      "reproduceTips": "1. Keep the order: run the 6-second face-locking test clip first; do not write a 30-second plot before the face is stable. 2. Source discipline: use an evenly lit, clearly featured front-facing half-body portrait — never upload a four- or nine-grid collage, whose white borders the AI learns into the video; fix the aspect ratio first instead of forcing a landscape image into a vertical video, which crops the protagonist off-center. 3. Quota care: one 6-second clip costs roughly 2%–12% of the weekly quota (the author's experience figures); iterate with short clips and the relay board, and wait the 1–2 minutes a generation takes instead of re-sending. 4. Hardware bar: ComfyUI with MiniMax H3 needs an NVIDIA GPU with 16GB–24GB of VRAM — otherwise run it on Kaggle, Modal or Paperspace; in Blender, import only the area around the camera.",
+      "pitfalls": "1. Commercial-use copyright (the post's own honest note): the free tier of Muse currently offers no clear commercial-use copyright guarantee; for paid ads or commercial placement the author recommends using Muse only for storyboards, the character memo and previz drafts, rendering the final cut locally with open-source models in ComfyUI and compositing in an editor. 2. Subtitle trap: subtitles Muse burns into the lower half of the video are often blank for the first 0.2–0.5 seconds — trim those frames when stitching, or add subtitles later in an editor. 3. The fatal refinement mistake: even with a reference image uploaded, never write just 'the protagonist turns around' in an H3 prompt — restate hair color and outfit in every segment or the face changes halfway. 4. Waiting times and quota percentages are the author's personal measurements and vary by account; if a generation stalls for over 3 minutes, check the activity log to see whether it is still queued.",
+      "source": {
+        "name": "@loi_jinli (reader submission)",
+        "platform": "X",
+        "grade": "B",
+        "url": "https://x.com/loi_jinli/status/2122633239181537572",
+        "publishedAt": "2026-11-17"
       }
     }
   ]
